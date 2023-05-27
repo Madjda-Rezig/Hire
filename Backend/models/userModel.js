@@ -34,7 +34,7 @@ const UserSchema = mongoose.Schema(
       required: true,
     },
     num_tel: {
-      type: Number,
+      type: String,
       required: true,
     },
     role: {

@@ -5,10 +5,10 @@ const {
 } = require("../controllers/authController");
 
 const authRouter = require("express").Router();
-const { protectUser } = require("../middlewares/Protect");
+const { protectCandidat } = require("../middlewares/Protect");
 authRouter
   .post("/login", Login)
-  .post("/token", protectUser, refreshAccess)
-  .delete("/logout", protectUser, logout);
+  .post("/token", protectCandidat, refreshAccess)
+  .delete("/logout", protectCandidat, logout);
 
 module.exports = authRouter;

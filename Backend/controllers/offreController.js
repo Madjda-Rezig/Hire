@@ -49,7 +49,7 @@ exports.getEntrepriseOffres = expressAsyncHandler(async (req, res) => {
 //Créer une offre
 exports.postOffer = expressAsyncHandler(async (req, res) => {
   try {
-    const {  contrat, competences, diplome, experience, description ,IdCategorie} =
+    const {  contrat, competences, diplome, experience, description } =
       req.body
     if (
       !contrat ||
@@ -64,7 +64,7 @@ exports.postOffer = expressAsyncHandler(async (req, res) => {
     await offreModel.create({
       autheur: req.user._id,
       contrat,
-      IdCategorie,
+      IdCategorie: req.user._id,
       competences,
       diplome,
       experience,
