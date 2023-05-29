@@ -35,7 +35,24 @@ const Navbaruser = () => {
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link to={"/"}>
-            <a className="btn btn-ghost normal-case text-xl">JobLess</a>
+            <a className="btn btn-ghost normal-case text-2xl text-cyan-400">
+              My First Job
+            </a>
+          </Link>
+          <Link to={"Offres"}>
+            <a className="btn btn-ghost normal-case text-lg text-cyan-400 ml-28">
+              Offres
+            </a>
+          </Link>
+          <Link to={"Entreprises"}>
+            <a className="btn btn-ghost normal-case text-lg text-cyan-400">
+              Entreprises
+            </a>
+          </Link>
+          <Link to={"Blog"}>
+            <a className="btn btn-ghost normal-case text-lg text-cyan-400">
+              Blog
+            </a>
           </Link>
         </div>
 
@@ -68,7 +85,7 @@ const Navbaruser = () => {
               </div>
             </div>
           </div>
-          <Mode />
+
           <div className="dropdown dropdown-end mr-8">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">

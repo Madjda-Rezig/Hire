@@ -1,99 +1,116 @@
-const Logform = () => {
+import React from "react";
+import avatar from "../../assets/avatar.jpg";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+function Logform() {
+  const user = localStorage.getItem("User") || null;
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) navigate("/Home");
+  }, []);
+  const [loginInput, setLoginInput] = useState({
+    mail: "",
+    mot_de_passe: "",
+  });
+  const handleOnChange = (e) => {
+    setLoginInput((previousState) => ({
+      ...previousState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/auth/login",
+        loginInput
+      );
+      if (response.data) {
+        localStorage.setItem("User", JSON.stringify(response.data));
+        navigate("/Offres");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   return (
-    <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign in to your account
-          </h2>
+    <div>
+      <div class="h-screen md:flex">
+        <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-indigo-800 to-cyan-400 i justify-around items-center hidden">
+          <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+          <div class="absolute -top-45 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         </div>
+        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+          <form onSubmit={handleOnSubmit} class="bg-white">
+            <h1 class="text-gray-800 font-bold text-5xl mb-12">Hello Again!</h1>
+            <p class="text-sm font-normal text-gray-600 mb-7 text-center">
+              Welcome Back
+            </p>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                 />
-              </div>
+              </svg>
+              <input
+                class="pl-2 outline-none border-none"
+                type="text"
+                value={loginInput.mail}
+                name="mail"
+                onChange={handleOnChange}
+                placeholder="Email Address"
+              />
             </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-                <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
-                Sign in
-              </button>
+                <path
+                  fill-rule="evenodd"
+                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <input
+                class="pl-2 outline-none border-none"
+                type="password"
+                name="mot_de_passe"
+                value={loginInput.mot_de_passe}
+                onChange={handleOnChange}
+                placeholder="Password"
+              />
             </div>
-          </form>
-
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{" "}
-            <a
-              href="#"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            <button
+              type="submit"
+              class="block w-full bg-cyan-400 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
             >
-              Start a 14 day free trial
-            </a>
-          </p>
+              Login
+            </button>
+            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">
+              Forgot Password ?
+            </span>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
 export default Logform;

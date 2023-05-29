@@ -8,7 +8,7 @@ const authRouter = require("./routes/authRoute")
 const offreRouter = require("./routes/offreRoute")
 const categorieRoute = require("./routes/categorieRoute")
 const candidatureRoute = require("./routes/candidatureRoute")
-const entrepriseRoute = require("./routes/entrepriseRoute")
+
 const articleRoute = require("./routes/articleRoute")
 
 require("dotenv").config()
@@ -25,7 +25,7 @@ index.use("/auth", authRouter)
 index.use("/offres", offreRouter)
 index.use("/categories", categorieRoute)
 index.use("/candidatures", candidatureRoute)
-index.use("/entreprises", entrepriseRoute)
+
 index.use("/articles", articleRoute)
 
 
