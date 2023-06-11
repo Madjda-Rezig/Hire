@@ -78,7 +78,8 @@ exports.refreshAccess = expressAsyncHandler(async (req, res) => {
 //Logout
 exports.logout = expressAsyncHandler(async (req, res) => {
   try {
-    const { token } = req.body;
+    const token = req.params.token;
+
     if (!token) {
       res.status(400);
       throw new Error("No token!");

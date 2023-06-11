@@ -1,42 +1,94 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/Logo.svg";
 
 function Navbar() {
   return (
-    <div className="navbar">
-      <div className="flex-1">
-        <Link to={"/"}>
-          <a className="btn btn-ghost normal-case text-2xl text-cyan-400">
-            My First JOB
-          </a>
-        </Link>
+    <header aria-label="Site Header" class="bg-white">
+      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <div class="flex lg:w-0 lg:flex-1">
+              <Link href="/">
+                <span class="inline-block h-10 w-44  bg-white">
+                  <img src={Logo} alt="logo" />
+                </span>
+              </Link>
+            </div>
+          </div>
 
-        <Link to={"Offres"}>
-          <a className="btn btn-ghost normal-case text-lg text-cyan-400 ml-28">
-            Offres
-          </a>
-        </Link>
-        <Link to={"Entreprises"}>
-          <a className="btn btn-ghost normal-case text-lg text-cyan-400">
-            Entreprises
-          </a>
-        </Link>
-        <Link to={"Blog"}>
-          <a className="btn btn-ghost normal-case text-lg text-cyan-400">
-            Blog
-          </a>
-        </Link>
-      </div>
+          <div class="hidden md:block">
+            <nav aria-label="Site Nav">
+              <ul class="flex items-center gap-6 text-lg">
+                <li>
+                  <Link to={"Offres"}>
+                    <a class="text-blue-600 font-bold transition  hover:text-gray-500/75">
+                      Jobs
+                    </a>
+                  </Link>
+                </li>
 
-      <div className="navbar-end">
-        <Link to={"Register"}>
-          <a className="btn mr-4 bg-cyan-400 border-hidden">S'inscrire</a>
-        </Link>
-        <Link to={"Login"}>
-          <a className="btn mr-4 bg-cyan-400 border-hidden">Connexion</a>
-        </Link>
+                <li>
+                  <Link to={"Entreprises"}>
+                    <a class="text-blue-600 font-bold transition hover:text-gray-500/75">
+                      Company
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to={"Blog"}>
+                    <a
+                      class="text-blue-600 font-bold transition hover:text-gray-500/75"
+                      href="/"
+                    >
+                      Blog
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="sm:flex sm:gap-4">
+              <Link to={"Login"}>
+                <a class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                  Login
+                </a>
+              </Link>
+
+              <div class="hidden sm:flex">
+                <Link to={"Register"}>
+                  <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-600">
+                    Register
+                  </a>
+                </Link>
+              </div>
+            </div>
+
+            <div class="block md:hidden">
+              <button class="rounded bg-gray-100 p-2 text-blue-600 transition hover:text-gray-600/75">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
 

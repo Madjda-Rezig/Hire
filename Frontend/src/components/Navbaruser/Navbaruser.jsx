@@ -14,14 +14,9 @@ const Navbaruser = () => {
     try {
       const user = localStorage.getItem("User");
       const token = JSON.parse(user).accessToken;
-      await axios.delete(
-        `http://localhost:5000/authentification/token/${token}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await axios.delete(`http://localhost:5000/auth/logout/${token}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       localStorage.removeItem("User");
       navigate("/Login");
     } catch (error) {
@@ -29,7 +24,6 @@ const Navbaruser = () => {
       toast.error(error.message);
     }
   };
-
   return (
     <div>
       <div className="navbar bg-base-100">

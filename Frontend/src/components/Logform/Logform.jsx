@@ -1,16 +1,18 @@
 import React from "react";
-import avatar from "../../assets/avatar.jpg";
+
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Login from "../../assets/Login.jpg";
+import Logo from "../../assets/Logo.svg";
 
 function Logform() {
   const user = localStorage.getItem("User") || null;
   const navigate = useNavigate();
   useEffect(() => {
-    if (user) navigate("/Home");
+    if (user) navigate("/Offres");
   }, []);
   const [loginInput, setLoginInput] = useState({
     mail: "",
@@ -40,18 +42,26 @@ function Logform() {
   return (
     <div>
       <div class="h-screen md:flex">
-        <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-indigo-800 to-cyan-400 i justify-around items-center hidden">
-          <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div class="absolute -top-45 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-        </div>
+        <div
+          class="relative overflow-hidden md:flex w-1/2  i justify-around items-center hidden"
+          style={{
+            backgroundImage: `url(${Login})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        ></div>
         <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form onSubmit={handleOnSubmit} class="bg-white">
-            <h1 class="text-gray-800 font-bold text-5xl mb-12">Hello Again!</h1>
-            <p class="text-sm font-normal text-gray-600 mb-7 text-center">
-              Welcome Back
-            </p>
+          <form
+            onSubmit={handleOnSubmit}
+            class="bg-white border-2 border-blue-600 rounded-3xl pt-8 pb-8 pr-10 pl-10"
+          >
+            <img src={Logo} />
+            <h1 class="text-blue-600 font-bold text-5xl mb-12 text-center">
+              Welcome Back!
+            </h1>
 
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 border-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 text-gray-400"
@@ -75,7 +85,7 @@ function Logform() {
                 placeholder="Email Address"
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl border-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 text-gray-400"
@@ -85,7 +95,7 @@ function Logform() {
                 <path
                   fill-rule="evenodd"
                   d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
               <input
@@ -99,12 +109,13 @@ function Logform() {
             </div>
             <button
               type="submit"
-              class="block w-full bg-cyan-400 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
+              class="block w-full bg-blue-600 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
             >
               Login
             </button>
-            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">
-              Forgot Password ?
+
+            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer ">
+              You don't have an account? Register
             </span>
           </form>
         </div>

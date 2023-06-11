@@ -1,9 +1,13 @@
 import { toast } from "react-toastify";
-import Hero from "../components/Hero/Hero.jsx";
+
+import Herohome from "../components/Herohome/Herohome.jsx";
+import Categorie from "../components/Categorie/Categorie.jsx";
+
 export default function Home() {
   return (
     <div>
-      <Hero />
+      <Herohome />
+      <Categorie />
     </div>
   );
 }

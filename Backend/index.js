@@ -15,7 +15,7 @@ require("dotenv").config()
 
 const index = express()
 index.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:5173'
   }))
 index.use(express.json())
 index.use(express.urlencoded({ extended: true }))
