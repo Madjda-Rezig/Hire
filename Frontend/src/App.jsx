@@ -31,7 +31,7 @@ const router = createBrowserRouter(
       <Route path="Blog" element={<Blog />} />
       <Route path="Article" element={<Article />} />
       <Route path="Login" element={<Login />} />
-      <Route path="Loginrecruteur" element={<Loginrecruteur />} />
+      <Route path="Recruteur/Loginrecruteur" element={<Loginrecruteur />} />
     </Route>
   )
 );

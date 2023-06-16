@@ -22,7 +22,7 @@ function Navbar() {
               <ul class="flex items-center gap-6 text-lg">
                 <li>
                   <Link to={"Offres"}>
-                    <a class="text-blue-600 font-bold transition  hover:text-gray-500/75">
+                    <a class="text-blue-600 font-semibold transition  hover:text-gray-500/75">
                       Jobs
                     </a>
                   </Link>
@@ -30,8 +30,8 @@ function Navbar() {
 
                 <li>
                   <Link to={"Entreprises"}>
-                    <a class="text-blue-600 font-bold transition hover:text-gray-500/75">
-                      Company
+                    <a class="text-blue-600 font-semibold transition hover:text-gray-500/75">
+                      Companies
                     </a>
                   </Link>
                 </li>
@@ -39,7 +39,7 @@ function Navbar() {
                 <li>
                   <Link to={"Blog"}>
                     <a
-                      class="text-blue-600 font-bold transition hover:text-gray-500/75"
+                      class="text-blue-600 font-semibold transition hover:text-gray-500/75"
                       href="/"
                     >
                       Blog
@@ -53,14 +53,14 @@ function Navbar() {
           <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
               <Link to={"Login"}>
-                <a class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                <a class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow">
                   Login
                 </a>
               </Link>
 
               <div class="hidden sm:flex">
                 <Link to={"Register"}>
-                  <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-600">
+                  <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-semibold text-blue-600">
                     Register
                   </a>
                 </Link>

@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "react-feather";
 import Login from "../../assets/1.jpeg";
 import Logo from "../../assets/Logo Vert.svg";
 
-const Loginform = () => {
-  const user = localStorage.getItem("User") || null;
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (user) navigate("/Offres");
-  }, []);
+const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [loginInput, setLoginInput] = useState({
     mail: "",
     mot_de_passe: "",
   });
+  const navigate = useNavigate();
+
   const handleOnChange = (e) => {
     setLoginInput((previousState) => ({
       ...previousState,
       [e.target.name]: e.target.value,
     }));
   };
+
+  const handleTogglePassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -38,9 +41,10 @@ const Loginform = () => {
       toast.error(error.message);
     }
   };
+
   return (
     <div
-      className="hero min-h-screen bg-green-400"
+      className="hero min-h-screen bg-[#1CD2B1]"
       style={{
         backgroundImage: `url(${Login})`,
         backgroundPosition: "center",
@@ -54,7 +58,7 @@ const Loginform = () => {
             onSubmit={handleOnSubmit}
             className="mb-0 mt-6 space-y-4 rounded-lg p-4  sm:p-6 lg:p-8 bg-white border-2 border-gray-200 shadow-xl"
           >
-            <img src={Logo} />
+            <img src={Logo} alt="Logo" />
 
             <div>
               <label htmlFor="email" className="sr-only">
@@ -97,7 +101,7 @@ const Loginform = () => {
 
               <div className="relative">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   name="mot_de_passe"
@@ -105,43 +109,31 @@ const Loginform = () => {
                   onChange={handleOnChange}
                 />
 
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
+                <span
+                  className="absolute inset-y-0 end-0 grid place-content-center px-4 cursor-pointer"
+                  onClick={handleTogglePassword}
+                >
+                  {showPassword ? (
+                    <Eye className="h-4 w-4 text-gray-400" />
+                  ) : (
+                    <EyeOff className="h-4 w-4 text-gray-400" />
+                  )}
                 </span>
               </div>
             </div>
 
             <button
               type="submit"
-              className="block w-full rounded-lg bg-green-400 px-5 py-3 text-sm font-medium text-white"
+              className="block w-full rounded-lg bg-[#1CD2B1] px-5 py-3 text-sm font-medium text-white"
             >
               Sign in
             </button>
 
             <p className="text-center text-sm text-gray-500">
               No account?
-              <a className="underline" href="">
-                Sign up
-              </a>
+              <Link to="#" className="underline">
+                Go Back
+              </Link>
             </p>
           </form>
         </div>
@@ -150,4 +142,4 @@ const Loginform = () => {
   );
 };
 
-export default Loginform;
+export default LoginForm;

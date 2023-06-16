@@ -13,7 +13,7 @@ function Footer() {
 
           <a
             class="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-blue-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
-            href="/"
+            href="Login"
           >
             <span class="text-sm font-medium"> Let's Get Started </span>
 
@@ -40,48 +40,48 @@ function Footer() {
           <div>
             <div class="flex justify-center text-blue-600 sm:justify-start">
               <Link href="/">
-                <span class="inline-block h-10 w-44  bg-white">
+                <span class="inline-block h-10 w-52  bg-white">
                   <img src={Logo} alt="logo" />
                 </span>
               </Link>
             </div>
 
             <p class="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-              Find The Job Of Your Dream With the best recrutement Web site in
+              Find the Job of your Dream with the Best Recrutement Web Site in
               Algéria
             </p>
           </div>
 
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
             <div class="text-center sm:text-left">
-              <p class="text-lg font-medium text-blue-600">About Us</p>
+              <p class="text-lg font-semibold text-blue-600">Candidates</p>
 
               <nav aria-label="Footer About Nav" class="mt-8">
                 <ul class="space-y-4 text-sm">
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="Offres"
                     >
-                      Company History
+                      Jobs
                     </a>
                   </li>
 
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="Entreprises"
                     >
-                      Meet the Team
+                      Companies
                     </a>
                   </li>
 
                   <li>
                     <a
                       class="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="Blog"
                     >
-                      Employee Handbook
+                      Blog
                     </a>
                   </li>
                 </ul>
@@ -89,7 +89,7 @@ function Footer() {
             </div>
 
             <div class="text-center sm:text-left">
-              <p class="text-lg font-medium text-blue-600">Our Services</p>
+              <p class="text-lg font-semibold text-blue-600">Recruiter</p>
 
               <nav aria-label="Footer Services Nav" class="mt-8">
                 <ul class="space-y-4 text-sm">
@@ -98,7 +98,7 @@ function Footer() {
                       class="text-gray-700 transition hover:text-gray-700/75"
                       href="/"
                     >
-                      Web Development
+                      About Us
                     </a>
                   </li>
 
@@ -107,7 +107,7 @@ function Footer() {
                       class="text-gray-700 transition hover:text-gray-700/75"
                       href="/"
                     >
-                      Web Design
+                      Pricing
                     </a>
                   </li>
 
@@ -116,7 +116,7 @@ function Footer() {
                       class="text-gray-700 transition hover:text-gray-700/75"
                       href="/"
                     >
-                      Marketing
+                      FAQ
                     </a>
                   </li>
                 </ul>
@@ -124,7 +124,7 @@ function Footer() {
             </div>
 
             <div class="text-center sm:text-left">
-              <p class="text-lg font-medium text-blue-600">Contact Us</p>
+              <p class="text-lg font-semibold text-blue-600">Contact Us</p>
 
               <ul class="mt-8 space-y-4 text-sm">
                 <li>
@@ -147,7 +147,7 @@ function Footer() {
                       />
                     </svg>
 
-                    <span class="flex-1 text-gray-700">john@doe.com</span>
+                    <span class="flex-1 text-gray-700">contact@WorkUp.com</span>
                   </a>
                 </li>
 
@@ -171,7 +171,7 @@ function Footer() {
                       />
                     </svg>
 
-                    <span class="flex-1 text-gray-700">0123456789</span>
+                    <span class="flex-1 text-gray-700">021 64 24 92</span>
                   </a>
                 </li>
 
@@ -197,7 +197,7 @@ function Footer() {
                   </svg>
 
                   <address class="-mt-0.5 flex-1 not-italic text-gray-700">
-                    213 Lane, London, United Kingdom
+                    8 Quartier d'Affaires Bab Ezzouar Alger
                   </address>
                 </li>
               </ul>

@@ -3,7 +3,8 @@ const {
     lireArticle,
     lireTousArticles,
     modifierArticle,
-    supprimerArticle
+    supprimerArticle,
+    paginationExample
     
 } = require('../controllers/articleController');
 const  {protectAdmin} = require('../middlewares/Protect')
@@ -29,5 +30,6 @@ articleRouter
 .post('/',upload.single('photo'),protectAdmin, ajouterArticle)
 .put('/:id',protectAdmin, modifierArticle)
 .delete('/:id',protectAdmin, supprimerArticle)
+.get('/pagination', paginationExample)
 
 module.exports = articleRouter

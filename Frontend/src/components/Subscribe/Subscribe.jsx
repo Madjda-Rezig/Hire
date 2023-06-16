@@ -1,9 +1,9 @@
 const Subscribe = () => {
   return (
-    <section className="py-6 bg-gray-600 text-white max-w-5xl mt-10 rounded-md ">
-      <div className="container mx-auto flex flex-col justify-center p-4 space-y-8 md:p-10 lg:space-y-0 lg:space-x-12 lg:justify-between lg:flex-row ">
+    <section className="py-6 bg-[#575252] text-white max-w-5xl mt-10 rounded-md mx-auto xl:px-4 xl:py-12 2xl:px-0">
+      <div className="container  mx-auto flex flex-col justify-center p-4 space-y-8 md:p-10 lg:space-y-0 lg:space-x-12 lg:justify-between lg:flex-row">
         <div className="flex flex-col space-y-4 text-center lg:text-left">
-          <h1 className="text-5xl font-bold leading-none">
+          <h1 className="text-4xl font-bold leading-none">
             Never Miss Any Job News
           </h1>
         </div>

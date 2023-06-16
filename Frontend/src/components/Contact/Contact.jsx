@@ -1,17 +1,25 @@
+import React, { useEffect } from "react";
+import Lottie from "lottie-react";
+import enveloppe from "../../assets/Email 2.json";
+
 const Contact = () => {
   return (
-    <section className="py-6 bg-white text-gray-600">
+    <section className="py-6 bg-white text-gray-600" id="Contact">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
-          <h1 className="text-4xl font-bold text-green-400">Get in touch</h1>
-          <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
+          <h1 className="text-4xl font-bold text-[#1CD2B1] mb-6">
+            Get in touch
+          </h1>
+          <p className="pt-2 pb-4 mb-4">
+            Fill in the form to get in touch with our team
+          </p>
           <div className="space-y-4">
             <p className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5 mr-2 sm:mr-6  text-green-400"
+                className="w-5 h-5 mr-2 sm:mr-6  text-[#1CD2B1]"
               >
                 <path
                   fillRule="evenodd"
@@ -19,30 +27,30 @@ const Contact = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <span>Fake address, 9999 City</span>
+              <span>8 Quartier d'Affaires d'Alger Bab Ezzouar 16024 Alger</span>
             </p>
             <p className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5 mr-2 sm:mr-6  text-green-400"
+                className="w-5 h-5 mr-2 sm:mr-6  text-[#1CD2B1]"
               >
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
               </svg>
-              <span>123456789</span>
+              <span>021 64 24 92</span>
             </p>
             <p className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5 mr-2 sm:mr-6  text-green-400"
+                className="w-5 h-5 mr-2 sm:mr-6  text-[#1CD2B1]"
               >
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
-              <span>contact@business.com</span>
+              <span>contact@WorkUp.com</span>
             </p>
           </div>
         </div>
@@ -54,28 +62,26 @@ const Contact = () => {
             <span className="mb-1">Full name</span>
             <input
               type="text"
-              placeholder="Leroy Jenkins"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-green-400 bg-white"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             />
           </label>
           <label className="block">
             <span className="mb-1">Email address</span>
             <input
               type="email"
-              placeholder="leroy@jenkins.com"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-green-400 bg-white"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             />
           </label>
           <label className="block">
             <span className="mb-1">Message</span>
             <textarea
               rows="3"
-              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-green-400 bg-white"
+              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             ></textarea>
           </label>
           <button
             type="button"
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-green-400 text-white focus:ring-green-400 hover:ring-gray-600"
+            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#1CD2B1] text-white focus:ring-[#1CD2B1] hover:ring-gray-600"
           >
             Submit
           </button>

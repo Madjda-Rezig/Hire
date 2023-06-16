@@ -95,3 +95,16 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+//Pagination example
+exports.paginationExample = expressAsyncHandler(async (req,res) => {
+  try {
+    // http://localhost:5000/articles?page=2
+    const {page} = req.query
+    const skipPage = (page -1) * 3
+    const articles = await ArticleModel.find().skip(skipPage).select(3)
+    res.status(200).json(articles)
+  } catch (error) {
+    res.status(400)
+    throw new Error(error)
+  }
+})

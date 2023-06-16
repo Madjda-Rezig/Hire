@@ -1,54 +1,50 @@
 const Faq = () => {
   return (
-    <section className="bg-green-200 text-gray-600">
+    <section className="bg-[#1CD2B1] bg-opacity-10 text-gray-600" id="FAQ">
       <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-        <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
-          How it works
-        </p>
-        <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl text-green-400">
+        <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl text-[#1CD2B1]">
           Frequently Asked Questions
         </h2>
         <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-600">
           <details>
             <summary className="py-2 outline-none cursor-pointer focus:underline">
-              Optio maiores eligendi molestiae totam dolores similique?
+              How can I post a job opening on your site?
             </summary>
             <div className="px-4 pb-4">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-                neque in fugiat magni, quas animi enim veritatis deleniti ex.
-                Impedit.
+                To post a job opening on our site, you can create an employer
+                account and then access your dashboard. From there, you can
+                easily create and publish your job opening by providing the
+                required details such as the job title, description, required
+                skills, etc.
               </p>
             </div>
           </details>
           <details>
             <summary className="py-2 outline-none cursor-pointer focus:underline">
-              Modi dolorem veritatis culpa quos consequuntur beatae itaque
-              excepturi perspiciatis?
+              Can I modify or remove my job opening once it has been posted?
             </summary>
             <div className="px-4 pb-4">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-                aspernatur quae, eos explicabo odit minima libero veniam
-                similique quibusdam doloribus facilis ipsa accusantium vel
-                maiores corrupti! Libero voluptate a doloribus?
+                Yes, you can modify or remove your job opening at any time. Log
+                in to your employer account, access your dashboard, and locate
+                the job opening you want to modify or remove. You will have the
+                option to update the details of the job opening or delete it
+                completely.
               </p>
             </div>
           </details>
           <details>
             <summary className="py-2 outline-none cursor-pointer focus:underline">
-              Magni reprehenderit possimus debitis?
+              How can I reach out to your support team for assistance?
             </summary>
             <div className="px-4 pb-4 space-y-2">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                voluptates aspernatur dolores in consequatur doloremque
-                inventore reprehenderit, consequuntur perspiciatis architecto.
-              </p>
-              <p>
-                Sed consectetur quod tenetur! Voluptatibus culpa incidunt
-                veritatis velit quasi cupiditate unde eaque! Iure, voluptatibus
-                autem eaque unde possimus quae.
+                If you need assistance or have any questions, our support team
+                is ready to help. You can reach out to us through the contact
+                information provided on our website . We aim to respond to your
+                queries promptly and provide the necessary guidance throughout
+                your recruitment journey.
               </p>
             </div>
           </details>

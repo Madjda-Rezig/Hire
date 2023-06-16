@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 import Navbar from "../Navbar/Navbar";
-import Navbaruser from "../Navbaruser/Navbaruser";
+import Navbaruser from "../Navbar/Navbaruser";
 import Footer from "../../components/Footer/Footer";
 const Layout = () => {
   const location = useLocation();
@@ -20,7 +20,7 @@ const Layout = () => {
       {location.pathname !== "/Login" &&
         location.pathname !== "/Recruteur" &&
         location.pathname !== "/Register" &&
-        location.pathname !== "/Loginrecruteur" && <Footer />}
+        location.pathname !== "/Recruteur/Loginrecruteur" && <Footer />}
     </div>
   );
 };
