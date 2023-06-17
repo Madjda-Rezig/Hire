@@ -4,7 +4,7 @@ const {
     lireTousArticles,
     modifierArticle,
     supprimerArticle,
-    paginationExample
+    paginationArticle
     
 } = require('../controllers/articleController');
 const  {protectAdmin} = require('../middlewares/Protect')
@@ -26,10 +26,12 @@ const upload = multer({
 articleRouter
 
 .get('/', lireTousArticles)
+.get('/pagination', paginationArticle)
 .get('/:id', lireArticle)
+
 .post('/',upload.single('photo'),protectAdmin, ajouterArticle)
 .put('/:id',protectAdmin, modifierArticle)
 .delete('/:id',protectAdmin, supprimerArticle)
-.get('/pagination', paginationExample)
+
 
 module.exports = articleRouter

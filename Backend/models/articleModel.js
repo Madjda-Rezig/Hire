@@ -6,6 +6,11 @@ const ArticleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    autheur: {
+      type: String,
+      
+      required: true,
+    },
     resume: {
       type: String,
       required: true,

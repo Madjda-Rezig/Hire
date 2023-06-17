@@ -11,6 +11,18 @@ const offerModel = new mongoose.Schema({
     ref: "Categorie",
     required: true,
   },
+  poste: {
+    type: String,
+    required: true,
+  },
+  localisation: {
+    type: String,
+    required: true,
+  },
+  entreprise: {
+    type: String,
+    required: true,
+  },
   contrat: {
     type: String,
     required: true,

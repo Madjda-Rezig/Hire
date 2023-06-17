@@ -4,16 +4,28 @@ const expressAsyncHandler = require("express-async-handler");
 // Créer un article
 exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
   try {
-    const { titre, contenu, image,categorie,resume } = req.body;
+    const { titre, contenu, image,categorie,resume ,autheur} = req.body;
     const article = await ArticleModel.create({
       titre,
       contenu,
       categorie,
-      resume
+      resume,
+      autheur,
       // image: req.file.filename,
     });
     
     res.status(201).json(article);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
+// Lire tous les articles
+exports.lireTousArticles = expressAsyncHandler(async (req, res) => {
+  try {
+    const articles = await ArticleModel.find({})
+      
+    res.status(200).json(articles);
   } catch (error) {
     res.status(400);
     throw new Error(error);
@@ -24,7 +36,7 @@ exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
 exports.lireArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-    const article = await ArticleModel.findById(id).populate("auteur", "-mot_de_passe -__v");
+    const article = await ArticleModel.findById(id);
     if (!article) {
       res.status(404);
       throw new Error("Article non trouvé");
@@ -36,18 +48,7 @@ exports.lireArticle = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Lire tous les articles
-exports.lireTousArticles = expressAsyncHandler(async (req, res) => {
-  try {
-    const articles = await ArticleModel.find({})
-      .populate("auteur", "-mot_de_passe -__v")
-      .sort("-createdAt");
-    res.status(200).json(articles);
-  } catch (error) {
-    res.status(400);
-    throw new Error(error);
-  }
-});
+
 
 // Mettre à jour un article
 exports.modifierArticle = expressAsyncHandler(async (req, res) => {
@@ -96,15 +97,15 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
   }
 });
 //Pagination example
-exports.paginationExample = expressAsyncHandler(async (req,res) => {
+exports.paginationArticle = expressAsyncHandler(async (req, res) => {
   try {
     // http://localhost:5000/articles?page=2
-    const {page} = req.query
-    const skipPage = (page -1) * 3
-    const articles = await ArticleModel.find().skip(skipPage).select(3)
-    res.status(200).json(articles)
+    const { page } = req.query;
+    const skipPage = (page - 1) * 3;
+    const articles = await ArticleModel.find().skip(skipPage).limit(3);
+    res.status(200).json(articles);
   } catch (error) {
-    res.status(400)
-    throw new Error(error)
+    res.status(400);
+    throw new Error(error);
   }
-})
+});

@@ -1,12 +1,13 @@
 const mongoose = require("mongoose")
 
+const mongoosePaginate = require("mongoose-paginate-v2");
+
 const entrepriseModel = new mongoose.Schema({
-  autheur: {
+  auteur: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Recruteur",
     required: true,
   },
- 
   nomentreprise: {
     type: String,
     required: true,
@@ -27,6 +28,12 @@ const entrepriseModel = new mongoose.Schema({
     type: String,
     required: true,
   },
-}, {timestamps: true})
+  logo: {
+    type: String, 
+    required: true,
+  },
+}, { timestamps: true })
+entrepriseModel.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Entreprise", entrepriseModel)
+

@@ -33,6 +33,10 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    confirmer_mot_de_passe: {
+      type: String,
+      required: true,
+    },
     num_tel: {
       type: String,
       required: true,
@@ -41,6 +45,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
       enum: Role,
+      default: "Candidat",
     },
   },
   { timestamps: true }

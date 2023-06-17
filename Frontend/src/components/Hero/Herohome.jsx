@@ -12,13 +12,14 @@ const Herohome = () => {
     >
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-          <h1 className="text-5xl font-bold leadi sm:text-6xl">
-            Find the Job of your Dream
+          <h1 className="text-5xl font-bold leadi sm:text-6xl mt-10 text-center">
+            Unlock Your Potential, Find Your Dream Job!
           </h1>
-          <p className="mt-6 mb-8 text-lg sm:mb-12 text-gray-600">
-            With the best recrutement Web site in Algéria
+          <p className="mt-6 mb-8 text-lg sm:mb-12 text-gray-600 text-center">
+            Our mission is to help you unlock your potential by providing
+            privileged access to exceptional professional opportunities
           </p>
-          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-center">
             <a
               rel="noopener noreferrer"
               href="Offres"

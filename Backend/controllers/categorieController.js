@@ -16,20 +16,24 @@ exports.getAllCategories = expressAsyncHandler(async (req, res) => {
 //Ajouter une categorie
 exports.postCategorie = expressAsyncHandler(async (req, res) => {
   try {
-    const { nom } = req.body
-    if (!nom) {
-      res.status(400).json("Vide")
+    const { nom, defcat } = req.body;
+    if (!nom || !defcat) {
+      res.status(400).json("Vide");
+      return;
     }
 
     await categorieModel.create({
       nomcategorie: nom,
-    })
-    res.status(201).json("Categorie creer")
+      defcat: defcat,
+    });
+
+    res.status(201).json("Catégorie créée");
   } catch (error) {
-    res.status(400)
-    console.log(error)
+    res.status(400).json(error);
+    console.log(error);
   }
-})
+});
+
 
 // Supprimer une categorie :
 exports.deleteCategorie = expressAsyncHandler(async (req, res) => {

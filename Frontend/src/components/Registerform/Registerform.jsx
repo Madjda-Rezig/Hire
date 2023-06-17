@@ -115,7 +115,7 @@ const Registerform = () => {
               <span className="label-text">Numéro :</span>
             </label>
             <input
-              type="number"
+              type="tel"
               name="num_tel"
               placeholder="Votre Numéro"
               required
@@ -193,7 +193,7 @@ const Registerform = () => {
               <label className="label">
                 <span className="label-text">CV :</span>
               </label>
-              <input type="file" name="cv" required />
+              <input type="file" name="cv" />
             </div>
           </div>
           <button

@@ -9,7 +9,7 @@ const expressAsyncHandler = require("express-async-handler")
 
 exports.getAllOffres = expressAsyncHandler(async (req, res) => {
   try {
-    const offres = await offreModel.find()
+    const offres = await offreModel.find({})
     res.status(200).json(offres)
   } catch (error) {
     res.status(400)
@@ -49,13 +49,16 @@ exports.getEntrepriseOffres = expressAsyncHandler(async (req, res) => {
 //Créer une offre
 exports.postOffer = expressAsyncHandler(async (req, res) => {
   try {
-    const {  contrat, competences, diplome, experience, description } =
+    const {  contrat, competences, diplome, experience, description,poste,localisation,entreprise } =
       req.body
     if (
       !contrat ||
       !competences ||
       !diplome ||
       !experience ||
+      !poste ||
+      !localisation ||
+      !entreprise ||
       !description
     ) {
       res.status(400).json("Fichier Vide !!")
@@ -69,6 +72,9 @@ exports.postOffer = expressAsyncHandler(async (req, res) => {
       diplome,
       experience,
       description,
+      poste,
+      localisation,
+      entreprise,
     })
     res.status(201).json("l'offre a été crée !")
   } catch (error) {
@@ -81,7 +87,7 @@ exports.postOffer = expressAsyncHandler(async (req, res) => {
 exports.updateOffer = expressAsyncHandler(async (req, res) => {
   try {
     const id = req.params.id
-    const { autheur, contact, competences, diplome, experience, description } =
+    const { autheur, contact, competences, diplome, experience, description,poste,localisation ,entreprise} =
       req.body
     const updatedOffer = {
       autheur,
@@ -90,6 +96,9 @@ exports.updateOffer = expressAsyncHandler(async (req, res) => {
       diplome,
       experience,
       description,
+      poste,
+      localisation,
+      entreprise,
     }
 
     const result = await offreModel.findByIdAndUpdate(id, req.body)
@@ -117,3 +126,16 @@ exports.deleteOffre = expressAsyncHandler(async (req, res) => {
     throw new Error(error)
   }
 })
+
+//Pagination offres
+exports.paginationOffres = expressAsyncHandler(async (req, res) => {
+  try {
+    const { page } = req.query;
+    const skipPage = (page - 1) * 12;
+    const offres = await offreModel.find().skip(skipPage).limit(12);
+    res.status(200).json(offres);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});

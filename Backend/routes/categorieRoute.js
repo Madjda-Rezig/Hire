@@ -7,7 +7,7 @@ const {
   const categorieRoute = require("express").Router()
   const { protectAdmin, protectUser } = require("../middlewares/Protect")
   categorieRoute
-    .get("/all", protectUser, getAllCategories)
+    .get("/all", getAllCategories)
     .post("/add", protectAdmin, postCategorie)
     .delete("/:id", protectAdmin, deleteCategorie)
     .put("/:id", protectAdmin, updateCategorie)
