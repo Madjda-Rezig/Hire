@@ -3,12 +3,23 @@ const Entreprise = require("../models/entrepriseModel");
 // Ajouter une entreprise
 exports.ajouterEntreprise = async (req, res) => {
   try {
-    const nouvelleEntreprise = await Entreprise.create(req.body);
+    const { auteur, nomentreprise, descriptif, secteur, adresse, creation, logo } = req.body;
+    const nouvelleEntreprise = new Entreprise({
+      auteur,
+      nomentreprise,
+      descriptif,
+      secteur,
+      adresse,
+      creation,
+      logo
+    });
+    await nouvelleEntreprise.save();
     res.status(201).json(nouvelleEntreprise);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // Afficher la totalité des entreprises
 exports.afficherToutesEntreprises = async (req, res) => {
