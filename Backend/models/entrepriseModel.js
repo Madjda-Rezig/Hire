@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-const mongoosePaginate = require("mongoose-paginate-v2");
 
 const entrepriseModel = new mongoose.Schema({
   auteur: {
@@ -33,7 +32,6 @@ const entrepriseModel = new mongoose.Schema({
     required: true,
   },
 }, { timestamps: true })
-entrepriseModel.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Entreprise", entrepriseModel)
 

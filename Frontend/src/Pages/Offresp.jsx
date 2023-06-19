@@ -1,24 +1,25 @@
+import Cardjob from "../components/Card/Cardjob.jsx";
+import HeroJobs from "../components/Hero/Herojobs.jsx";
 import Pagination from "../components/Pagination/Pagination.jsx";
-import HeroBlogs from "../components/Hero/Heroblogs.jsx";
-import CardArticle from "../components/Card/Cardarticle.jsx";
+import Subscribe from "../components/Subscribe/Subscribe.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export default function Blog() {
+export default function Offresp() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState(0);
-  const [articles, setArticles] = useState([]);
+  const [offres, setOffres] = useState([]);
   useEffect(() => {
-    const afficherArticle = async () => {
+    const afficherOffres = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/articles/pagination?page=${currentPage}`
+          `http://localhost:5000/offres/pagination?page=${currentPage}`
         );
         if (response.data) {
           setPages(response.data.pages);
-          setArticles(response.data.articles);
+          setOffres(response.data.offres);
         }
       } catch (error) {
         toast.error(error.message);
@@ -26,7 +27,7 @@ export default function Blog() {
         setLoading(false);
       }
     };
-    afficherArticle();
+    afficherOffres();
   }, [currentPage]);
   if (loading)
     return (
@@ -37,9 +38,12 @@ export default function Blog() {
     );
   return (
     <div>
-      <HeroBlogs />
-      <CardArticle articles={articles} />
+      <HeroJobs />
+
+      <Cardjob offres={offres} />
       <Pagination pages={pages} setCurrentPage={setCurrentPage} />
+
+      <Subscribe />
     </div>
   );
 }

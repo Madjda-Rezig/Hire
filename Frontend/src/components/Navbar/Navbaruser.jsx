@@ -3,6 +3,8 @@ import avatar from "../../assets/avatar.jpg";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import Logo from "../../assets/Logo.svg";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -25,59 +27,47 @@ const Navbaruser = () => {
     }
   };
   return (
-    <div>
-      <div className="navbar bg-base-100">
-        <div className="flex-1">
-          <Link to={"/"}>
-            <a className="btn btn-ghost normal-case text-2xl text-cyan-400">
-              My First Job
-            </a>
-          </Link>
-          <Link to={"Offres"}>
-            <a className="btn btn-ghost normal-case text-lg text-cyan-400 ml-28">
-              Offres
-            </a>
-          </Link>
-          <Link to={"Entreprises"}>
-            <a className="btn btn-ghost normal-case text-lg text-cyan-400">
-              Entreprises
-            </a>
-          </Link>
-          <Link to={"Blog"}>
-            <a className="btn btn-ghost normal-case text-lg text-cyan-400">
-              Blog
-            </a>
-          </Link>
-        </div>
-
-        <div className="flex-none gap-2">
-          <div className="flex-none gap-2 mr-28">
-            <div className="form-control">
-              <div className="input-group">
-                <input
-                  type="text"
-                  placeholder="Search…"
-                  className="input input-bordered"
-                />
-
-                <button className="btn btn-square mr-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                </button>
-              </div>
+    <header aria-label="Site Header" className="bg-white">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="md:flex md:items-center md:gap-12">
+            <div className="flex lg:w-0 lg:flex-1">
+              <Link to={"/"}>
+                <span className="inline-block h-10 w-44  bg-white">
+                  <img src={Logo} alt="logo" />
+                </span>
+              </Link>
             </div>
+          </div>
+
+          <div className="hidden md:block">
+            <nav aria-label="Site Nav">
+              <ul className="flex items-center gap-6 text-lg">
+                <li>
+                  <Link to={"Offresp"}>
+                    <a className="text-blue-600 font-semibold transition  hover:text-gray-500/75">
+                      Jobs
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to={"Entreprisesp"}>
+                    <a className="text-blue-600 font-semibold transition hover:text-gray-500/75">
+                      Companies
+                    </a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to={"Blog"}>
+                    <a className="text-blue-600 font-semibold transition hover:text-gray-500/75">
+                      Blog
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <div className="dropdown dropdown-end mr-8">
@@ -105,7 +95,7 @@ const Navbaruser = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

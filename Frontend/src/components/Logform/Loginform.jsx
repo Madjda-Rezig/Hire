@@ -35,7 +35,7 @@ const LoginForm = () => {
       );
       if (response.data) {
         localStorage.setItem("User", JSON.stringify(response.data));
-        navigate("/Offres");
+        navigate("/Accountrec");
       }
     } catch (error) {
       toast.error(error.message);
@@ -131,7 +131,7 @@ const LoginForm = () => {
 
             <p className="text-center text-sm text-gray-500">
               No account?
-              <Link to="#" className="underline">
+              <Link to={"Recruteur"} className="underline">
                 Go Back
               </Link>
             </p>

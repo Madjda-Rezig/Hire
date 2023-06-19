@@ -131,9 +131,13 @@ exports.deleteOffre = expressAsyncHandler(async (req, res) => {
 exports.paginationOffres = expressAsyncHandler(async (req, res) => {
   try {
     const { page } = req.query;
+    const pages = Math.ceil((await offreModel.countDocuments())/12)
     const skipPage = (page - 1) * 12;
     const offres = await offreModel.find().skip(skipPage).limit(12);
-    res.status(200).json(offres);
+    res.status(200).json({
+      pages,
+      offres
+    });
   } catch (error) {
     res.status(400);
     throw new Error(error);

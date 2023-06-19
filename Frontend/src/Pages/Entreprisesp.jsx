@@ -1,24 +1,26 @@
 import Pagination from "../components/Pagination/Pagination.jsx";
-import HeroBlogs from "../components/Hero/Heroblogs.jsx";
-import CardArticle from "../components/Card/Cardarticle.jsx";
+import HeroCompany from "../components/Hero/Herocompany.jsx";
+import CardCompany from "../components/Card/Cardcompany.jsx";
+import Parteners from "../components/Parteners/Parteners.jsx";
+import Marquee from "react-fast-marquee";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export default function Blog() {
+export default function Entreprisesp() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState(0);
-  const [articles, setArticles] = useState([]);
+  const [entreprises, setEntreprises] = useState([]);
   useEffect(() => {
-    const afficherArticle = async () => {
+    const afficherEntreprises = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/articles/pagination?page=${currentPage}`
+          `http://localhost:5000/entreprises/pagination?page=${currentPage}`
         );
         if (response.data) {
           setPages(response.data.pages);
-          setArticles(response.data.articles);
+          setEntreprises(response.data.entreprises);
         }
       } catch (error) {
         toast.error(error.message);
@@ -26,7 +28,7 @@ export default function Blog() {
         setLoading(false);
       }
     };
-    afficherArticle();
+    afficherEntreprises();
   }, [currentPage]);
   if (loading)
     return (
@@ -37,9 +39,16 @@ export default function Blog() {
     );
   return (
     <div>
-      <HeroBlogs />
-      <CardArticle articles={articles} />
+      <HeroCompany />
+
+      <CardCompany entreprises={entreprises} />
       <Pagination pages={pages} setCurrentPage={setCurrentPage} />
+
+      <div>
+        <h1 className="text-blue-600 text-3xl  text-center font-bold bg-blue-100 mb-7 pt-5 pb-5 mt-7">
+          Our Parteners
+        </h1>
+      </div>
     </div>
   );
 }

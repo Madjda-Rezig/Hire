@@ -1,59 +1,20 @@
-const Pagination = () => {
-  return (
-    <div className="flex justify-center items-center mt-6 mb-10">
-      <a
-        href="#"
-        class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-600 rtl:rotate-180"
+import { set } from "mongoose";
+
+const Pagination = ({ pages, setCurrentPage }) => {
+  const aywah = [];
+
+  for (let i = 1; i < pages + 1; i++) {
+    aywah.push(
+      <button
+        onClick={(e) => setCurrentPage(i)}
+        className="join-item btn bg-white text-blue-600 mr-1 ml-1 border-gray-200 shadow-sm"
       >
-        <span class="sr-only">Prev Page</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-3 w-3"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
+        {i}
+      </button>
+    );
+  }
 
-      <div>
-        <label for="PaginationPage" class="sr-only">
-          Page
-        </label>
-
-        <input
-          type="number"
-          class="h-8 w-12 rounded border border-gray-100 bg-white p-0 text-center text-xs font-medium text-gray-900 [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-          min="1"
-          value="1"
-          id="PaginationPage"
-        />
-      </div>
-
-      <a
-        href="#"
-        class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
-      >
-        <span class="sr-only">Next Page</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-3 w-3"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
-    </div>
-  );
+  return <div className="join flex justify-center items-center">{aywah}</div>;
 };
 
 export default Pagination;

@@ -1,17 +1,18 @@
-const Entreprise = require("../models/entrepriseModel");
-
+const entrepriseModel = require("../models/entrepriseModel");
+const expressAsyncHandler = require("express-async-handler")
 // Ajouter une entreprise
 exports.ajouterEntreprise = async (req, res) => {
   try {
-    const { auteur, nomentreprise, descriptif, secteur, adresse, creation, logo } = req.body;
-    const nouvelleEntreprise = new Entreprise({
+    const { auteur, nomentreprise, descriptif, secteur, adresse, creation } = req.body;
+    
+    const nouvelleEntreprise = new entrepriseModel({
       auteur,
       nomentreprise,
       descriptif,
       secteur,
       adresse,
       creation,
-      logo
+      logo: req.myFileName
     });
     await nouvelleEntreprise.save();
     res.status(201).json(nouvelleEntreprise);
@@ -21,25 +22,21 @@ exports.ajouterEntreprise = async (req, res) => {
 };
 
 
-// Afficher la totalité des entreprises
-exports.afficherToutesEntreprises = async (req, res) => {
+// Afficher toutes les entreprises
+exports.afficherEntreprises = async (req, res) => {
   try {
-    const { page = 1, limit = 10 } = req.query;
-    const options = {
-      page: parseInt(page),
-      limit: parseInt(limit),
-    };
-    const entreprises = await Entreprise.paginate({}, options);
-    res.json(entreprises);
+    const entreprises = await entrepriseModel.find();
+    res.status(200).json(entreprises);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
+
 // Afficher une entreprise spécifique
 exports.afficherEntreprise = async (req, res) => {
   try {
-    const entreprise = await Entreprise.findById(req.params.id);
+    const entreprise = await entrepriseModel.findById(req.params.id);
     if (!entreprise) {
       return res.status(404).json({ message: "Entreprise introuvable" });
     }
@@ -52,7 +49,7 @@ exports.afficherEntreprise = async (req, res) => {
 // Modifier une entreprise
 exports.modifierEntreprise = async (req, res) => {
   try {
-    const entreprise = await Entreprise.findByIdAndUpdate(
+    const entreprise = await entrepriseModel.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
@@ -69,7 +66,7 @@ exports.modifierEntreprise = async (req, res) => {
 // Supprimer une entreprise
 exports.supprimerEntreprise = async (req, res) => {
   try {
-    const entreprise = await Entreprise.findByIdAndRemove(req.params.id);
+    const entreprise = await entrepriseModel.findByIdAndRemove(req.params.id);
     if (!entreprise) {
       return res.status(404).json({ message: "Entreprise introuvable" });
     }
@@ -78,3 +75,20 @@ exports.supprimerEntreprise = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+//Pagination offres
+exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
+  try {
+    const { page } = req.query;
+    const pages = Math.ceil((await entrepriseModel.countDocuments())/12)
+    const skipPage = (page - 1) * 12;
+    const entreprises = await entrepriseModel.find().skip(skipPage).limit(12);
+    res.status(200).json({
+      pages,
+      entreprises
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});

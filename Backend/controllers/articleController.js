@@ -4,16 +4,16 @@ const expressAsyncHandler = require("express-async-handler");
 // Créer un article
 exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
   try {
-    const { titre, contenu, image,categorie,resume ,autheur} = req.body;
-    const article = await ArticleModel.create({
+    const { titre, contenu,categorie,resume ,autheur} = req.body;
+    const article = new ArticleModel({
       titre,
       contenu,
       categorie,
       resume,
       autheur,
-      // image: req.file.filename,
+      photo: req.file.originalname,
     });
-    
+    await article.save();
     res.status(201).json(article);
   } catch (error) {
     res.status(400);
@@ -96,14 +96,17 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-//Pagination example
+//Pagination article
 exports.paginationArticle = expressAsyncHandler(async (req, res) => {
   try {
-    // http://localhost:5000/articles?page=2
     const { page } = req.query;
+    const pages = Math.ceil((await ArticleModel.countDocuments())/3)
     const skipPage = (page - 1) * 3;
     const articles = await ArticleModel.find().skip(skipPage).limit(3);
-    res.status(200).json(articles);
+    res.status(200).json({
+      pages,
+      articles
+    });
   } catch (error) {
     res.status(400);
     throw new Error(error);

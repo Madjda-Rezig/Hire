@@ -12,7 +12,7 @@ function Logform() {
   const user = localStorage.getItem("User") || null;
   const navigate = useNavigate();
   useEffect(() => {
-    if (user) navigate("/Offres");
+    if (user) navigate("/Account");
   }, []);
   const [loginInput, setLoginInput] = useState({
     mail: "",
@@ -33,7 +33,7 @@ function Logform() {
       );
       if (response.data) {
         localStorage.setItem("User", JSON.stringify(response.data));
-        navigate("/Offres");
+        navigate("/Account");
       }
     } catch (error) {
       toast.error(error.message);
@@ -41,9 +41,9 @@ function Logform() {
   };
   return (
     <div>
-      <div class="h-screen md:flex">
+      <div className="h-screen md:flex">
         <div
-          class="relative overflow-hidden md:flex w-1/2  i justify-around items-center hidden"
+          className="relative overflow-hidden md:flex w-1/2  i justify-around items-center hidden"
           style={{
             backgroundImage: `url(${Login})`,
             backgroundPosition: "center",
@@ -51,33 +51,33 @@ function Logform() {
             backgroundSize: "cover",
           }}
         ></div>
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+        <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
           <form
             onSubmit={handleOnSubmit}
-            class="bg-white border-2 border-blue-600 rounded-3xl pt-8 pb-8 pr-10 pl-10"
+            className="bg-white border-2 border-blue-600 rounded-3xl pt-8 pb-8 pr-10 pl-10"
           >
             <img src={Logo} />
-            <h1 class="text-blue-600 font-bold text-5xl mb-12 text-center">
+            <h1 className="text-blue-600 font-bold text-5xl mb-12 text-center">
               Welcome Back!
             </h1>
 
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 border-blue-600">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 border-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none"
                 type="text"
                 value={loginInput.mail}
                 name="mail"
@@ -85,10 +85,10 @@ function Logform() {
                 placeholder="Email Address"
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl border-blue-600">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl border-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -99,7 +99,7 @@ function Logform() {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none"
                 type="password"
                 name="mot_de_passe"
                 value={loginInput.mot_de_passe}
@@ -109,12 +109,12 @@ function Logform() {
             </div>
             <button
               type="submit"
-              class="block w-full bg-blue-600 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
+              className="block w-full bg-blue-600 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
             >
               Login
             </button>
 
-            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer ">
+            <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer ">
               You don't have an account? Register
             </span>
           </form>

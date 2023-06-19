@@ -9,8 +9,8 @@ const Layout = () => {
   const location = useLocation();
   return (
     <div>
-      {location.pathname === "/Offres" && <Navbar />}
-      {location.pathname === "/Entreprises" && <Navbar />}
+      {location.pathname === "/Offresp" && <Navbar />}
+      {location.pathname === "/Entreprisesp" && <Navbar />}
       {location.pathname === "/Blog" && <Navbar />}
       {location.pathname === "/Article" && <Navbar />}
       {location.pathname === "/" && <Navbar />}
@@ -20,6 +20,7 @@ const Layout = () => {
       {location.pathname !== "/Login" &&
         location.pathname !== "/Recruteur" &&
         location.pathname !== "/Register" &&
+        location.pathname !== "/Accountrec" &&
         location.pathname !== "/Recruteur/Loginrecruteur" && <Footer />}
     </div>
   );

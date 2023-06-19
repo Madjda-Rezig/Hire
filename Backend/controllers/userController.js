@@ -6,9 +6,8 @@ const nodemailer = require("nodemailer");
 //Create a user
 exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
   try {
-    const { mot_de_passe, ...body } = req.body
     const user = await UserModel.create({
-      ...body,
+      ...req.body,
       mot_de_passe: await bcrypt.hash(req.body.mot_de_passe, 10),
     })
 

@@ -12,7 +12,7 @@ export default function Recruteur() {
   return (
     <div>
       <Navbarrecruteur />
-      <Lottie className="" animationData={lottie} />
+      <Lottie animationData={lottie} />
       <Stat />
       <AboutUs />
       <Registration />

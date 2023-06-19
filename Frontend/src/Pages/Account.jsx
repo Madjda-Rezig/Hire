@@ -1,3 +1,9 @@
+import Navbaruser from "../components/Navbar/Navbaruser";
+
 export default function Account() {
-  return <div></div>;
+  return (
+    <div>
+      <Navbaruser />
+    </div>
+  );
 }

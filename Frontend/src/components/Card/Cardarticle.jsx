@@ -1,25 +1,7 @@
+import { Link } from "react-router-dom";
 import Hero from "../../assets/HeroBlog.jpg";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
-const Cardarticle = () => {
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/articles/");
-        if (response.data) {
-          setArticles(response.data);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+const Cardarticle = ({ articles }) => {
   return (
     <section className="p-4 lg:p-8 bg-white text-black">
       <div className="container mx-auto space-y-12">
@@ -52,13 +34,21 @@ const Cardarticle = () => {
             className="flex flex-col overflow-hidden rounded-md shadow-xl lg:flex-row"
             key={article.id}
           >
-            <img src={Hero} alt="" className="h-80 bg-white aspect-video" />
+            <img
+              src={article.photo}
+              alt=""
+              className="h-80 bg-white aspect-video"
+            />
             <div className="flex flex-col justify-center flex-1 p-6 bg-white">
               <h3 className="text-3xl font-bold">{article.titre}</h3>
               <p className="my-6 text-black">{article.resume}</p>
-              <button type="button" className="self-start">
+              <Link
+                to={`/Article/${article._id}`}
+                type="button"
+                className="self-start"
+              >
                 Read More
-              </button>
+              </Link>
             </div>
           </div>
         ))}

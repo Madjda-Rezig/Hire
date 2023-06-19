@@ -10,6 +10,7 @@ const categorieRoute = require("./routes/categorieRoute")
 const candidatureRoute = require("./routes/candidatureRoute")
 const entrepriseRoute = require("./routes/entrepriseRoute")
 const articleRoute = require("./routes/articleRoute")
+const path = require('path')
 
 require("dotenv").config()
 
@@ -19,6 +20,7 @@ index.use(cors({
   }))
 index.use(express.json())
 index.use(express.urlencoded({ extended: true }))
+index.use("/images",express.static('images'))
 
 index.use("/users", userRouter)
 index.use("/auth", authRouter)

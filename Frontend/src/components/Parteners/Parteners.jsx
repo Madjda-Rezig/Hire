@@ -9,16 +9,16 @@ const Parteners = () => {
   return (
     <div className="h-auto">
       <Marquee autoFill>
-        <span class="inline-block h-16 w-56  bg-white">
+        <span className="inline-block h-16 w-56  bg-white">
           <img src={Logo1} alt="logo" />
         </span>
-        <span class="inline-block h-16 w-56  bg-white">
+        <span className="inline-block h-16 w-56  bg-white">
           <img src={Logo2} alt="logo" />
         </span>
-        <span class="inline-block h-16 w-56  bg-white">
+        <span className="inline-block h-16 w-56  bg-white">
           <img src={Logo3} alt="logo" />
         </span>
-        <span class="inline-block h-16 w-56  bg-white">
+        <span className="inline-block h-16 w-56  bg-white">
           <img src={Logo4} alt="logo" />
         </span>
       </Marquee>

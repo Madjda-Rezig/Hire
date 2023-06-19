@@ -18,7 +18,6 @@ const Registerform = () => {
     mot_de_passe: "",
     confirmer_mot_de_passe: "",
     num_tel: "",
-    role: "",
   });
   console.log(RegisterInput);
   const handleOnChange = (e) => {

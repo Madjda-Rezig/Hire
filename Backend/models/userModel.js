@@ -33,10 +33,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    confirmer_mot_de_passe: {
-      type: String,
-      required: true,
-    },
+   
     num_tel: {
       type: String,
       required: true,
