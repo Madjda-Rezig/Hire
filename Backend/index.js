@@ -40,7 +40,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then((res) => {
     index.listen(process.env.PORT, () => {
-      console.log("Salam wa ralaykoum bitches")
+      console.log("the server is working")
     })
   })
   .catch((err) => console.log(err))
