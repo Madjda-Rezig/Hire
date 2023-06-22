@@ -12,7 +12,7 @@ function Footer() {
           </strong>
 
           <a
-            className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-blue-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
+            className="inline-flex items-center gap-2 rounded-lg border border-white bg-white px-8 py-3 text-blue-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
             href="Login"
           >
             <span className="text-sm font-medium"> Let's Get Started </span>
@@ -56,12 +56,12 @@ function Footer() {
             <div className="text-center sm:text-left">
               <p className="text-lg font-semibold text-blue-600">Candidates</p>
 
-              <nav aria-label="Footer About Nav" class="mt-8">
+              <nav aria-label="Footer About Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="Offres"
+                      href="Offresp"
                     >
                       Jobs
                     </a>
@@ -70,7 +70,7 @@ function Footer() {
                   <li>
                     <a
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="Entreprises"
+                      href="Entreprisesp"
                     >
                       Companies
                     </a>
@@ -91,7 +91,7 @@ function Footer() {
             <div className="text-center sm:text-left">
               <p className="text-lg font-semibold text-blue-600">Recruiter</p>
 
-              <nav aria-label="Footer Services Nav" class="mt-8">
+              <nav aria-label="Footer Services Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Cardjob = ({ offres }) => {
   return (
@@ -44,9 +45,13 @@ const Cardjob = ({ offres }) => {
                   {offre.entreprise}
                 </h3>
               </div>
-              <a className="link link-hover text-blue-600 text-center mb-4">
+              <Link
+                to={`/Jobdescription/${offre._id}`}
+                type="button"
+                className="link link-hover text-blue-600 text-center mb-4"
+              >
                 - More Details -
-              </a>
+              </Link>
             </div>
           ))}
         </div>

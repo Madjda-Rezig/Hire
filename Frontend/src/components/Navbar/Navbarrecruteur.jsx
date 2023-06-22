@@ -4,7 +4,7 @@ import Logo from "../../assets/Logo Vert.svg";
 
 function Navbarrecruteur() {
   return (
-    <header aria-label="Site Header" class="bg-white" id="Nav">
+    <header aria-label="Site Header" className="bg-white" id="Nav">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">

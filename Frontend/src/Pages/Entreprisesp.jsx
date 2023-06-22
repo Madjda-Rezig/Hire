@@ -2,7 +2,8 @@ import Pagination from "../components/Pagination/Pagination.jsx";
 import HeroCompany from "../components/Hero/Herocompany.jsx";
 import CardCompany from "../components/Card/Cardcompany.jsx";
 import Parteners from "../components/Parteners/Parteners.jsx";
-import Marquee from "react-fast-marquee";
+import React from "react";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -44,11 +45,11 @@ export default function Entreprisesp() {
       <CardCompany entreprises={entreprises} />
       <Pagination pages={pages} setCurrentPage={setCurrentPage} />
 
-      <div>
-        <h1 className="text-blue-600 text-3xl  text-center font-bold bg-blue-100 mb-7 pt-5 pb-5 mt-7">
-          Our Parteners
-        </h1>
-      </div>
+      <h1 className="text-blue-600 text-3xl  text-center font-bold bg-blue-100 mb-7 pt-5 pb-5 mt-7">
+        Our Parteners
+      </h1>
+
+      <Parteners />
     </div>
   );
 }

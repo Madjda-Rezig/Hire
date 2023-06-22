@@ -11,7 +11,7 @@ exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
       categorie,
       resume,
       autheur,
-      photo: req.file.originalname,
+      photo: req.myFileName,
     });
     await article.save();
     res.status(201).json(article);

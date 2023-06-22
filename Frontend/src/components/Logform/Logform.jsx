@@ -12,7 +12,7 @@ function Logform() {
   const user = localStorage.getItem("User") || null;
   const navigate = useNavigate();
   useEffect(() => {
-    if (user) navigate("/Account");
+    if (user) navigate("/Offresp");
   }, []);
   const [loginInput, setLoginInput] = useState({
     mail: "",
@@ -33,7 +33,7 @@ function Logform() {
       );
       if (response.data) {
         localStorage.setItem("User", JSON.stringify(response.data));
-        navigate("/Account");
+        navigate("/Offresp");
       }
     } catch (error) {
       toast.error(error.message);

@@ -8,9 +8,12 @@ import Offresp from "./Pages/Offresp.jsx";
 import Entreprisesp from "./Pages/Entreprisesp.jsx";
 import Blog from "./Pages/Blog.jsx";
 import Recruteur from "./Pages/Recruteur.jsx";
-import Article from "./Pages/Article.jsx";
-import Account from "./Pages/Account.jsx";
+import Article from "./Pages/Article";
+import Jobdescription from "./Pages/Jobdescription.jsx";
+import Profile from "./Pages/Profile.jsx";
 import Accountrec from "./Pages/Accountrec.jsx";
+import Myapplications from "./Pages/Myapplications.jsx";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
@@ -32,8 +35,10 @@ const router = createBrowserRouter(
       <Route path="Blog" element={<Blog />} />
       <Route path="Article/:id" element={<Article />} />
       <Route path="Login" element={<Login />} />
-      <Route path="Account" element={<Account />} />
+      <Route path="Jobdescription/:id" element={<Jobdescription />} />
       <Route path="Accountrec" element={<Accountrec />} />
+      <Route path="Profile" element={<Profile />} />
+      <Route path="Myapplications" element={<Myapplications />} />
       <Route path="Recruteur/Loginrecruteur" element={<Loginrecruteur />} />
     </Route>
   )

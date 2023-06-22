@@ -4,7 +4,7 @@ import Hero from "../../assets/HeroBlog.jpg";
 const Cardarticle = ({ articles }) => {
   return (
     <section className="p-4 lg:p-8 bg-white text-black">
-      <div className="container mx-auto space-y-12">
+      <div className="container space-y-12 mx-auto">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold sm:text-4xl text-blue-600">
             Explore Our Blog to Find Your Dream Job
@@ -15,7 +15,7 @@ const Cardarticle = ({ articles }) => {
             career path
           </p>
         </div>
-        <div className="flex flex-row w-1/2 ">
+        <div className="flex flex-row justify-center items-center w-1/2 mx-auto">
           <input
             type="text"
             placeholder="Search an Article"
@@ -35,17 +35,19 @@ const Cardarticle = ({ articles }) => {
             key={article.id}
           >
             <img
-              src={article.photo}
+              src={`http://localhost:5000/images/${article.photo}`}
               alt=""
               className="h-80 bg-white aspect-video"
             />
             <div className="flex flex-col justify-center flex-1 p-6 bg-white">
-              <h3 className="text-3xl font-bold">{article.titre}</h3>
-              <p className="my-6 text-black">{article.resume}</p>
+              <h3 className="text-3xl font-bold text-blue-600">
+                {article.titre}
+              </h3>
+              <p className="my-6 text-gray-600">{article.resume}</p>
               <Link
                 to={`/Article/${article._id}`}
                 type="button"
-                className="self-start"
+                className="self-start text-gray-600"
               >
                 Read More
               </Link>

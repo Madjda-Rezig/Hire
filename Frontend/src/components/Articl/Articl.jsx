@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "../../assets/HeroCompany.jpg";
 import { useParams } from "react-router-dom";
+
 const Articl = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
@@ -25,10 +26,14 @@ const Articl = () => {
 
   return (
     <div>
-      <div className="p-5 mx-auto sm:p-10 md:p-16 bg-white text-gray-100">
-        <div className="flex flex-col max-w-5xl mx-auto overflow-hidden rounded">
-          <img src={Image} alt="imageArticle" className="w-full h-60 sm:h-96" />
-          <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-white border-2 border-blue-600">
+      <div className="p-5 mx-auto sm:p-10 md:p-10 bg-white text-gray-100">
+        <div className="flex flex-col max-w-fit overflow-hidden rounded">
+          <img
+            src={Image}
+            alt="imageArticle"
+            className="w-screen h-72 sm:h-96 rounded-lg shadow-xl"
+          />
+          <div className="p-6 pb-12 m-4 -mt-16 space-y-6 sm:px-10 sm:mx-12 lg:rounded-md bg-white border-2 border-blue-600 shadow-xl">
             <div className="space-y-2">
               <a
                 rel="noopener noreferrer"
@@ -48,7 +53,7 @@ const Articl = () => {
                 </a>
               </p>
             </div>
-            <div className="text-gray-600">
+            <div className="text-gray-600 text-justify">
               <p>{article.contenu}</p>
             </div>
           </div>

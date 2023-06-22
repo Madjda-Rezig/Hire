@@ -1,10 +1,18 @@
-const { getAllOffres, postOffer,deleteOffre,updateOffer,getAppliedOffres,getEntrepriseOffres,paginationOffres} = require("../controllers/offreController")
+const { getAllOffres,
+     postOffer,
+     deleteOffre,
+     updateOffer,
+     getAppliedOffres,
+     getEntrepriseOffres,
+     paginationOffres,
+     afficherOffre} = require("../controllers/offreController")
 const  {protectRecruteur, protectCandidat,protectUser} = require('../middlewares/Protect')
 
 const offreRouter = require("express").Router()
 
 offreRouter
 .get("/all", getAllOffres)
+.get("/:id",afficherOffre)
 .get('/pagination', paginationOffres)
 .post("/add",protectRecruteur, postOffer)
 .delete("/:id",protectRecruteur,deleteOffre)

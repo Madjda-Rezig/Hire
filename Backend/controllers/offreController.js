@@ -17,6 +17,23 @@ exports.getAllOffres = expressAsyncHandler(async (req, res) => {
   }
 })
 
+
+// Afficher une offre
+exports.afficherOffre = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const offre = await offreModel.findById(id);
+    if (!offre) {
+      res.status(404);
+      throw new Error("Offre non trouvé");
+    }
+    res.status(200).json(offre);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
+
 // Afficher les offres où le candidat a postulé
 
 exports.getAppliedOffres = expressAsyncHandler(async (req, res) => {

@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 
 //Sign token
 const generateToken = (data) => {
-  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "50m" });
+  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "50000000000000000m" });
   return token;
 };
 //Login user [ACCESS TOKEN,REFRESH TOKEN]

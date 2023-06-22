@@ -12,7 +12,7 @@ export default function Offresp() {
   const [pages, setPages] = useState(0);
   const [offres, setOffres] = useState([]);
   useEffect(() => {
-    const afficherOffres = async () => {
+    const afficherOffre = async () => {
       try {
         const response = await axios.get(
           `http://localhost:5000/offres/pagination?page=${currentPage}`
@@ -27,7 +27,7 @@ export default function Offresp() {
         setLoading(false);
       }
     };
-    afficherOffres();
+    afficherOffre();
   }, [currentPage]);
   if (loading)
     return (

@@ -18,7 +18,9 @@ const upload = multer({
             callback(null, path.join(__dirname, "../images") )
         },
         filename: function (req, file, callback) {
-            callback(null, `${Date.now().toString()}.jpeg`)
+            const currentFileName =Date.now().toString()
+            callback(null, `${currentFileName}.${file.mimetype.toString().split('/')[1]}`)
+            req.myFileName =  `${currentFileName}.${file.mimetype.toString().split('/')[1]}`
         }
     })
 })

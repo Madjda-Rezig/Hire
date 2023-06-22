@@ -9,6 +9,6 @@ const { protectCandidat, protectRecruteur } = require("../middlewares/Protect");
 authRouter
   .post("/login", Login)
   .post("/token", protectCandidat,protectRecruteur, refreshAccess)
-  .delete("/logout/:token", protectCandidat,protectRecruteur, logout);
+  .delete("/logout/:token", logout);
 
 module.exports = authRouter;

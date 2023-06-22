@@ -2,6 +2,7 @@ const UserModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const expressAsyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
+const userModel = require("../models/userModel");
 
 //Create a user
 exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
@@ -41,6 +42,36 @@ exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
     throw new Error(error)
   }
 })
+
+
+// Afficher All users
+exports.allUsers = expressAsyncHandler(async (req, res) => {
+  try {
+    const users = await userModel.find({})
+      
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
+
+// Afficher user par id 
+exports.afficherUser = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await userModel.findById(id);
+    if (!user) {
+      res.status(404);
+      throw new Error("User do not exist");
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
+
 
 //////////////////////////////////////////////
 

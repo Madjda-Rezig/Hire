@@ -4,7 +4,9 @@ import Popular from "../components/Popular/Popular";
 export default function Article() {
   return (
     <div>
-      <Articl />
+      <div className="flex justify-center justify-items-center">
+        <Articl />
+      </div>
 
       <Popular />
     </div>
