@@ -1,5 +1,5 @@
-import { toast } from "react-toastify";
 import Registerform from "../components/Registerform/Registerform.jsx";
+
 export default function Register() {
   return (
     <div>

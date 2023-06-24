@@ -1,4 +1,4 @@
-// Pages :
+// Pages //
 import Navbar from "./components/Layout/Layout.jsx";
 import Login from "./Pages/Login.jsx";
 import Loginrecruteur from "./Pages/Loginrecruteur.jsx";
@@ -23,6 +23,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
+// Routes //
 
 const router = createBrowserRouter(
   createRoutesFromElements(

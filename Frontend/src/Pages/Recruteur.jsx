@@ -8,6 +8,7 @@ import AboutUs from "../components/Aboutus/Aboutus.jsx";
 import Contact from "../components/Contact/Contact.jsx";
 import FooterHire from "../components/Footer/Footerhire.jsx";
 import Registration from "../components/Registration/Registration.jsx";
+
 export default function Recruteur() {
   return (
     <div>
