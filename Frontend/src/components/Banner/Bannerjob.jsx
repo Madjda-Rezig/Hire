@@ -1,3 +1,4 @@
+import React from "react";
 import Hero from "../../assets/HeroBlog.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";

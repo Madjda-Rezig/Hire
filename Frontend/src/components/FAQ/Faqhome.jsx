@@ -1,4 +1,5 @@
-import Hero from "../../assets/FAQ.jpg";
+import React from "react";
+
 const Faqhome = () => {
   return (
     <section className="bg-white text-black ">

@@ -1,3 +1,5 @@
+import React from "react";
+
 const Subscribe = () => {
   return (
     <section className="py-6 bg-[#575252] text-white max-w-5xl mt-10 rounded-md mx-auto xl:px-4 xl:py-12 2xl:px-0">

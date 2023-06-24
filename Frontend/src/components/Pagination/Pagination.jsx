@@ -1,4 +1,5 @@
 import { set } from "mongoose";
+import React from "react";
 
 const Pagination = ({ pages, setCurrentPage }) => {
   const aywah = [];

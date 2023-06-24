@@ -1,3 +1,5 @@
+import React from "react";
+
 const Registration = () => {
   return (
     <section className="p-6 bg-[#1CD2B1] text-gray-600">

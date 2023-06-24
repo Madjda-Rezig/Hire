@@ -1,5 +1,6 @@
+import React from "react";
 import Image4 from "../../assets/Image4.jpeg";
-import Image2 from "../../assets/Image3.jpeg";
+
 const Aboutushome = () => {
   return (
     <section className="bg-white text-blue-600" id="About">

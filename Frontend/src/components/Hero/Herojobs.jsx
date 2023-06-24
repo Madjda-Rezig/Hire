@@ -1,4 +1,6 @@
+import React from "react";
 import Hero from "../../assets/HeroJobs.jpg";
+
 const Herojobs = () => {
   return (
     <section

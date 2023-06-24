@@ -1,4 +1,6 @@
+import React from "react";
 import home from "../../assets/Home.jpg";
+
 const Herohome = () => {
   return (
     <section

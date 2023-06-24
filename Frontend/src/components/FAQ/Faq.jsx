@@ -1,3 +1,5 @@
+import React from "react";
+
 const Faq = () => {
   return (
     <section className="bg-[#1CD2B1] bg-opacity-10 text-gray-600" id="FAQ">

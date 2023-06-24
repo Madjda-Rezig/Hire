@@ -1,10 +1,8 @@
 import React from "react";
-
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-
 import Navbar from "../Navbar/Navbar";
-
 import Footer from "../../components/Footer/Footer";
+
 const Layout = () => {
   const location = useLocation();
   return (

@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import Lottie from "lottie-react";
-import enveloppe from "../../assets/Email 2.json";
+import React from "react";
 
 const Contact = () => {
   return (
