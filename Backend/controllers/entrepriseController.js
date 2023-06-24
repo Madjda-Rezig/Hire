@@ -1,6 +1,10 @@
 const entrepriseModel = require("../models/entrepriseModel");
 const expressAsyncHandler = require("express-async-handler")
-// Ajouter une entreprise
+
+
+
+// Create a company
+
 exports.ajouterEntreprise = async (req, res) => {
   try {
     const { auteur, nomentreprise, descriptif, secteur, adresse, creation } = req.body;
@@ -21,8 +25,10 @@ exports.ajouterEntreprise = async (req, res) => {
   }
 };
 
+//////////////////////////////////////////////
 
-// Afficher toutes les entreprises
+// Show all the companies
+
 exports.afficherEntreprises = async (req, res) => {
   try {
     const entreprises = await entrepriseModel.find();
@@ -32,8 +38,10 @@ exports.afficherEntreprises = async (req, res) => {
   }
 };
 
+//////////////////////////////////////////////
 
-// Afficher une entreprise spécifique
+// Show a company
+
 exports.afficherEntreprise = async (req, res) => {
   try {
     const entreprise = await entrepriseModel.findById(req.params.id);
@@ -46,7 +54,10 @@ exports.afficherEntreprise = async (req, res) => {
   }
 };
 
-// Modifier une entreprise
+//////////////////////////////////////////////
+
+// Update a company 
+
 exports.modifierEntreprise = async (req, res) => {
   try {
     const entreprise = await entrepriseModel.findByIdAndUpdate(
@@ -63,7 +74,9 @@ exports.modifierEntreprise = async (req, res) => {
   }
 };
 
-// Supprimer une entreprise
+//////////////////////////////////////////////
+
+// Delete a company
 exports.supprimerEntreprise = async (req, res) => {
   try {
     const entreprise = await entrepriseModel.findByIdAndRemove(req.params.id);
@@ -76,7 +89,10 @@ exports.supprimerEntreprise = async (req, res) => {
   }
 };
 
-//Pagination offres
+//////////////////////////////////////////////
+
+//Pagination for companies
+
 exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
   try {
     const { page } = req.query;

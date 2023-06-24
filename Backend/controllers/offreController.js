@@ -1,11 +1,10 @@
 const offreModel = require("../models/offreModel")
 const userModel = require("../models/userModel")
 const candidatureModel = require("../models/candidatureModel");
-
-
 const expressAsyncHandler = require("express-async-handler")
 
-//Afficher toutes les offres
+
+//Show all offers
 
 exports.getAllOffres = expressAsyncHandler(async (req, res) => {
   try {
@@ -17,8 +16,9 @@ exports.getAllOffres = expressAsyncHandler(async (req, res) => {
   }
 })
 
+//////////////////////////////////////////////
 
-// Afficher une offre
+// Show an offer
 exports.afficherOffre = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -34,7 +34,10 @@ exports.afficherOffre = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Afficher les offres où le candidat a postulé
+
+//////////////////////////////////////////////
+
+// View jobs the candidate has applied to
 
 exports.getAppliedOffres = expressAsyncHandler(async (req, res) => {
   try {
@@ -47,7 +50,10 @@ exports.getAppliedOffres = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Afficher les entreprises 
+
+//////////////////////////////////////////////
+
+// Show companies offers 
 
 exports.getEntrepriseOffres = expressAsyncHandler(async (req, res) => {
   try {
@@ -61,9 +67,11 @@ exports.getEntrepriseOffres = expressAsyncHandler(async (req, res) => {
 });
 
 
+//////////////////////////////////////////////
 
 
-//Créer une offre
+//Create an offer
+
 exports.postOffer = expressAsyncHandler(async (req, res) => {
   try {
     const {  contrat, competences, diplome, experience, description,poste,localisation,entreprise } =
@@ -100,7 +108,10 @@ exports.postOffer = expressAsyncHandler(async (req, res) => {
   }
 })
 
-// Modifier une offre
+
+//////////////////////////////////////////////
+
+// Update an offer
 exports.updateOffer = expressAsyncHandler(async (req, res) => {
   try {
     const id = req.params.id
@@ -132,7 +143,10 @@ exports.updateOffer = expressAsyncHandler(async (req, res) => {
   }
 })
 
-// Supprimer une offre :
+
+//////////////////////////////////////////////
+
+// Delete an offer :
 exports.deleteOffre = expressAsyncHandler(async (req, res) => {
   try {
     const id = req.params.id
@@ -144,7 +158,10 @@ exports.deleteOffre = expressAsyncHandler(async (req, res) => {
   }
 })
 
-//Pagination offres
+
+//////////////////////////////////////////////
+
+//Pagination for offers
 exports.paginationOffres = expressAsyncHandler(async (req, res) => {
   try {
     const { page } = req.query;

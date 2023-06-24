@@ -26,8 +26,16 @@ exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
   let info =  transporter.sendMail({
     from: 'rezigmadjda@gmail.com', // sender address
     to: user.mail, // list of receivers
-    subject: "Hello  ", // Subject line
-    text: `bienvenue  ${user.nom}`, // plain text body
+    subject: "Welcome to WorkUp ", // Subject line
+    text: `Hello  ${user.nom}
+    
+  Thank you for joining WorkUp. We are excited to have you on board.
+
+  Please feel free to reach out if you have any questions or need assistance.
+
+  Best regards,
+
+  Your WorkUp Team`, // plain text body
   },
   function (error, info) {
     if (error) {
@@ -44,7 +52,9 @@ exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
 })
 
 
-// Afficher All users
+//////////////////////////////////////////////
+
+// Show all users
 exports.allUsers = expressAsyncHandler(async (req, res) => {
   try {
     const users = await userModel.find({})
@@ -56,7 +66,9 @@ exports.allUsers = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Afficher user par id 
+//////////////////////////////////////////////
+
+// Show user with id 
 exports.afficherUser = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -87,6 +99,8 @@ exports.modifierUtilisateur = expressAsyncHandler(async (req, res) => {
   }
 });
 
+//////////////////////////////////////////////
+
 //Delete a user
 exports.supprimerUtilisateur = expressAsyncHandler(async (req, res) => {
   try {
@@ -98,7 +112,10 @@ exports.supprimerUtilisateur = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-//Delete his account
+
+//////////////////////////////////////////////
+
+//Autodelte his account
 exports.autoDelete = expressAsyncHandler(async (req, res) => {
   try {
     const id = req.user._id;

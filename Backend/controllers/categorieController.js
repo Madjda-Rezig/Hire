@@ -1,7 +1,8 @@
 const categorieModel = require("../models/categorieModel")
 const expressAsyncHandler = require("express-async-handler")
 
-//Afficher toutes les categories
+
+//Show all categories
 exports.getAllCategories = expressAsyncHandler(async (req, res) => {
   try {
     const categories = await categorieModel.find()
@@ -13,7 +14,9 @@ exports.getAllCategories = expressAsyncHandler(async (req, res) => {
   }
 })
 
-//Ajouter une categorie
+//////////////////////////////////////////////
+
+//Show a category
 exports.postCategorie = expressAsyncHandler(async (req, res) => {
   try {
     const { nom, defcat } = req.body;
@@ -34,8 +37,9 @@ exports.postCategorie = expressAsyncHandler(async (req, res) => {
   }
 });
 
+//////////////////////////////////////////////
 
-// Supprimer une categorie :
+// Delete a category
 exports.deleteCategorie = expressAsyncHandler(async (req, res) => {
   try {
     const id = req.params.id
@@ -47,7 +51,9 @@ exports.deleteCategorie = expressAsyncHandler(async (req, res) => {
   }
 })
 
-// Modifier une categorie :
+//////////////////////////////////////////////
+
+// Update a category
 
 exports.updateCategorie = expressAsyncHandler(async (req, res) => {
   try {

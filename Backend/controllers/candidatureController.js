@@ -2,7 +2,7 @@ const candidatureModel = require("../models/candidatureModel")
 const expressAsyncHandler = require("express-async-handler")
 
 
-//Afficher toutes les candidature
+//Show all applications
 
 exports.getAllcandidatures = expressAsyncHandler(async (req, res) => {
   try {
@@ -14,7 +14,10 @@ exports.getAllcandidatures = expressAsyncHandler(async (req, res) => {
   }
 })
 
-//Ajouter une candidature
+//////////////////////////////////////////////
+
+//Add an application
+
 exports.postCandidature = expressAsyncHandler(async (req, res) => {
   try {  
     const idCandidat = req.user._id
@@ -29,7 +32,12 @@ exports.postCandidature = expressAsyncHandler(async (req, res) => {
     console.log(error)
   }
 })
-//Modifier une candidature
+
+//////////////////////////////////////////////
+
+
+//Update an application
+
 exports.modifierCandidature = expressAsyncHandler(async (req, res) => {
   try {  
     const {id} = req.params

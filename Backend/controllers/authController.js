@@ -6,10 +6,14 @@ const bcrypt = require("bcrypt");
 
 //Sign token
 const generateToken = (data) => {
-  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "50000000000000000m" });
+  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "never" });
   return token;
 };
+
+////////////////////////////////////////////////////////////
+
 //Login user [ACCESS TOKEN,REFRESH TOKEN]
+
 exports.Login = expressAsyncHandler(async (req, res) => {
   try {
     const { mail, mot_de_passe } = req.body;
@@ -52,6 +56,8 @@ exports.Login = expressAsyncHandler(async (req, res) => {
   }
 });
 
+////////////////////////////////////////////////////////////
+
 //Refresh access token
 exports.refreshAccess = expressAsyncHandler(async (req, res) => {
   try {
@@ -74,6 +80,8 @@ exports.refreshAccess = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
+////////////////////////////////////////////////////////////
 
 //Logout
 exports.logout = expressAsyncHandler(async (req, res) => {

@@ -1,7 +1,7 @@
 const ArticleModel = require("../models/articleModel");
 const expressAsyncHandler = require("express-async-handler");
 
-// Créer un article
+// Add an article
 exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { titre, contenu,categorie,resume ,autheur} = req.body;
@@ -20,7 +20,12 @@ exports.ajouterArticle = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-// Lire tous les articles
+
+////////////////////////////////////////////////////////////
+
+
+// Show all articles
+
 exports.lireTousArticles = expressAsyncHandler(async (req, res) => {
   try {
     const articles = await ArticleModel.find({})
@@ -32,7 +37,11 @@ exports.lireTousArticles = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Lire un article
+ ////////////////////////////////////////////////////////////
+
+
+// Show an article
+
 exports.lireArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -48,9 +57,10 @@ exports.lireArticle = expressAsyncHandler(async (req, res) => {
   }
 });
 
+////////////////////////////////////////////////////////////
 
+// Update an article
 
-// Mettre à jour un article
 exports.modifierArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -76,7 +86,10 @@ exports.modifierArticle = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// Supprimer un article
+////////////////////////////////////////////////////////////
+
+// Delete an article
+
 exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -96,7 +109,12 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-//Pagination article
+
+////////////////////////////////////////////////////////////
+
+
+//Pagination for article
+
 exports.paginationArticle = expressAsyncHandler(async (req, res) => {
   try {
     const { page } = req.query;
