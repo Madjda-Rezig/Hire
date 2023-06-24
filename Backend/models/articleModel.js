@@ -8,7 +8,6 @@ const ArticleSchema = new mongoose.Schema(
     },
     autheur: {
       type: String,
-      
       required: true,
     },
     resume: {

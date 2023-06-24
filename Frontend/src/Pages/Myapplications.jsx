@@ -1,8 +1,8 @@
-import Registerform from "../components/Registerform/Registerform.jsx";
+import Cardjob from "../components/Card/Cardjob.jsx";
 export default function Myapplications() {
   return (
     <div>
-      <Registerform />
+      <Cardjob />
     </div>
   );
 }
