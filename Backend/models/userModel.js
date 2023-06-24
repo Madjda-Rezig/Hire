@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 //Role
 const Role = Object.freeze(["Admin", "Candidat", "Recruteur"]);
-//Sexe
+//Gender
 const Sexe = Object.freeze(["Homme", "Femme"]);
 //Super classe
 const UserSchema = mongoose.Schema(
@@ -42,14 +42,18 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
       enum: Role,
-      default: "Candidat",
+      default: "Candidat",  // set default role as candidate
     },
   },
   { timestamps: true }
 );
 //Sub classes
 
+// Admin class
+
 const AdminSchema = new mongoose.Schema({});
+
+// Candidate class
 
 const CandidatSchema = new mongoose.Schema({
   cv: {
@@ -58,6 +62,7 @@ const CandidatSchema = new mongoose.Schema({
   },
 });
 
+// Recruiter class
 const RecruteurSchema = new mongoose.Schema({
   entreprise: {
     type: String,
