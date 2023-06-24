@@ -24,7 +24,11 @@ exports.protectAdmin = expressAsyncHandler(async (req, res, next) => {
     throw new Error(error);
   }
 });
-//Protect Recruteur
+
+///////////////////////////////////////////////////////////
+
+
+//Protect Recruiter
 exports.protectRecruteur = expressAsyncHandler(async (req, res, next) => {
   try {
     const authHeader = req.headers["authorization"];
@@ -47,7 +51,11 @@ exports.protectRecruteur = expressAsyncHandler(async (req, res, next) => {
     throw new Error(error);
   }
 });
-//Protect Candidat
+
+///////////////////////////////////////////////////////////
+
+//Protect Candidate
+
 exports.protectCandidat = expressAsyncHandler(async (req, res, next) => {
   try {
     const authHeader = req.headers["authorization"];
@@ -70,6 +78,8 @@ exports.protectCandidat = expressAsyncHandler(async (req, res, next) => {
     throw new Error(error);
   }
 });
+///////////////////////////////////////////////////////////
+
 //Protect Any User
 exports.protectUser = expressAsyncHandler(async (req, res, next) => {
   try {
