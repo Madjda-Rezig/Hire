@@ -1,12 +1,23 @@
-const {getAllcandidatures, postCandidature, modifierCandidature} = require("../controllers/candidatureController")
+const {
+    getAllcandidatures, 
+    postCandidature, 
+    modifierCandidature
+} = require("../controllers/candidatureController")
+
+
 const {protectRecruteur,protectCandidat} = require('../middlewares/Protect')
 const candidatureRoute = require("express").Router()
 
 
+
 candidatureRoute
-.get("/all",protectRecruteur, getAllcandidatures)
-.post("/add/:idOffre",protectCandidat, postCandidature)
-.put('/:id',protectCandidat,modifierCandidature)
+  // Endpoint to get all candidatures
+  .get("/all", protectRecruteur, getAllcandidatures)
 
+  // Endpoint to add a new candidature for a specific offre
+  .post("/add/:idOffre", protectCandidat, postCandidature)
 
-module.exports = candidatureRoute
+  // Endpoint to modify a candidature by ID 
+  .put('/:id', protectCandidat, modifierCandidature);
+
+module.exports = candidatureRoute;

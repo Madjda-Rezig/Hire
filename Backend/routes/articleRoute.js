@@ -25,15 +25,24 @@ const upload = multer({
     })
 })
 
+
 articleRouter
+  // Endpoint to get all articles
+  .get('/', lireTousArticles)
 
-.get('/', lireTousArticles)
-.get('/pagination', paginationArticle)
-.get('/:id', lireArticle)
+  // Endpoint for article pagination
+  .get('/pagination', paginationArticle)
 
-.post('/',upload.single('photo'),protectAdmin, ajouterArticle)
-.put('/:id',protectAdmin, modifierArticle)
-.delete('/:id',protectAdmin, supprimerArticle)
+  // Endpoint to get a specific article by ID
+  .get('/:id', lireArticle)
 
+  // Endpoint to add a new article
+  .post('/', upload.single('photo'), protectAdmin, ajouterArticle)
 
-module.exports = articleRouter
+  // Endpoint to modify an article by ID 
+  .put('/:id', protectAdmin, modifierArticle)
+
+  // Endpoint to delete an article by ID
+  .delete('/:id', protectAdmin, supprimerArticle);
+
+module.exports = articleRouter;

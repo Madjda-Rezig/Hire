@@ -1,7 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
-mongoose.set('strictQuery', false);
 const ErrorHandler = require("./middlewares/ErrorHandler")
 const userRouter = require("./routes/userRoute")
 const authRouter = require("./routes/authRoute")
@@ -13,6 +12,7 @@ const articleRoute = require("./routes/articleRoute")
 const path = require('path')
 
 require("dotenv").config()
+mongoose.set('strictQuery', false);
 
 const index = express()
 index.use(cors({
@@ -21,6 +21,7 @@ index.use(cors({
 index.use(express.json())
 index.use(express.urlencoded({ extended: true }))
 index.use("/images",express.static('images'))
+
 
 index.use("/users", userRouter)
 index.use("/auth", authRouter)

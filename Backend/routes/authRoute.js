@@ -6,9 +6,16 @@ const {
 
 const authRouter = require("express").Router();
 const { protectCandidat, protectRecruteur } = require("../middlewares/Protect");
+
+
 authRouter
+  // Endpoint for user login
   .post("/login", Login)
-  .post("/token", protectCandidat,protectRecruteur, refreshAccess)
+
+  // Endpoint to refresh access token
+  .post("/token", protectCandidat, protectRecruteur, refreshAccess)
+
+  // Endpoint for user logout
   .delete("/logout/:token", logout);
 
 module.exports = authRouter;

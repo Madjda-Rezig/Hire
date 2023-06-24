@@ -12,6 +12,7 @@ const  {protectRecruteur, protectCandidat,protectUser, protectAdmin} = require('
 const multer = require('multer')
 const path = require('path')
 const entrepriseRouter = require("express").Router()
+
 const upload = multer(
     {
         storage: multer.diskStorage({
@@ -28,17 +29,23 @@ const upload = multer(
 )
 
 
-
-
-
-
-
 entrepriseRouter
-.get("/all",afficherEntreprises)
-.get('/pagination', paginationEntreprises)
-.get("/:id",afficherEntreprise)
-.post("/add",upload.single("logo"), protectAdmin, ajouterEntreprise)
-.delete("/:id", protectRecruteur, supprimerEntreprise)
-.put("/:id", protectRecruteur, modifierEntreprise)
+  // Endpoint to get all entreprises
+  .get("/all", afficherEntreprises)
+
+  // Endpoint for entreprise pagination
+  .get('/pagination', paginationEntreprises)
+
+  // Endpoint to get a specific entreprise by ID
+  .get("/:id", afficherEntreprise)
+
+  // Endpoint to add a new entreprise
+  .post("/add", upload.single("logo"), protectAdmin, ajouterEntreprise)
+
+  // Endpoint to delete an entreprise by ID
+  .delete("/:id", protectAdmin, supprimerEntreprise)
+
+  // Endpoint to modify an entreprise by ID
+  .put("/:id", protectAdmin, modifierEntreprise);
 
 module.exports = entrepriseRouter;
