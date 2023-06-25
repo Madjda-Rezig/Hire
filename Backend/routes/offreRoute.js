@@ -15,12 +15,12 @@ const offreRouter = require("express").Router()
 offreRouter
 // Endpoint to get all offers
 .get("/all", getAllOffres)
-// Endpoint to get a specific offer by ID
-.get("/:id",afficherOffre)
 //Endpoint for offer pagination
 .get('/pagination', paginationOffres)
 // Endpoint to add a new offer
 .post("/add",protectRecruteur, postOffer)
+// Endpoint to get a specific offer by ID
+.get("/:id",afficherOffre)
 // Endpoint to delete an offer by ID
 .delete("/:id",protectRecruteur,deleteOffre)
 // Endpoint to update an offer by ID

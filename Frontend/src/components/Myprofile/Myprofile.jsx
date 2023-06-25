@@ -1,15 +1,64 @@
 import React from "react";
-import Logo from "../../assets/Logo.svg";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axios from "axios";
 
-import { useParams } from "react-router-dom";
-
 const Myprofile = () => {
+  const [profile, setProfile] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const user = localStorage.getItem("User");
+        const { accessToken, _id } = JSON.parse(user);
+        const response = await axios.get(`http://localhost:5000/users/${_id}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setProfile(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+  if (!profile) {
+    return <div>Loading...</div>;
+  }
+
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  const user = localStorage.getItem("User");
+  const { accessToken } = JSON.parse(user);
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        "http://localhost:5000/users/delete",
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
+      if (response.data) {
+        localStorage.removeItem("User");
+        navigate("/Login");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="bg-white border-2 border-gray-200 shadow-xl pt-10 pb-14 sm:w-4/5 md:w-3/5 lg:w-3/5 rounded-lg mt-4 mb-10 grid place-items-center ">
-        <img src={Logo} />
+    <div className="hero min-h-screen bg-white">
+      <div className="bg-white border-2 border-blue-600 shadow-2xl pt-10 pb-14 sm:w-4/5 md:w-3/5 lg:w-3/5 rounded-lg mt-4 mb-10 grid place-items-center ">
+        <h1 className="text-center text-blue-600 text-4xl py-5 font-semibold ">
+          My Profile
+        </h1>
         <form className="w-4/5 ">
           <div className="w-full flex gap-2 items-center">
             <div className="form-control w-full ">
@@ -19,10 +68,10 @@ const Myprofile = () => {
               <label
                 type="text"
                 name="nom"
-                required
-                placeholder="Votre Nom"
                 className="input input-bordered w-full  "
-              ></label>
+              >
+                {profile.nom}
+              </label>
             </div>
 
             <div className="form-control w-full   ">
@@ -32,10 +81,10 @@ const Myprofile = () => {
               <label
                 type="text"
                 name="prenom"
-                required
-                placeholder="Votre Prénom"
                 className="input input-bordered w-full  "
-              ></label>
+              >
+                {profile.prenom}
+              </label>
             </div>
           </div>
           <div className="form-control w-full   ">
@@ -45,10 +94,10 @@ const Myprofile = () => {
             <label
               type="text"
               name="mail"
-              required
-              placeholder="Votre Email"
               className="input input-bordered w-full  "
-            ></label>
+            >
+              {profile.mail}
+            </label>
           </div>
 
           <div className="form-control w-full   ">
@@ -58,10 +107,10 @@ const Myprofile = () => {
             <label
               type="tel"
               name="num_tel"
-              placeholder="Votre Numéro"
-              required
               className="input input-bordered w-full  "
-            ></label>
+            >
+              {profile.num_tel}
+            </label>
           </div>
 
           <div className="form-control w-full   ">
@@ -71,10 +120,10 @@ const Myprofile = () => {
             <label
               type="date"
               name="date_de_naissance"
-              placeholder="Exemple:1998-09-08"
               className="input input-bordered w-full"
-              required
-            ></label>
+            >
+              {formatDate(profile.date_de_naissance)}
+            </label>
           </div>
           <div className="w-full flex gap-2 items-center">
             <div className="form-control w-full   ">
@@ -84,10 +133,10 @@ const Myprofile = () => {
               <label
                 type="password"
                 name="mot_de_passe"
-                placeholder="Votre mot de passe"
                 className="input input-bordered w-full"
-                required
-              ></label>
+              >
+                **************
+              </label>
             </div>
             <div className="form-control w-full   ">
               <label className="label">
@@ -96,10 +145,10 @@ const Myprofile = () => {
               <label
                 type="password"
                 name="confirmer_mot_de_passe"
-                placeholder="Confirmer  mot de passe"
                 className="input input-bordered w-full"
-                required
-              ></label>
+              >
+                **************
+              </label>
             </div>
           </div>
           <div className="w-full flex gap-2 items-center">
@@ -107,18 +156,14 @@ const Myprofile = () => {
               <label className="label">
                 <span className="label-text">Genre :</span>
               </label>
-              <label
-                name="sexe"
-                required
-                className="input input-bordered w-full  "
-                defaultValue={""}
-              ></label>
+              <label name="sexe" className="input input-bordered w-full  ">
+                {profile.sexe}
+              </label>
             </div>
             <div className="form-control w-full   ">
               <label className="label">
-                <span className="label-text">CV :</span>
+                <span className="label-text"></span>
               </label>
-              <input type="file" name="cv" />
             </div>
           </div>
           <div className="w-full flex justify-center gap-2 items-center">
@@ -128,14 +173,14 @@ const Myprofile = () => {
             >
               Modify
             </button>
-            <button
-              type="submit"
-              className="btn  mt-14 border-none bg-blue-600 px-10"
-            >
-              Delete
-            </button>
           </div>
         </form>
+        <button
+          className="btn  mt-14 border-none bg-blue-600 px-10"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

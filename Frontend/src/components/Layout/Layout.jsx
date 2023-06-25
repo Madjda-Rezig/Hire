@@ -13,7 +13,7 @@ const Layout = () => {
       {location.pathname.startsWith("/Article") && <Navbar />}
       {location.pathname === "/" && <Navbar />}
       {location.pathname === "/Profile" && <Navbar />}
-      {location.pathname === "/Jobdescription" && <Navbar />}
+      {location.pathname.startsWith("/Jobdescription") && <Navbar />}
       {location.pathname === "/Myapplications" && <Navbar />}
       <main>
         <Outlet />

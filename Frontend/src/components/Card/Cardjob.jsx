@@ -19,42 +19,44 @@ const Cardjob = ({ offres }) => {
         </div>
 
         <div className="mt-12 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center justify-items-center">
-          {offres.map((offre) => (
-            <div
-              key={offre.id}
-              className="card w-60 bg-base-100 shadow-xl border-2 border-blue-600"
-            >
-              <div className="card-body items-start text-start">
-                {/* Afficher les détails de l'offre d'emploi en utilisant les données du 'job' */}
-                <span className="whitespace-nowrap rounded-full px-4 py-0.5 text-sm font-bold text-blue-600 bg-[#0057FF] bg-opacity-30">
-                  {offre.contrat}
-                </span>
-                <h2 className="card-title text-gray-800">{offre.poste}</h2>
-                <p className="text-sm">{offre.description}</p>
-                <h3 className="text-blue-600 mt-3">
-                  <FontAwesomeIcon
-                    icon={faMapMarkerAlt}
-                    className="text-blue-600 mr-2"
-                  />
-                  {offre.localisation}
-                </h3>
-                <h3 className="text-blue-600 ">
-                  <FontAwesomeIcon
-                    icon={faBuilding}
-                    className="text-blue-600 mr-2"
-                  />
-                  {offre.entreprise}
-                </h3>
-              </div>
-              <Link
-                to={`/Jobdescription/${offre._id}`}
-                type="button"
-                className="link link-hover text-blue-600 text-center mb-4"
+          {offres &&
+            offres.length &&
+            offres.map((offre) => (
+              <div
+                key={offre.id}
+                className="card w-60 bg-base-100 shadow-xl border-2 border-blue-600"
               >
-                - More Details -
-              </Link>
-            </div>
-          ))}
+                <div className="card-body items-start text-start">
+                  {/* Afficher les détails de l'offre d'emploi en utilisant les données du 'job' */}
+                  <span className="whitespace-nowrap rounded-full px-4 py-0.5 text-sm font-bold text-blue-600 bg-[#0057FF] bg-opacity-30">
+                    {offre.contrat}
+                  </span>
+                  <h2 className="card-title text-gray-800">{offre.poste}</h2>
+                  <p className="text-sm">{offre.description}</p>
+                  <h3 className="text-blue-600 mt-3">
+                    <FontAwesomeIcon
+                      icon={faMapMarkerAlt}
+                      className="text-blue-600 mr-2"
+                    />
+                    {offre.localisation}
+                  </h3>
+                  <h3 className="text-blue-600 ">
+                    <FontAwesomeIcon
+                      icon={faBuilding}
+                      className="text-blue-600 mr-2"
+                    />
+                    {offre.entreprise}
+                  </h3>
+                </div>
+                <Link
+                  to={`/Jobdescription/${offre._id}`}
+                  type="button"
+                  className="link link-hover text-blue-600 text-center mb-4"
+                >
+                  - More Details -
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </section>

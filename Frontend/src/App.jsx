@@ -13,6 +13,7 @@ import Jobdescription from "./Pages/Jobdescription.jsx";
 import Profile from "./Pages/Profile.jsx";
 import Accountrec from "./Pages/Accountrec.jsx";
 import Myapplications from "./Pages/Myapplications.jsx";
+import Cardapplydescription from "./components/Card/Cardapplydescription.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -38,6 +39,11 @@ const router = createBrowserRouter(
       <Route path="Article/:id" element={<Article />} />
       <Route path="Login" element={<Login />} />
       <Route path="Jobdescription/:id" element={<Jobdescription />} />
+      <Route
+        path="Candidaturedescription/:id"
+        element={<Cardapplydescription />}
+      />
+
       <Route path="Accountrec" element={<Accountrec />} />
       <Route path="Profile" element={<Profile />} />
       <Route path="Myapplications" element={<Myapplications />} />

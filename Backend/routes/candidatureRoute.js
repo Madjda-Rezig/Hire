@@ -1,7 +1,8 @@
 const {
     getAllcandidatures, 
     postCandidature, 
-    modifierCandidature
+    modifierCandidature,
+    paginationCandidatures,
 } = require("../controllers/candidatureController")
 
 
@@ -13,6 +14,9 @@ const candidatureRoute = require("express").Router()
 candidatureRoute
   // Endpoint to get all candidatures
   .get("/all", protectRecruteur, getAllcandidatures)
+
+  //Endpoint for offer pagination
+.get('/pagination',protectCandidat, paginationCandidatures)
 
   // Endpoint to add a new candidature for a specific offre
   .post("/add/:idOffre", protectCandidat, postCandidature)

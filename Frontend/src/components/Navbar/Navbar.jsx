@@ -95,12 +95,12 @@ function Navbar() {
                     >
                       <li>
                         <Link to={"/Profile"}>
-                          <a className="justify-between">Profile</a>
+                          <a className="justify-between">My Profile</a>
                         </Link>
                       </li>
                       <li>
                         <Link to={"/Myapplications"}>
-                          <a className="justify-between">My applications</a>
+                          <a className="justify-between">My Applications</a>
                         </Link>
                       </li>
 

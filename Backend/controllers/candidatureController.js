@@ -49,3 +49,21 @@ exports.modifierCandidature = expressAsyncHandler(async (req, res) => {
     console.log(error)
   }
 })
+
+
+//Pagination for application
+exports.paginationCandidatures = expressAsyncHandler(async (req, res) => {
+  try {
+    const { page } = req.query;
+    const pages = Math.ceil((await candidatureModel.countDocuments())/8)
+    const skipPage = (page - 1) * 8;
+    const candidatures = await candidatureModel.find({idCandidat: req.user._id}).skip(skipPage).limit(8);
+    res.status(200).json({
+      pages,
+      candidatures
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
