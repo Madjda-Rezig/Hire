@@ -10,12 +10,8 @@ const Cardcandidature = ({ candidatures }) => {
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="text-3xl font-bold sm:text-4xl text-blue-600">
-            Available job opportunities
+            My Applications
           </h2>
-          <p className="mt-4 text-gray-600">
-            Browse through our extensive collection of career opportunities and
-            unlock the path to your ideal job!
-          </p>
         </div>
 
         <div className="mt-12 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center justify-items-center">

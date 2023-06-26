@@ -1,4 +1,4 @@
-import Cardcandidature from "../components/Card/Cardjob.jsx";
+import Cardcandidature from "../components/Card/Cardcandidature";
 import Pagination from "../components/Pagination/Pagination.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
