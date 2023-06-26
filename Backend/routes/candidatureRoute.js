@@ -19,7 +19,7 @@ candidatureRoute
 .get('/pagination',protectCandidat, paginationCandidatures)
 
   // Endpoint to add a new candidature for a specific offre
-  .post("/add/:idOffre", protectCandidat, postCandidature)
+  .post("/add/:idOffre", postCandidature)
 
   // Endpoint to modify a candidature by ID 
   .put('/:id', protectCandidat, modifierCandidature);

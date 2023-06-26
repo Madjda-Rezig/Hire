@@ -4,7 +4,8 @@ const {
     ajouterEntreprise,
     supprimerEntreprise,
     modifierEntreprise ,
-    paginationEntreprises
+    paginationEntreprises,
+    companyDetiails
 
 } = require("../controllers/entrepriseController")
 
@@ -37,8 +38,9 @@ entrepriseRouter
   .get('/pagination', paginationEntreprises)
 
   // Endpoint to get a specific entreprise by ID
+  .get('/company/:id', companyDetiails)
+  //Fetch comany details by Name
   .get("/:id", afficherEntreprise)
-
   // Endpoint to add a new entreprise
   .post("/add", upload.single("logo"), protectAdmin, ajouterEntreprise)
 

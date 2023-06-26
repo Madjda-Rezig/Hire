@@ -1,5 +1,6 @@
 const entrepriseModel = require("../models/entrepriseModel");
-const expressAsyncHandler = require("express-async-handler")
+const expressAsyncHandler = require("express-async-handler");
+const offreModel = require("../models/offreModel");
 
 
 
@@ -42,18 +43,38 @@ exports.afficherEntreprises = async (req, res) => {
 
 // Show a company
 
-exports.afficherEntreprise = async (req, res) => {
-  try {
-    const entreprise = await entrepriseModel.findById(req.params.id);
-    if (!entreprise) {
-      return res.status(404).json({ message: "Entreprise introuvable" });
-    }
-    res.json(entreprise);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
 
+exports.afficherEntreprise = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const entreprise = await entrepriseModel.findById(id);
+    if (!entreprise) {
+      res.status(404);
+      throw new Error("entreprise non trouvé");
+    }
+    res.status(200).json(entreprise);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
+
+//Comany details
+exports.companyDetiails = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const offre = await offreModel.findById(id);
+    const entreprise = await entrepriseModel.find({nomentreprise: offre.entreprise})
+    if (!entreprise) {
+      res.status(404);
+      throw new Error("entreprise non trouvé");
+    }
+    res.status(200).json(entreprise);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+})
 //////////////////////////////////////////////
 
 // Update a company 

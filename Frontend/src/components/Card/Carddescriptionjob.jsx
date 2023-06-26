@@ -41,7 +41,8 @@ const Carddescriptionjob = () => {
           <div className="flex w-full">
             <div className="grid h-auto flex-grow card bg-white rounded-lg place-items-start pt-5 pb-5 pl-20">
               <p className="pb-1">
-                <b> Lieu de travail :{}</b>
+                <b> Lieu de travail :</b>
+                {offre.localisation}
               </p>
               <p className="pb-1">
                 <b>Date d'expiration :</b>
@@ -57,9 +58,11 @@ const Carddescriptionjob = () => {
               </p>
               <p className="pb-1">
                 <b>Niveau d'étude :</b>
+                {offre.diplome}
               </p>
               <p className="pb-1">
                 <b>Type de contrat :</b>
+                {offre.contrat}
               </p>
             </div>
           </div>
@@ -72,13 +75,7 @@ const Carddescriptionjob = () => {
             <h2 className="card-title font-bold text-xl mt-1">
               Définition du poste :
             </h2>
-            <p>
-              IT Content & Integration Dev Administrator : assure le
-              développement back-end du contenu Mobile APP, du MFS ,
-              l’intégration des fournisseurs de contenu et marketplace ainsi que
-              la digitalisation des processus de l’entreprise tout en respectant
-              les procédures SoX
-            </p>
+            <p>{offre.description}</p>
             <h2 className=" font-bold text-xl mt-4">Taches Principales :</h2>
             <p>
               Assure l’étude de faisabilité et étable les plans d’action de leur
