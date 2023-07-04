@@ -4,7 +4,7 @@ const candidatureModel = new mongoose.Schema(
   {
     idOffre: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "offre",
+      ref: "Offre",
       required: true,
     },
     idCandidat: {

@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 const Cardapplydescription = () => {
   const { id } = useParams();
   const [candidature, setCandidature] = useState(null);
+  const user = JSON.parse(localStorage.getItem("User"));
   useEffect(() => {
     const fetchCandidature = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/candidatures/${id}`
+          `http://localhost:5000/candidatures/candidat/${id}`,
+          { headers: { Authorization: `Bearer ${user.accessToken}` } }
         );
         setCandidature(response.data);
       } catch (error) {
@@ -30,7 +32,6 @@ const Cardapplydescription = () => {
             <h2 className="card-title font-bold text-3xl ">
               {candidature.poste}
             </h2>
-
             <div className="card-actions justify-end">
               <button className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8">
                 Apply

@@ -2,7 +2,7 @@ import React from "react";
 
 const Breadcrumbs = () => {
   return (
-    <div className="text-sm breadcrumbs flex justify-center">
+    <div className="text-sm  breadcrumbs flex justify-center">
       <ul>
         <li>
           <a href="/">Home</a>

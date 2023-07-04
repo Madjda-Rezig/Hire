@@ -13,7 +13,7 @@ import Jobdescription from "./Pages/Jobdescription.jsx";
 import Profile from "./Pages/Profile.jsx";
 import Accountrec from "./Pages/Accountrec.jsx";
 import Myapplications from "./Pages/Myapplications.jsx";
-import Cardapplydescription from "./components/Card/Cardapplydescription.jsx";
+import Cardapplydescription from "./Pages/Candidaturedescription.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";

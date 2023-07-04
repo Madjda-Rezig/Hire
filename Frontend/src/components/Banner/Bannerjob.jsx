@@ -24,16 +24,17 @@ const Bannerjob = () => {
 
     fetchCompany();
   }, [id]);
-  console.log(company);
   if (!company) {
-    return <div>Loading...</div>;
+    return (
+      <div className="text-center my-16 font-bold text-xl">Loading...</div>
+    );
   }
   return (
     <div className="hero min-h-max bg-base-200 pt-10 pb-10">
       <div className="hero-content flex-col lg:flex-row">
         <img
-          src={company[0].logo}
-          className="max-w-5xl rounded-lg shadow-2xl"
+          src={`http://localhost:5000/images/${company[0].logo}`}
+          className="w-32 rounded-full shadow-2xl"
         />
         <div className="pl-8">
           <h1 className="text-4xl font-bold">{company[0].nomentreprise}</h1>

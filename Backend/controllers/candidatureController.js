@@ -15,6 +15,21 @@ exports.getAllcandidatures = expressAsyncHandler(async (req, res) => {
 })
 
 //////////////////////////////////////////////
+// Show an application
+exports.afficherCandidature = expressAsyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const candidature = await candidatureModel.findById(id);
+    if (!candidature) {
+      res.status(404);
+      throw new Error("candidature non trouvé");
+    }
+    res.status(200).json(candidature);
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
 
 //Add an application
 
@@ -34,6 +49,7 @@ exports.postCandidature = expressAsyncHandler(async (req, res) => {
 })
 
 //////////////////////////////////////////////
+
 
 
 //Update an application
@@ -57,7 +73,7 @@ exports.paginationCandidatures = expressAsyncHandler(async (req, res) => {
     const { page } = req.query;
     const pages = Math.ceil((await candidatureModel.countDocuments())/8)
     const skipPage = (page - 1) * 8;
-    const candidatures = await candidatureModel.find({idCandidat: req.user._id}).skip(skipPage).limit(8);
+    const candidatures = await candidatureModel.find({idCandidat: req.user._id}).skip(skipPage).limit(8).populate('idOffre');
     res.status(200).json({
       pages,
       candidatures

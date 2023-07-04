@@ -1,5 +1,6 @@
 const {
-    getAllcandidatures, 
+    getAllcandidatures,
+    afficherCandidature, 
     postCandidature, 
     modifierCandidature,
     paginationCandidatures,
@@ -15,11 +16,15 @@ candidatureRoute
   // Endpoint to get all candidatures
   .get("/all", protectRecruteur, getAllcandidatures)
 
-  //Endpoint for offer pagination
+    //Endpoint for offer pagination
 .get('/pagination',protectCandidat, paginationCandidatures)
 
+  // Endpoint to get a candidature by id 
+  .get("/candidat/:id",protectCandidat,afficherCandidature)
+
+
   // Endpoint to add a new candidature for a specific offre
-  .post("/add/:idOffre", postCandidature)
+  .post("/add/:idOffre",protectCandidat, postCandidature)
 
   // Endpoint to modify a candidature by ID 
   .put('/:id', protectCandidat, modifierCandidature);
