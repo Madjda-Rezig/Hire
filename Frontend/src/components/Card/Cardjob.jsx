@@ -19,8 +19,7 @@ const Cardjob = ({ offres }) => {
         </div>
 
         <div className="mt-12 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center justify-items-center">
-          {offres &&
-            offres.length &&
+          {offres && offres.length ? (
             offres.map((offre) => (
               <div
                 key={offre.id}
@@ -56,7 +55,10 @@ const Cardjob = ({ offres }) => {
                   - More Details -
                 </Link>
               </div>
-            ))}
+            ))
+          ) : (
+            <h1 className="text-center font-bold">Pas de résultat!</h1>
+          )}
         </div>
       </div>
     </section>
