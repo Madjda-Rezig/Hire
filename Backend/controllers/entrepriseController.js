@@ -116,10 +116,27 @@ exports.supprimerEntreprise = async (req, res) => {
 
 exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
   try {
-    const { page } = req.query;
-    const pages = Math.ceil((await entrepriseModel.countDocuments())/12)
+    const { page,search } = req.query;
+    let pages
+    let entreprises
+    if(search === "") {
+     pages = Math.ceil((await entrepriseModel.countDocuments())/12)
+     const fent = await entrepriseModel.find()
+     entreprises = fent
+    } else {
+      pages = Math.ceil((await entrepriseModel.find({$or: [
+        {nomentreprise:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
+        {secteur: {$regex: new RegExp(search.toString().toLowerCase(), "i")}}
+      ]}).countDocuments())/12)
+    }
     const skipPage = (page - 1) * 12;
-    const entreprises = await entrepriseModel.find().skip(skipPage).limit(12);
+    if(search) {
+     entreprises = await entrepriseModel.find({$or: [
+      {nomentreprise:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
+      {secteur: {$regex: new RegExp(search.toString().toLowerCase(), "i")}}
+    ]}).skip(skipPage).limit(12);
+  } 
+  console.log(entreprises)
     res.status(200).json({
       pages,
       entreprises

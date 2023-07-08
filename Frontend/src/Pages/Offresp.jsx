@@ -22,7 +22,6 @@ export default function Offresp() {
           `http://localhost:5000/offres/pagination?page=${currentPage}&search=${debounceValue}`
         );
         if (response.data) {
-          console.log(response.data);
           setPages(response.data.pages);
           setOffres(response.data.offres);
         }
