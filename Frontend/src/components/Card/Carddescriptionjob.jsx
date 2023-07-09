@@ -27,7 +27,7 @@ const Carddescriptionjob = () => {
       );
       toast.success("Candidature créée !");
     } catch (error) {
-      toast.error(error);
+      toast.error(error.response.data);
     }
   };
 

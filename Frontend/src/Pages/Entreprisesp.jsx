@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import HeroCompany from "../assets/HeroCompany.jpg";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 export default function Entreprisesp() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,11 +63,14 @@ export default function Entreprisesp() {
         <div className="flex flex-row justify-center items-center w-1/3 mx-auto pb-20">
           <input
             type="text"
-            placeholder="&#128269; Search a Job"
+            placeholder="Search a Job"
             className="w-3/5 p-3 rounded-lg sm:w-2/3 shadow-2xl"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <div className="border-2 px-4 py-2.5 rounded-lg bg-blue-600 -translate-x-12">
+            <FontAwesomeIcon icon={faSearch} className="text-white " />
+          </div>
         </div>
       </section>
 

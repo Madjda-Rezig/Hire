@@ -36,15 +36,28 @@ exports.afficherCandidature = expressAsyncHandler(async (req, res) => {
 exports.postCandidature = expressAsyncHandler(async (req, res) => {
   try {  
     const idCandidat = req.user._id
-    const {idOffre} = req.params
+    const { idOffre } = req.params
+
+    // Check if the candidate has already applied to the same offer
+    const existingCandidature = await candidatureModel.findOne({
+      idCandidat,
+      idOffre,
+    })
+
+    if (existingCandidature) {
+      // If a candidature already exists, return an error message
+      return res.status(400).json("Vous avez déjà postulé à cette offre.")
+    }
+
+    // If no existing candidature found, create a new one
     await candidatureModel.create({
       idCandidat,
       idOffre, 
     })
-    res.status(201).json("Candidature creer")
+
+    res.status(201).json("Candidature créée.")
   } catch (error) {
-    res.status(400)
-    console.log(error)
+    res.status(400).json(error.message)
   }
 })
 
