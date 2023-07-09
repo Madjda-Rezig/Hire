@@ -8,7 +8,7 @@ const Pagination = ({ pages, setCurrentPage }) => {
     aywah.push(
       <button
         onClick={(e) => setCurrentPage(i)}
-        className="join-item btn bg-white text-blue-600 mr-1 ml-1 border-gray-200 shadow-sm"
+        className="join-item btn bg-white text-blue-600 mr-1 ml-1 border-gray-200 hover:bg-gray-50 hover:border-blue-600 shadow-xl text-sm"
       >
         {i}
       </button>
