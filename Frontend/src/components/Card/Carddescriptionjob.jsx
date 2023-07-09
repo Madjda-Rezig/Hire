@@ -1,25 +1,44 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Carddescriptionjob = () => {
   const { id } = useParams();
   const [offre, setOffre] = useState(null);
-  useEffect(() => {
-    const fetchOffre = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/offres/${id}`);
-        setOffre(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const user = JSON.parse(localStorage.getItem("User"));
 
+  const fetchOffre = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/offres/${id}`);
+      setOffre(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleApply = async () => {
+    try {
+      await axios.post(
+        `http://localhost:5000/candidatures/add/${id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${user.accessToken}` },
+        }
+      );
+      toast.success("Candidature créée !");
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
+  useEffect(() => {
     fetchOffre();
   }, [id]);
+
   if (!offre) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="mt-5">
       <div className="flex justify-center p-1">
@@ -107,7 +126,10 @@ const Carddescriptionjob = () => {
             <p>Diplôme d’ingénieur d’état en informatique.</p>
 
             <div className="card-actions justify-center mt-16">
-              <button className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8 w-1/4 text-xl">
+              <button
+                className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8 w-1/4 text-xl"
+                onClick={handleApply}
+              >
                 Apply!
               </button>
             </div>
