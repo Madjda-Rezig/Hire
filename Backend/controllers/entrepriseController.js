@@ -116,27 +116,25 @@ exports.supprimerEntreprise = async (req, res) => {
 
 exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
   try {
-    const { page,search } = req.query;
-    let pages
-    let entreprises
-    if(search === "") {
-     pages = Math.ceil((await entrepriseModel.countDocuments())/12)
-     const fent = await entrepriseModel.find()
-     entreprises = fent
+    const { page, search } = req.query;
+    let pages;
+    let entreprises;
+
+    if (search === "") {
+      pages = Math.ceil((await entrepriseModel.countDocuments()) / 12);
+      entreprises = await entrepriseModel.find().skip((page - 1) * 12).limit(12);
     } else {
-      pages = Math.ceil((await entrepriseModel.find({$or: [
-        {nomentreprise:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
-        {secteur: {$regex: new RegExp(search.toString().toLowerCase(), "i")}}
-      ]}).countDocuments())/12)
+      const matchingEntreprises = await entrepriseModel.find({
+        $or: [
+          { nomentreprise: { $regex: new RegExp(search.toString().toLowerCase(), "i") } },
+          { secteur: { $regex: new RegExp(search.toString().toLowerCase(), "i") } }
+        ]
+      });
+
+      pages = Math.ceil(matchingEntreprises.length / 3);
+      entreprises = matchingEntreprises;
     }
-    const skipPage = (page - 1) * 12;
-    if(search) {
-     entreprises = await entrepriseModel.find({$or: [
-      {nomentreprise:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
-      {secteur: {$regex: new RegExp(search.toString().toLowerCase(), "i")}}
-    ]}).skip(skipPage).limit(12);
-  } 
-  console.log(entreprises)
+
     res.status(200).json({
       pages,
       entreprises

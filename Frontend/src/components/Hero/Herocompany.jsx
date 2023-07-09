@@ -17,11 +17,11 @@ const Herocompany = () => {
           Our Job is to Help to Find a Job
         </h1>
       </div>
-      <div className="flex flex-row justify-center items-center w-1/3 mx-auto pb-20">
+      <div className="flex flex-row justify-center items-center w-1/3 mx-auto ">
         <input
           type="text"
           placeholder="Search for a company"
-          className="w-3/5 p-3 rounded-l-lg sm:w-2/3"
+          className="w-3/5  rounded-l-lg sm:w-2/3"
         />
         <button
           type="button"
