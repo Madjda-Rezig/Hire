@@ -24,7 +24,6 @@ export default function Entreprisesp() {
         );
         if (response.data) {
           setPages(response.data.pages);
-          console.log(response.data);
           setEntreprises(response.data.entreprises);
         }
       } catch (error) {

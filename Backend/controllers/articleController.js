@@ -1,3 +1,4 @@
+const articleModel = require("../models/articleModel");
 const ArticleModel = require("../models/articleModel");
 const expressAsyncHandler = require("express-async-handler");
 
@@ -117,10 +118,25 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
 
 exports.paginationArticle = expressAsyncHandler(async (req, res) => {
   try {
-    const { page } = req.query;
-    const pages = Math.ceil((await ArticleModel.countDocuments())/3)
-    const skipPage = (page - 1) * 3;
-    const articles = await ArticleModel.find().skip(skipPage).limit(3);
+    const { page, search } = req.query;
+    let pages;
+    let articles;
+
+    if (search === "") {
+      pages = Math.ceil((await articleModel.countDocuments()) / 3);
+      articles = await articleModel.find().skip((page - 1) * 3).limit(3);
+    } else {
+      const matchingArticles = await articleModel.find({
+        $or: [
+          { titre: { $regex: new RegExp(search.toString().toLowerCase(), "i") } },
+          { categorie: { $regex: new RegExp(search.toString().toLowerCase(), "i") } }
+        ]
+      });
+
+      pages = Math.ceil(matchingArticles.length / 3);
+      articles = matchingArticles;
+    }
+
     res.status(200).json({
       pages,
       articles
