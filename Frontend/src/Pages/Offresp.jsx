@@ -7,6 +7,8 @@ import { useDebounce } from "../hooks/useDebounce.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Offresp() {
   const [loading, setLoading] = useState(true);
@@ -59,11 +61,14 @@ export default function Offresp() {
         <div className="flex flex-row justify-center items-center w-1/3 mx-auto pb-20">
           <input
             type="text"
-            placeholder="&#128269; Search a Job"
+            placeholder="Search a Job"
             className="w-3/5 p-3 rounded-lg sm:w-2/3 shadow-2xl"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <div className="border-2 px-4 py-2.5 rounded-lg bg-blue-600 -translate-x-12">
+            <FontAwesomeIcon icon={faSearch} className="text-white " />
+          </div>
         </div>
         <div className="p-6 pb-8 items-center rounded-3xl w-10/12 mx-auto border mb-8 border-blue-600 border-opacity-50 backdrop-blur-xl shadow-gray-400 shadow-lg translate-y-1/2 ">
           <form className="flex flex-row justify-evenly items-end w-full gap-6 mx-auto">

@@ -40,7 +40,7 @@ function Navbar() {
 
           <div className="hidden md:block">
             <nav aria-label="Site Nav">
-              <ul className="flex items-center gap-6 text-lg">
+              <ul className="flex items-center gap-20 text-lg">
                 <li>
                   <Link to={"/Offresp"}>
                     <a className="text-blue-600 font-semibold transition  hover:text-gray-500/75">

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import React from "react";
 import { useDebounce } from "../hooks/useDebounce.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Blog() {
   const [loading, setLoading] = useState(true);
@@ -56,11 +58,14 @@ export default function Blog() {
         <div className="flex flex-row justify-center items-center w-1/2 mx-auto">
           <input
             type="text"
-            placeholder="&#128269; Search a Job"
+            placeholder="Search a Job"
             className="w-3/5 p-3 rounded-lg sm:w-2/3 shadow-2xl my-6"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <div className="border-2 px-4 py-2.5 rounded-lg bg-blue-600 -translate-x-12">
+            <FontAwesomeIcon icon={faSearch} className="text-white " />
+          </div>
         </div>
       </section>
       <CardArticle articles={articles} />
