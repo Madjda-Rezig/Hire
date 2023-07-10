@@ -15,8 +15,8 @@ exports.subscribeToNewsletter = expressAsyncHandler(async (req, res) => {
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-            user: 'aurelie.rippin@ethereal.email',
-            pass: 'mE8qA1RN6kCq7NGz7w'
+            user: 'abigail.hartmann96@ethereal.email',
+        pass: 'hmnTKyeZpsHXySZB2z'
         },
       });
   
@@ -66,3 +66,45 @@ exports.getAllSubscribers = expressAsyncHandler(async (req, res) => {
       throw new Error(error);
     }
   });
+
+
+
+  /////////////////////////////////////////////////////////////////
+
+  // Send Group Email
+exports.sendGroupEmail = expressAsyncHandler(async (req, res) => {
+    try {
+      const subscribers = await newsletterModel.find({});
+      const emails = subscribers.map((subscriber) => subscriber.mail);
+  
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'abigail.hartmann96@ethereal.email',
+            pass: 'hmnTKyeZpsHXySZB2z'
+        },
+      });
+  
+      const mailOptions = {
+        from: 'WorkUp@gmail.com',
+        to: emails.join(','),
+        subject: 'WorkUp Newsletter',
+        text: 'Hello,\n\nThis is a group email sent to all subscribers of the WorkUp Newsletter.\n\nBest regards,\nYour WorkUp Team'
+      };
+  
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+          throw new Error('Failed to send group email.');
+        } else {
+          console.log('Group email sent:', info.response);
+          res.status(200).json('Group email sent successfully!');
+        }
+      });
+    } catch (error) {
+      res.status(400);
+      throw new Error(error);
+    }
+  });
+  
