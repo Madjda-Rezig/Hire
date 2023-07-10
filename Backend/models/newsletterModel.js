@@ -6,7 +6,7 @@ const newsletterSchema = new mongoose.Schema(
         type: String,
         required: true,
         unique: true, // je m' Assure que chaque adresse e-mail est unique
-        match: /^\S+@\S+\.\S+$/, 
+        
       },
    
     date_creation: {
