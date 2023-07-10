@@ -16,13 +16,31 @@ export default function Offresp() {
   const [search, setSearch] = useState("");
   const [pages, setPages] = useState(0);
   const [offres, setOffres] = useState([]);
+  const [filter, setFilter] = useState(false);
+  const [filterData, setFilterData] = useState({
+    contrat: "",
+    experience: "",
+    entreprise: "",
+  });
+
   const debounceValue = useDebounce(search, 350);
   useEffect(() => {
     const afficherOffre = async () => {
       try {
+        let searchParamas = [];
+        if (filterData.contrat !== "")
+          searchParamas.push(`&contrat=${filterData.contrat}`);
+        if (filterData.experience !== "")
+          searchParamas.push(`&experience=${filterData.experience}`);
+        if (filterData.entreprise !== "")
+          searchParamas.push(`&entreprise=${filterData.entreprise}`);
+        console.log(searchParamas.join(""));
         const response = await axios.get(
-          `http://localhost:5000/offres/pagination?page=${currentPage}&search=${debounceValue}`
+          `http://localhost:5000/offres/pagination?page=${currentPage}&search=${debounceValue}${searchParamas.join(
+            ""
+          )}`
         );
+
         if (response.data) {
           setPages(response.data.pages);
           setOffres(response.data.offres);
@@ -34,7 +52,18 @@ export default function Offresp() {
       }
     };
     afficherOffre();
-  }, [currentPage, debounceValue]);
+  }, [currentPage, debounceValue, filter]);
+
+  const handleFilterOnChange = (e) => {
+    setFilterData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleFilterOnSubmit = (e) => {
+    e.preventDefault();
+    setFilter(!filter);
+  };
   if (loading)
     return (
       <h1 className="h-screen w-screen text-4xl text-center flex items-center justify-center">
@@ -71,12 +100,20 @@ export default function Offresp() {
           </div>
         </div>
         <div className="p-6 pb-8 items-center rounded-3xl w-10/12 mx-auto border mb-8 border-blue-600 border-opacity-50 backdrop-blur-xl shadow-gray-400 shadow-lg translate-y-1/2 ">
-          <form className="flex flex-row justify-evenly items-end w-full gap-6 mx-auto">
+          <form
+            onSubmit={handleFilterOnSubmit}
+            className="flex flex-row justify-evenly items-end w-full gap-6 mx-auto"
+          >
             <div className="flex flex-col flex-1 gap-2">
               <label className="text-white font-semibold tracking-wider">
                 Contrat
               </label>
-              <select className="rounded-xl border border-blue-600  hover:border-gray-600">
+              <select
+                name="contrat"
+                onChange={handleFilterOnChange}
+                value={filterData.contrat}
+                className="rounded-xl border border-blue-600  hover:border-gray-600"
+              >
                 <option value="">Tous</option>
                 <option value="CDI">CDI</option>
                 <option value="CDD">CDD</option>
@@ -87,18 +124,28 @@ export default function Offresp() {
               <label className="text-white font-semibold tracking-wider">
                 Entreprise
               </label>
-              <select className="rounded-xl border border-blue-600  hover:border-gray-600">
+              <select
+                name="entreprise"
+                onChange={handleFilterOnChange}
+                value={filterData.entreprise}
+                className="rounded-xl border border-blue-600  hover:border-gray-600"
+              >
                 <option value="">Tous</option>
-                <option value="CDI">Djezzy</option>
-                <option value="CDD">BNP</option>
-                <option value="Stage">KPMG</option>
+                <option value="Djezzy">Djezzy</option>
+                <option value="BNP">BNP</option>
+                <option value="Kpmg">KPMG</option>
               </select>
             </div>
             <div className="flex flex-col flex-1 gap-2">
               <label className="text-white font-semibold tracking-wider">
                 Expérience
               </label>
-              <select className="rounded-xl border border-blue-600 hover:border-gray-600">
+              <select
+                name="experience"
+                onChange={handleFilterOnChange}
+                value={filterData.experience}
+                className="rounded-xl border border-blue-600 hover:border-gray-600"
+              >
                 <option value="">Tous</option>
                 <option value="0-2">0-2 ans</option>
                 <option value="2-5">2-5 ans</option>

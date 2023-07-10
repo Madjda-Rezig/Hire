@@ -134,7 +134,9 @@ exports.paginationArticle = expressAsyncHandler(async (req, res) => {
       });
 
       pages = Math.ceil(matchingArticles.length / 3);
+      console.log(pages)
       articles = matchingArticles;
+      console.log(articles)
     }
 
     res.status(200).json({

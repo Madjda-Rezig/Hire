@@ -166,28 +166,25 @@ exports.paginationOffres = expressAsyncHandler(async (req, res) => {
   try {
     const { page,search, ...rest } = req.query;
     let pages
-    if(search === "") {
-     pages = Math.ceil((await offreModel.countDocuments())/12)
+    let offres
+    if(search === "" || search == undefined) {
+      pages = Math.ceil((await offreModel.find(rest).countDocuments())/12)
+      const skipPage = (page - 1) * 12
+      offres = await offreModel.find(rest).skip(skipPage).limit(12)
     } else {
       pages = Math.ceil((await offreModel.find({$or: [
-        {poste:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
-        {entreprise: {$regex: new RegExp(search.toString().toLowerCase(), "i")}, ...rest}
-      ]}).countDocuments())/12)
+        {poste:  {$regex: new RegExp(search?.toString().toLowerCase(), "i")}},
+        {entreprise: {$regex: new RegExp(search?.toString().toLowerCase(), "i")}}
+      ],...rest}).countDocuments())/12)
+      offres = await offreModel.find({$or: [
+        {poste:  {$regex: new RegExp(search?.toString().toLowerCase(), "i")}},
+        {entreprise: {$regex: new RegExp(search?.toString().toLowerCase(), "i")}}
+      ],...rest})
     }
-    const skipPage = (page - 1) * 12;
-    let offres
-    if(search) {
-    // offres = await offreModel.find({poste: {$regex: new RegExp(search.toString().toLowerCase(), "i")}}).skip(skipPage).limit(12);
-    offres = await offreModel.find({$or: [
-      {poste:  {$regex: new RegExp(search.toString().toLowerCase(), "i")}},
-      {entreprise: {$regex: new RegExp(search.toString().toLowerCase(), "i")}, ...rest}
-    ]}).skip(skipPage).limit(12);
-  } else {
-  offres = await offreModel.find(rest).skip(skipPage).limit(12);
-}
+  
     res.status(200).json({
       pages,
-      offres
+      offres: offres 
     });
   } catch (error) {
     res.status(400);
