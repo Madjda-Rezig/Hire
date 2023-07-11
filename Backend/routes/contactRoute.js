@@ -13,4 +13,4 @@ contactRouter
 .get("/all",getAllMessages)
 
 
-module.exports = newsletterRouter;
+module.exports = contactRouter;

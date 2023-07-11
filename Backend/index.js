@@ -10,6 +10,7 @@ const candidatureRoute = require("./routes/candidatureRoute")
 const entrepriseRoute = require("./routes/entrepriseRoute")
 const articleRoute = require("./routes/articleRoute")
 const newsletterRoute = require("./routes/newsletterRoute")
+const contactRoute = require("./routes/contactRoute")
 const path = require('path')
 
 require("dotenv").config()
@@ -32,7 +33,7 @@ index.use("/candidatures", candidatureRoute)
 index.use("/entreprises", entrepriseRoute)
 index.use("/articles", articleRoute)
 index.use("/newsletter", newsletterRoute)
-
+index.use("/contactus", contactRoute)
 index.use("/*", (req, res) => {
   res.status(404).json("Not found!")
 })
