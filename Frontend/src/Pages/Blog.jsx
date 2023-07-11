@@ -8,6 +8,7 @@ import React from "react";
 import { useDebounce } from "../hooks/useDebounce.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Subscribe from "../components/Subscribe/Subscribe.jsx";
 
 export default function Blog() {
   const [loading, setLoading] = useState(true);
@@ -70,6 +71,7 @@ export default function Blog() {
       </section>
       <CardArticle articles={articles} />
       <Pagination pages={pages} setCurrentPage={setCurrentPage} />
+      <Subscribe />
     </div>
   );
 }
