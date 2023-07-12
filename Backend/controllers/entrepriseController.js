@@ -114,11 +114,12 @@ exports.supprimerEntreprise = async (req, res) => {
 
 //Pagination for companies
 
-exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
+/*exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
   try {
     const { page, search } = req.query;
     let pages;
     let entreprises;
+    
 
     if (search === "") {
       pages = Math.ceil((await entrepriseModel.countDocuments()) / 12);
@@ -143,4 +144,50 @@ exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(error);
   }
+}); */
+
+exports.paginationEntreprises = expressAsyncHandler(async (req, res) => {
+  try {
+    const { page, search } = req.query;
+    let pages;
+    let entreprises;
+
+    const entreprisesPerPage = 12; // Nombre d'entreprises par page
+
+    if (search === "") {
+      const totalEntreprises = await entrepriseModel.countDocuments();
+      pages = Math.ceil(totalEntreprises / entreprisesPerPage);
+      entreprises = await entrepriseModel
+        .find()
+        .skip((page - 1) * entreprisesPerPage)
+        .limit(entreprisesPerPage);
+    } else {
+      const matchingEntreprises = await entrepriseModel.find({
+        $or: [
+          { nomentreprise: { $regex: new RegExp(search.toString().toLowerCase(), "i") } },
+          { secteur: { $regex: new RegExp(search.toString().toLowerCase(), "i") } }
+        ]
+      });
+
+      const totalMatchingEntreprises = matchingEntreprises.length;
+      pages = Math.ceil(totalMatchingEntreprises / entreprisesPerPage);
+      entreprises = matchingEntreprises.slice(
+        (page - 1) * entreprisesPerPage,
+        page * entreprisesPerPage
+      );
+    }
+
+    res.status(200).json({
+      pages,
+      entreprises
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
 });
+
+
+
+
+
