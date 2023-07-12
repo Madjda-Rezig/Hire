@@ -37,3 +37,16 @@ exports.getAllMessages = async (req, res) => {
 };
 
 
+// Endpoint pour supprimer un message en utilisant son ID
+exports.deleteMessage = async (req, res) => {
+  try {
+    const messageId = req.params.id;
+
+    // Supprimer le message de la base de données en utilisant l'ID fourni
+    await contactModel.findByIdAndDelete(messageId);
+
+    res.status(200).json({ message: "Message deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete message" });
+  }
+};
