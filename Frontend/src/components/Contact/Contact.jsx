@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const { name, mail, message } = formData;
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Envoie de la requête à la base de données
+    sendMessageToDatabase();
+  };
+
+  const sendMessageToDatabase = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/contact/contactus", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(data.message);
+        toast.success(data.message);
+      } else {
+        console.log(data.error);
+        toast.error(data.error);
+      }
+    } catch (error) {
+      console.log("Failed to send message:", error);
+      toast.error("Failed to send message");
+    }
+  };
+
   return (
     <section className="py-6 bg-white text-gray-600" id="Contact">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
@@ -55,11 +100,15 @@ const Contact = () => {
         <form
           noValidate=""
           className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid"
+          onSubmit={handleSubmit}
         >
           <label className="block">
             <span className="mb-1">Full name</span>
             <input
               type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
               className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             />
           </label>
@@ -67,6 +116,9 @@ const Contact = () => {
             <span className="mb-1">Email address</span>
             <input
               type="email"
+              name="mail"
+              value={mail}
+              onChange={handleChange}
               className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             />
           </label>
@@ -74,11 +126,14 @@ const Contact = () => {
             <span className="mb-1">Message</span>
             <textarea
               rows="3"
+              name="message"
+              value={message}
+              onChange={handleChange}
               className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-[#1CD2B1] bg-white"
             ></textarea>
           </label>
           <button
-            type="button"
+            type="submit"
             className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#1CD2B1] text-white focus:ring-[#1CD2B1] hover:ring-gray-600"
           >
             Submit
