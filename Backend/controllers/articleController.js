@@ -116,10 +116,10 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
 
 //Pagination for article
 
-exports.paginationArticle = expressAsyncHandler(async (req, res) => {
-  try {
-    const { page, search } = req.query;
-    let pages;
+ /* exports.paginationArticle = expressAsyncHandler(async (req, res) => {
+try {
+  const { page, search } = req.query;
+  let pages;
     let articles;
 
     if (search === "") {
@@ -147,4 +147,51 @@ exports.paginationArticle = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(error);
   }
+}); */
+
+
+
+exports.paginationArticle = expressAsyncHandler(async (req, res) => {
+  try {
+    const { page, search } = req.query;
+    const perPage = 3;
+    let pages;
+    let articles;
+    let totalCount;
+
+    if (search === "") {
+      totalCount = await articleModel.countDocuments();
+      pages = Math.ceil(totalCount / perPage);
+      articles = await articleModel
+        .find()
+        .skip((page - 1) * perPage)
+        .limit(perPage);
+    } else {
+      const regexSearch = new RegExp(search.toString().toLowerCase(), "i");
+      const query = {
+        $or: [
+          { titre: { $regex: regexSearch } },
+          { categorie: { $regex: regexSearch } }
+        ]
+      };
+
+      totalCount = await articleModel.countDocuments(query);
+      pages = Math.ceil(totalCount / perPage);
+      articles = await articleModel
+        .find(query)
+        .skip((page - 1) * perPage)
+        .limit(perPage);
+    }
+
+    res.status(200).json({
+      pages,
+      articles,
+      totalCount
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
 });
+
+
