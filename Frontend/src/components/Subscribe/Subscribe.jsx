@@ -45,10 +45,10 @@ const Subscribe = () => {
             >
               Subscribe
             </button>
+            {message && <p className="">{message}</p>}
           </form>
         </div>
       </div>
-      {message && <p>{message}</p>}
     </section>
   );
 };
