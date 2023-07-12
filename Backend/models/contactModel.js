@@ -8,13 +8,13 @@ const contactSchema = new mongoose.Schema(
         
         
       },
-      mail: {
+    mail: {
         type: String,
         required: true,
         
         
       },
-      message: {
+    message: {
         type: String,
         required: true,
     

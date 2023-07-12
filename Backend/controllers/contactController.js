@@ -6,12 +6,12 @@ const Contact = require("../models/contactModel");
 // Endpoint pour permettre aux utilisateurs de contacter l'admin en laissant un message, leur nom et leur email
 exports.sendMessage = async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, mail, message } = req.body;
 
     // Créer une nouvelle instance de Contact avec les données fournies
     const newMessage = new Contact({
       name,
-      email,
+      mail,
       message,
     });
 

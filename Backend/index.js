@@ -33,7 +33,7 @@ index.use("/candidatures", candidatureRoute)
 index.use("/entreprises", entrepriseRoute)
 index.use("/articles", articleRoute)
 index.use("/newsletter", newsletterRoute)
-index.use("/contactus", contactRoute)
+index.use("/contact", contactRoute)
 index.use("/*", (req, res) => {
   res.status(404).json("Not found!")
 })
