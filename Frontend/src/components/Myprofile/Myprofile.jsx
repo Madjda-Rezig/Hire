@@ -87,7 +87,12 @@ const MyProfile = () => {
   };
 
   if (!profile) {
-    return <div>Loading...</div>;
+    return (
+      <h1 className="h-screen w-screen text-4xl text-center flex items-center justify-center">
+        Loading
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
+      </h1>
+    );
   }
 
   return (
@@ -152,8 +157,7 @@ const MyProfile = () => {
             </label>
             <input
               type="date"
-              value={dateDeNaissance}
-              onChange={(e) => setDateDeNaissance(e.target.value)}
+              value={dateDeNaissance ? dateDeNaissance.slice(0, 10) : ""}
               className="input input-bordered w-full"
             />
           </div>
@@ -170,8 +174,6 @@ const MyProfile = () => {
                 disabled
               />
             </div>
-          </div>
-          <div className="w-full flex gap-2 items-center">
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text">Genre :</span>
@@ -184,12 +186,10 @@ const MyProfile = () => {
                 disabled
               />
             </div>
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text"></span>
-              </label>
-            </div>
           </div>
+        </form>
+
+        <div className="w-full flex gap-2 items-center">
           <div className="w-full flex justify-center gap-2 items-center">
             <button
               type="submit"
@@ -199,13 +199,15 @@ const MyProfile = () => {
               Modifier
             </button>
           </div>
-        </form>
-        <button
-          className="btn mt-14 border-none bg-blue-600 px-10"
-          onClick={handleDelete}
-        >
-          Supprimer
-        </button>
+          <div className="w-full flex justify-center gap-2 items-center">
+            <button
+              className="btn mt-14 border-none bg-blue-600 px-10"
+              onClick={handleDelete}
+            >
+              Supprimer
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

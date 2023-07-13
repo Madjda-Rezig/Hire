@@ -39,11 +39,11 @@ entrepriseRouter
 
   // Endpoint to get a specific entreprise by ID
   .get('/company/:id', companyDetiails)
+    // Endpoint to add a new entreprise
+    .post("/add", upload.single("logo"), protectAdmin, ajouterEntreprise)
   //Fetch comany details by Name
   .get("/:id", afficherEntreprise)
-  // Endpoint to add a new entreprise
-  .post("/add", upload.single("logo"), protectAdmin, ajouterEntreprise)
-
+ 
   // Endpoint to delete an entreprise by ID
   .delete("/:id", protectAdmin, supprimerEntreprise)
 
