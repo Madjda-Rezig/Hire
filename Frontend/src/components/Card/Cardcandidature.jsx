@@ -5,7 +5,6 @@ import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Cardcandidature = ({ candidatures }) => {
-  console.log(candidatures);
   return (
     <section className="bg-white text-black">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
@@ -27,7 +26,7 @@ const Cardcandidature = ({ candidatures }) => {
                   {candidature.idOffre.contrat}
                 </span>
                 <h2 className="card-title text-gray-800">
-                  {candidature.poste}
+                  {candidature.idOffre.poste}
                 </h2>
                 <p className="text-sm">{candidature.idOffre.description}</p>
                 <h3 className="text-blue-600 mt-3">

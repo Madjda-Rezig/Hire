@@ -47,7 +47,10 @@ const Carddescriptionjob = () => {
             <h2 className="card-title font-bold text-3xl ">{offre.poste}</h2>
 
             <div className="card-actions justify-end">
-              <button className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8">
+              <button
+                className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8 "
+                onClick={handleApply}
+              >
                 Apply
               </button>
             </div>

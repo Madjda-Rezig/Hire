@@ -14,6 +14,7 @@ const Layout = () => {
       {location.pathname === "/" && <Navbar />}
       {location.pathname === "/Profile" && <Navbar />}
       {location.pathname.startsWith("/Jobdescription") && <Navbar />}
+      {location.pathname.startsWith("/Candidaturedescription") && <Navbar />}
       {location.pathname === "/Myapplications" && <Navbar />}
       <main>
         <Outlet />
