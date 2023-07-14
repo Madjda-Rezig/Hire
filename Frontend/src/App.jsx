@@ -11,9 +11,9 @@ import Recruteur from "./Pages/Recruteur.jsx";
 import Article from "./Pages/Article";
 import Jobdescription from "./Pages/Jobdescription.jsx";
 import Profile from "./Pages/Profile.jsx";
-import Accountrec from "./Pages/Accountrec.jsx";
+import Dashbordrec from "./Pages/Dashbordrec.jsx";
 import Myapplications from "./Pages/Myapplications.jsx";
-import Cardapplydescription from "./Pages/Candidaturedescription.jsx";
+import Candidaturedescription from "./Pages/Candidaturedescription.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -24,6 +24,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Bannerjob from "./components/Banner/Bannerjob.jsx";
 
 // Routes //
 
@@ -41,10 +42,10 @@ const router = createBrowserRouter(
       <Route path="Jobdescription/:id" element={<Jobdescription />} />
       <Route
         path="Candidaturedescription/:id"
-        element={<Cardapplydescription />}
+        element={<Candidaturedescription />}
       />
 
-      <Route path="Accountrec" element={<Accountrec />} />
+      <Route path="Dashbordrec" element={<Dashbordrec />} />
       <Route path="Profile" element={<Profile />} />
       <Route path="Myapplications" element={<Myapplications />} />
       <Route path="Recruteur/Loginrecruteur" element={<Loginrecruteur />} />

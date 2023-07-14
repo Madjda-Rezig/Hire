@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Cardapplydescription = () => {
   const { id } = useParams();
   const [candidature, setCandidature] = useState(null);
-  const user = JSON.parse(localStorage.getItem("User"));
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchCandidature = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/candidatures/candidat/${id}`,
-          { headers: { Authorization: `Bearer ${user.accessToken}` } }
+          `http://localhost:5000/Candidatures/candidat/${id}`
         );
         setCandidature(response.data);
       } catch (error) {
-        console.log(error);
+        toast.error("Une erreur s'est produite lors du chargement de l'offre.");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchCandidature();
   }, [id]);
-  if (!candidature) {
+  console.log(candidature);
+
+  if (loading) {
     return <div>Loading...</div>;
   }
   return (
@@ -30,13 +36,8 @@ const Cardapplydescription = () => {
         <div className="card w-3/4 bg-base-100 shadow-xl border-2 border-gray-100">
           <div className="card-body">
             <h2 className="card-title font-bold text-3xl ">
-              {candidature.poste}
+              {candidature.idOffre.poste}
             </h2>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8">
-                Apply
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -46,7 +47,7 @@ const Cardapplydescription = () => {
           <div className="flex w-full">
             <div className="grid h-auto flex-grow card bg-white rounded-lg place-items-start pt-5 pb-5 pl-20">
               <p className="pb-1">
-                <b> Lieu de travail :{}</b>
+                <b> Lieu de travail :</b>
               </p>
               <p className="pb-1">
                 <b>Date d'expiration :</b>
@@ -113,12 +114,6 @@ const Cardapplydescription = () => {
               Diplômes & Formations :
             </h2>
             <p>Diplôme d’ingénieur d’état en informatique.</p>
-
-            <div className="card-actions justify-center mt-16">
-              <button className="btn btn-primary  bg-blue-600 hover:bg-gray-600 pr-8 pl-8 w-1/4 text-xl">
-                Apply!
-              </button>
-            </div>
           </div>
         </div>
       </div>

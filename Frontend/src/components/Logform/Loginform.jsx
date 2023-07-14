@@ -35,7 +35,7 @@ const LoginForm = () => {
       );
       if (response.data) {
         localStorage.setItem("User", JSON.stringify(response.data));
-        navigate("/Accountrec");
+        navigate("/Dashbordrec");
       }
     } catch (error) {
       toast.error(error.message);

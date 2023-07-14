@@ -22,7 +22,7 @@ candidatureRoute
 .post("/add/:idOffre",protectCandidat, postCandidature)
 
   // Endpoint to get a candidature by id 
-  .get("/candidat/:id",protectCandidat,afficherCandidature)
+  .get("/candidat/:id",afficherCandidature)
 
 
 

@@ -21,7 +21,6 @@ const Cardcandidature = ({ candidatures }) => {
               className="card w-60 bg-base-100 shadow-xl border-2 border-blue-600"
             >
               <div className="card-body items-start text-start">
-                {/* Afficher les détails de l'offre d'emploi en utilisant les données du 'job' */}
                 <span className="whitespace-nowrap rounded-full px-4 py-0.5 text-sm font-bold text-blue-600 bg-[#0057FF] bg-opacity-30">
                   {candidature.idOffre.contrat}
                 </span>
