@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-
+import Navbarrecruteur from "../Navbar/Navbarrecruteur";
+import Footerrec from "../../components/Footer/Footerhire";
 const Layout = () => {
   const location = useLocation();
   return (
@@ -16,14 +17,17 @@ const Layout = () => {
       {location.pathname.startsWith("/Jobdescription") && <Navbar />}
       {location.pathname.startsWith("/Candidaturedescription") && <Navbar />}
       {location.pathname === "/Myapplications" && <Navbar />}
+      {location.pathname === "/Recruteur" && <Navbarrecruteur />}
       <main>
         <Outlet />
       </main>
       {location.pathname !== "/Login" &&
         location.pathname !== "/Recruteur" &&
         location.pathname !== "/Register" &&
-        location.pathname !== "/Accountrec" &&
-        location.pathname !== "/Recruteur/Loginrecruteur" && <Footer />}
+        location.pathname !== "/Dashbordrec" &&
+        location.pathname !== "/Loginrecruteur" && <Footer />}
+
+      {location.pathname === "/Recruteur" && <Footerrec />}
     </div>
   );
 };

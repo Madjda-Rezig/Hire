@@ -48,7 +48,7 @@ const router = createBrowserRouter(
       <Route path="Dashbordrec" element={<Dashbordrec />} />
       <Route path="Profile" element={<Profile />} />
       <Route path="Myapplications" element={<Myapplications />} />
-      <Route path="Recruteur/Loginrecruteur" element={<Loginrecruteur />} />
+      <Route path="Loginrecruteur" element={<Loginrecruteur />} />
     </Route>
   )
 );

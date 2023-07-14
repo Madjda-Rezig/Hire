@@ -74,7 +74,7 @@ function Pricing() {
                 type="button"
                 className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded bg-[#1CD2B1] text-white"
               >
-                Get Started
+                Contact Us
               </button>
             </div>
           </div>
@@ -157,7 +157,7 @@ function Pricing() {
                 href="#Contact"
                 className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded bg-white text-[#1CD2B1]"
               >
-                Get Started
+                Contact Us
               </a>
             </div>
           </div>
@@ -240,7 +240,7 @@ function Pricing() {
                 href="#Contact"
                 className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded bg-[#1CD2B1] text-white"
               >
-                Get Started
+                Contact Us
               </a>
             </div>
           </div>
