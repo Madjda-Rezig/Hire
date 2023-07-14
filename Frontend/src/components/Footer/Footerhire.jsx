@@ -31,8 +31,8 @@ const Footerhire = () => {
         <div className="lg:flex lg:items-end lg:justify-between">
           <div>
             <div className="flex justify-center text-[#1CD2B1] lg:justify-start">
-              <Link href="/">
-                <span className="inline-block h-14 w-44  bg-white">
+              <Link to={"/Recruteur"}>
+                <span className="inline-block h-14 w-48  bg-white">
                   <img src={Logo} alt="logo" />
                 </span>
               </Link>

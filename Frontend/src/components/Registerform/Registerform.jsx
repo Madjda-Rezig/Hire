@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
+import { Link } from "react-router-dom";
 
 const Registerform = () => {
   const navigate = useNavigate();
@@ -61,7 +62,9 @@ const Registerform = () => {
       }}
     >
       <div className="bg-white border-2 border-gray-200 shadow-xl pt-10 pb-14 sm:w-4/5 md:w-3/5 lg:w-3/5 rounded-lg mt-4 mb-10 grid place-items-center ">
-        <img src={Logo} />
+        <Link to={"/"}>
+          <img src={Logo} />
+        </Link>
         <form onSubmit={handleOnSubmit} className="w-4/5 ">
           <div className="w-full flex gap-2 items-center">
             <div className="form-control w-full ">

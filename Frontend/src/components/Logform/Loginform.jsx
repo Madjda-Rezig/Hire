@@ -58,8 +58,9 @@ const LoginForm = () => {
             onSubmit={handleOnSubmit}
             className="mb-0 mt-6 space-y-4 rounded-lg p-4  sm:p-6 lg:p-8 bg-white border-2 border-gray-200 shadow-xl"
           >
-            <img src={Logo} alt="Logo" />
-
+            <Link to={"/Recruteur"}>
+              <img src={Logo} alt="Logo" />
+            </Link>
             <div>
               <label htmlFor="email" className="sr-only">
                 Email
@@ -130,8 +131,8 @@ const LoginForm = () => {
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              No account?
-              <Link to={"Recruteur"} className="underline">
+              No account?{" "}
+              <Link to={"/Recruteur"} className="underline text-[#1CD2B1]">
                 Go Back
               </Link>
             </p>

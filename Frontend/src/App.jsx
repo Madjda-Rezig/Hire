@@ -24,7 +24,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Bannerjob from "./components/Banner/Bannerjob.jsx";
 
 // Routes //
 

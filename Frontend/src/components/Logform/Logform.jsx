@@ -56,8 +56,10 @@ function Logform() {
             onSubmit={handleOnSubmit}
             className="bg-white border-2 border-blue-600 rounded-3xl pt-8 pb-8 pr-10 pl-10"
           >
-            <img src={Logo} />
-            <h1 className="text-blue-600 font-bold text-5xl mb-12 text-center">
+            <Link to={"/"}>
+              <img src={Logo} />
+            </Link>
+            <h1 className="text-blue-600 font-bold text-3xl mb-12 text-center">
               Welcome Back!
             </h1>
 
@@ -109,13 +111,18 @@ function Logform() {
             </div>
             <button
               type="submit"
-              className="block w-full bg-blue-600 mt-9 py-2 rounded-2xl text-white font-semibold mb-2"
+              className="block w-full bg-blue-600 mt-9 py-3 rounded-lg text-white font-bold mb-2"
             >
               Login
             </button>
 
             <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer ">
-              You don't have an account? Register
+              <p className="text-center text-sm text-gray-500">
+                You don't have an account?{" "}
+                <Link to={"/Register"} className="underline text-blue-600">
+                  Register
+                </Link>
+              </p>
             </span>
           </form>
         </div>

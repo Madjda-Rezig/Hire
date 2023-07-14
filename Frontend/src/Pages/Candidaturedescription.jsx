@@ -1,4 +1,3 @@
-import Bannerjob from "../components/Banner/Bannerjob";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import Cardapplydescription from "../components/Card/Cardapplydescription";
 import Bannerapply from "../components/Banner/Bannerapply";
