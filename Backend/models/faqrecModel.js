@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const faqSchema = new mongoose.Schema(
+const faqrecSchema = new mongoose.Schema(
   {
     question: {
         type: String,
@@ -25,6 +25,4 @@ const faqSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Faq", faqSchema);
-
-
+module.exports = mongoose.model("Faqrec", faqrecSchema);

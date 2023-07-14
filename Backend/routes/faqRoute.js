@@ -1,7 +1,10 @@
 const express = require("express");
 const {
     addQuestion,
-    getRandomQuestions
+    getRandomQuestions,
+    addQuestionREC,
+    getRandomQuestionsREC,
+
 } = require("../controllers/faqController")
 
 const  {protectRecruteur, protectCandidat,protectUser} = require('../middlewares/Protect')
@@ -11,6 +14,8 @@ faqRouter
 
 .post("/add", addQuestion )
 .get("/",getRandomQuestions)
+.post("/addREC", addQuestionREC )
+.get("/REC",getRandomQuestionsREC)
 
 
 module.exports = faqRouter;
