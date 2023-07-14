@@ -5,7 +5,6 @@ import Pricing from "../components/Pricing/Pricing.jsx";
 import FAQ from "../components/FAQ/Faq.jsx";
 import AboutUs from "../components/Aboutus/Aboutus.jsx";
 import Contact from "../components/Contact/Contact.jsx";
-
 import Registration from "../components/Registration/Registration.jsx";
 
 export default function Recruteur() {

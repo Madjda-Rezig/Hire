@@ -94,30 +94,27 @@ function Footer() {
               <nav aria-label="Footer Services Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="Recruteur"
-                    >
-                      About Us
-                    </a>
+                    <Link to={"/Recruteur#About"}>
+                      <a className="text-gray-700 transition hover:text-gray-700/75">
+                        About Us
+                      </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="Recruteur"
-                    >
-                      Pricing
-                    </a>
+                    <Link to={"/Recruteur#Pricing"}>
+                      <a className="text-gray-700 transition hover:text-gray-700/75">
+                        Pricing
+                      </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="Recruteur"
-                    >
-                      FAQ
-                    </a>
+                    <Link to={"/Recruteur#FAQ"}>
+                      <a className="text-gray-700 transition hover:text-gray-700/75">
+                        FAQ
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -210,7 +207,7 @@ function Footer() {
                 <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
                   <a
                     className="inline-block rounded-full bg-blue-600 p-2 text-white shadow transition hover:bg-gray-600 sm:p-3 lg:p-4"
-                    href="#Nav"
+                    href="#nav"
                   >
                     <span className="sr-only">Back to top</span>
 

@@ -25,7 +25,6 @@ const Cardapplydescription = () => {
 
     fetchCandidature();
   }, [id]);
-  console.log(candidature);
 
   if (loading) {
     return <div>Loading...</div>;

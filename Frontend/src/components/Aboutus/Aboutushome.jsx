@@ -3,7 +3,7 @@ import Image4 from "../../assets/Image4.jpeg";
 
 const Aboutushome = () => {
   return (
-    <section className="bg-white text-blue-600" id="About">
+    <section className="bg-white text-blue-600">
       <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
         <div>
           <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl text-blue-600">
