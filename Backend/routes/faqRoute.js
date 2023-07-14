@@ -4,6 +4,10 @@ const {
     getRandomQuestions,
     addQuestionREC,
     getRandomQuestionsREC,
+    deleteQuestion,
+    updateQuestion,
+    deleteQuestionREC,
+    updateQuestionREC
 
 } = require("../controllers/faqController")
 
@@ -16,6 +20,12 @@ faqRouter
 .get("/",getRandomQuestions)
 .post("/addREC",protectAdmin, addQuestionREC )
 .get("/REC",getRandomQuestionsREC)
+.put('/update/:questionId',updateQuestion)
+.delete('/delete/:questionId',deleteQuestion)
 
+
+
+.patch('/:questionIdREC',updateQuestionREC)
+.delete('/deleteREC/:questionIdREC',deleteQuestionREC);
 
 module.exports = faqRouter;

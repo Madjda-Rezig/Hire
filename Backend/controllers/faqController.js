@@ -23,7 +23,40 @@ exports.getRandomQuestions = async (req, res) => {
   }
 };
 
+// Endpoint pour supprimer une question FAQ Candidat
+exports.deleteQuestion = async (req, res) => {
+  try {
+    const { questionId } = req.params;
+    await Faq.findByIdAndDelete(questionId);
+    res.status(200).json({ message: "Question supprimée avec succès." });
+  } catch (error) {
+    res.status(500).json({ error: "Une erreur s'est produite lors de la suppression de la question." });
+  }
+};
 
+// Endpoint pour modifier une question FAQ Candidat
+exports.updateQuestion = async (req, res) => {
+  try {
+    const { questionId } = req.params;
+    const { question, answer } = req.body;
+
+    const updatedFaq = await Faq.findByIdAndUpdate(
+      questionId,
+      { question, answer },
+      { new: true }
+    );
+
+    if (!updatedFaq) {
+      return res.status(404).json({ error: "Question non trouvée." });
+    }
+
+    res.status(200).json({ message: "Question modifiée avec succès.", faq: updatedFaq });
+  } catch (error) {
+    res.status(500).json({ error: "Une erreur s'est produite lors de la modification de la question." });
+  }
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Endpoint pour ajouter FAQ Recruteur
 
@@ -46,4 +79,28 @@ exports.getRandomQuestionsREC = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des questions." });
   }
+};
+
+
+// Endpoint pour supprimer une question FAQ Recruteur
+exports.deleteQuestionREC = async (req, res) => {
+try {
+const questionIdREC = req.params.id;
+await FaqREC.findByIdAndDelete(questionIdREC);
+res.status(200).json({ message: "Question supprimée avec succès." });
+} catch (error) {
+res.status(500).json({ error: "Une erreur s'est produite lors de la suppression de la question." });
+}
+};
+
+// Endpoint pour modifier une question FAQ Recruteur
+exports.updateQuestionREC = async (req, res) => {
+try {
+const questionIdREC = req.params.id;
+const { question, answer } = req.body;
+const updatedQuestion = await FaqREC.findByIdAndUpdate(questionIdREC, { question, answer }, { new: true });
+res.status(200).json(updatedQuestion);
+} catch (error) {
+res.status(500).json({ error: "Une erreur s'est produite lors de la modification de la question." });
+}
 };
