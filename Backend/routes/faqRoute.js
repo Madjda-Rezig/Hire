@@ -7,14 +7,14 @@ const {
 
 } = require("../controllers/faqController")
 
-const  {protectRecruteur, protectCandidat,protectUser} = require('../middlewares/Protect')
+const  {protectRecruteur, protectCandidat,protectUser,protectAdmin} = require('../middlewares/Protect')
 const faqRouter = require("express").Router()
 
 faqRouter
 
-.post("/add", addQuestion )
+.post("/add",protectAdmin, addQuestion )
 .get("/",getRandomQuestions)
-.post("/addREC", addQuestionREC )
+.post("/addREC",protectAdmin, addQuestionREC )
 .get("/REC",getRandomQuestionsREC)
 
 
