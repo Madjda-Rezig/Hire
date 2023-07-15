@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebarrec = () => {
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [mail, setMail] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const user = localStorage.getItem("User");
+        const { accessToken, _id } = JSON.parse(user);
+        const response = await axios.get(`http://localhost:5000/users/${_id}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        setNom(response.data.nom);
+        setPrenom(response.data.prenom);
+        setMail(response.data.mail);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      const user = localStorage.getItem("User");
+      const token = JSON.parse(user).accessToken;
+      await axios.delete(`http://localhost:5000/auth/logout/${token}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      localStorage.removeItem("User");
+      navigate("/Recruteur");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
   return (
-    <div className="flex h-screen flex-col justify-between border-e bg-white">
+    <div className="flex h-screen flex-col justify-between border-e bg-white w-96">
       <div className="px-4 py-6">
         <ul className="mt-6 space-y-1">
           <li>
@@ -10,14 +57,23 @@ const Sidebarrec = () => {
               href=""
               className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
             >
-              General
+              Statistique
+            </a>
+          </li>
+
+          <li>
+            <a
+              href=""
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+            >
+              Profil
             </a>
           </li>
 
           <li>
             <details className="group [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                <span className="text-sm font-medium"> Teams </span>
+                <span className="text-sm font-medium"> Offres </span>
 
                 <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                   <svg
@@ -41,7 +97,7 @@ const Sidebarrec = () => {
                     href=""
                     className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                   >
-                    Banned Users
+                    Add an Offer
                   </a>
                 </li>
 
@@ -50,7 +106,7 @@ const Sidebarrec = () => {
                     href=""
                     className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                   >
-                    Calendar
+                    Show all Offers
                   </a>
                 </li>
               </ul>
@@ -58,27 +114,9 @@ const Sidebarrec = () => {
           </li>
 
           <li>
-            <a
-              href=""
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-            >
-              Billing
-            </a>
-          </li>
-
-          <li>
-            <a
-              href=""
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-            >
-              Invoices
-            </a>
-          </li>
-
-          <li>
             <details className="group [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                <span className="text-sm font-medium"> Account </span>
+                <span className="text-sm font-medium"> Candidatures </span>
 
                 <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                   <svg
@@ -127,6 +165,16 @@ const Sidebarrec = () => {
                 </li>
               </ul>
             </details>
+            <hr className="border-gray-200 my-4" />
+            <li>
+              <a
+                onClick={handleLogout}
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              >
+                <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
+                Logout
+              </a>
+            </li>
           </li>
         </ul>
       </div>
@@ -144,9 +192,11 @@ const Sidebarrec = () => {
 
           <div>
             <p className="text-xs">
-              <strong className="block font-medium">Eric Frusciante</strong>
+              <strong className="block font-medium">
+                {prenom} {nom}
+              </strong>
 
-              <span> eric@frusciante.com </span>
+              <span> {mail} </span>
             </p>
           </div>
         </a>

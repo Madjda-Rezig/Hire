@@ -14,6 +14,8 @@ import Profile from "./Pages/Profile.jsx";
 import Dashbordrec from "./Pages/Dashbordrec.jsx";
 import Myapplications from "./Pages/Myapplications.jsx";
 import Candidaturedescription from "./Pages/Candidaturedescription.jsx";
+import Admin from "./Pages/Admin.jsx";
+import Dashbordadmin from "./Pages/Dashbordadmin.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -48,6 +50,8 @@ const router = createBrowserRouter(
       <Route path="Profile" element={<Profile />} />
       <Route path="Myapplications" element={<Myapplications />} />
       <Route path="Loginrecruteur" element={<Loginrecruteur />} />
+      <Route path="Admin" element={<Admin />} />
+      <Route path="Dashbordadmin" element={<Dashbordadmin />} />
     </Route>
   )
 );

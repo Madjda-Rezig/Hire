@@ -8,7 +8,7 @@ const {
 } = require("../controllers/userController");
 
 
-const { protectCandidat, protectAdmin } = require("../middlewares/Protect");
+const { protectCandidat, protectAdmin ,protectRecruteur} = require("../middlewares/Protect");
 const userRouter = require("express").Router();
 
 
@@ -28,7 +28,7 @@ userRouter
   .delete("/delete", protectCandidat, autoDelete)
 
   // Endpoint to get a specific user by ID
-  .get('/:id',protectCandidat, afficherUser)
+  .get('/:id', afficherUser)
 
    // Endpoint to delete a user by ID 
    .delete("/supprimer/:id", protectAdmin, supprimerUtilisateur)
