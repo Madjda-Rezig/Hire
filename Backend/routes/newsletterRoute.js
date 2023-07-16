@@ -2,7 +2,8 @@ const express = require("express");
 const {
     subscribeToNewsletter,
     getAllSubscribers,
-    sendGroupEmail
+    sendGroupEmail,
+    deleteSubscriber
 } = require("../controllers/newsletterController")
 
 const  {protectRecruteur, protectCandidat,protectUser} = require('../middlewares/Protect')
@@ -13,5 +14,6 @@ newsletterRouter
 .post("/subscribe", subscribeToNewsletter )
 .get("/all",getAllSubscribers)
 .post("/allsubscribers",sendGroupEmail)
+.delete("/delete/:id",deleteSubscriber)
 
 module.exports = newsletterRouter;

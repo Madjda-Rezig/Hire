@@ -26,6 +26,8 @@ import Addfaqcandidat from "./Pages/Addfaqcandidat.jsx";
 import Addfaqrec from "./Pages/Addfaqrec.jsx";
 import Showfaqcandidat from "./Pages/Showfaqcandidat.jsx";
 import Showfaqrec from "./Pages/Showfaqrec.jsx";
+import Showsubscribers from "./Pages/Showsubscribers.jsx";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
@@ -71,6 +73,7 @@ const router = createBrowserRouter(
         <Route path="Addfaqcandidat" element={<Addfaqcandidat />} />
         <Route path="Showfaqcandidat" element={<Showfaqcandidat />} />
         <Route path="Showfaqrec" element={<Showfaqrec />} />
+        <Route path="Showsubscribers" element={<Showsubscribers />} />
       </Route>
     </Route>
   )

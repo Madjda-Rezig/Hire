@@ -55,7 +55,7 @@ exports.subscribeToNewsletter = expressAsyncHandler(async (req, res) => {
   
 ////////////////////////////////////////////////////////////////////////
 
-// 
+// get all subscribers 
 exports.getAllSubscribers = expressAsyncHandler(async (req, res) => {
     try {
       const subscribers = await newsletterModel.find({});
@@ -66,6 +66,25 @@ exports.getAllSubscribers = expressAsyncHandler(async (req, res) => {
       throw new Error(error);
     }
   });
+
+// DELTE 
+exports.deleteSubscriber = expressAsyncHandler(async (req, res) => {
+  try {
+    const subscriberId = req.params.id; // Assuming the subscriber ID is provided in the request parameters
+
+    // Find and delete the subscriber with the provided ID
+    const deletedSubscriber = await newsletterModel.findByIdAndDelete(subscriberId);
+
+    if (deletedSubscriber) {
+      res.status(200).json({ message: 'Subscriber deleted successfully' });
+    } else {
+      res.status(404).json({ message: 'Subscriber not found' });
+    }
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+});
 
 
 

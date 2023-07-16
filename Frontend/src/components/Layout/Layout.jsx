@@ -25,7 +25,7 @@ const Layout = () => {
         location.pathname !== "/Recruteur" &&
         location.pathname !== "/Register" &&
         location.pathname !== "/Admin" &&
-        location.pathname !== "/Dashbordadmin" &&
+        !location.pathname.startsWith("/Dashbordadmin") &&
         location.pathname !== "/Dashbordrec" &&
         location.pathname !== "/Loginrecruteur" && <Footer />}
 
