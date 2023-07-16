@@ -26,14 +26,14 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
 2. Install the dependencies:
-   cd WorkUp
-   npm install
+   -cd WorkUp
+   -npm install
 3. Set up the environment variables:
-   Create a .env file in the root directory.
-   Add the following variables:
-   PORT=3000
+   -Create a .env file in the root directory.
+   -Add the following variables:
+   PORT=5000
    MONGODB_URI=<your-mongodb-uri>
-   JWT_SECRET=<your-jwt-secret>
+   ACCESS_TOKEN=<your-jwt-secret>
 
 4. Start the development server:
-   npm start
+   -npm start
