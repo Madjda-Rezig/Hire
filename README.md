@@ -1,4 +1,4 @@
-![Alt text](<Home (1).jpg>)
+![Alt text](Home.jpg)
 
 # Recruitment Website WorkUp
 
