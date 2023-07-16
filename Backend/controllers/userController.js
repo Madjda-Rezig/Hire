@@ -4,6 +4,7 @@ const expressAsyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
 const userModel = require("../models/userModel");
 
+
 //Create a user
 exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
   try {
@@ -63,6 +64,27 @@ exports.allUsers = expressAsyncHandler(async (req, res) => {
   } catch (error) {
     res.status(400);
     throw new Error(error);
+  }
+});
+
+
+// Endpoint pour afficher tous les utilisateurs dont le rôle est Candidat
+exports.getCandidats = expressAsyncHandler(async (req, res) => {
+  try {
+    const candidats = await userModel.find({ role: "Candidat" });
+    res.status(200).json(candidats);
+  } catch (error) {
+    res.status(500).json({ message: "Une erreur s'est produite lors de la récupération des candidats." });
+  }
+});
+
+// Endpoint pour afficher tous les utilisateurs dont le rôle est Recruteur
+exports.getRecruteurs = expressAsyncHandler(async (req, res) => {
+  try {
+    const recruteurs = await userModel.find({ role: "Recruteur" });
+    res.status(200).json(recruteurs);
+  } catch (error) {
+    res.status(500).json({ message: "Une erreur s'est produite lors de la récupération des recruteurs." });
   }
 });
 
@@ -126,3 +148,5 @@ exports.autoDelete = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+  
+

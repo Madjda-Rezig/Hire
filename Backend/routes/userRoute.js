@@ -4,7 +4,9 @@ const {
   supprimerUtilisateur,
   autoDelete,
   allUsers,
-  afficherUser
+  afficherUser,
+  getCandidats,
+  getRecruteurs
 } = require("../controllers/userController");
 
 
@@ -26,6 +28,12 @@ userRouter
    
   // Endpoint to delete the authenticated user
   .delete("/delete", protectCandidat, autoDelete)
+
+  // Route pour afficher tous les utilisateurs dont le rôle est "Candidat"
+  .get('/candidats', getCandidats)
+
+// Route pour afficher tous les utilisateurs dont le rôle est "Recruteur"
+  .get('/recruteurs', getRecruteurs)
 
   // Endpoint to get a specific user by ID
   .get('/:id', afficherUser)

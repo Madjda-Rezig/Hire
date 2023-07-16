@@ -27,6 +27,8 @@ import Addfaqrec from "./Pages/Addfaqrec.jsx";
 import Showfaqcandidat from "./Pages/Showfaqcandidat.jsx";
 import Showfaqrec from "./Pages/Showfaqrec.jsx";
 import Showsubscribers from "./Pages/Showsubscribers.jsx";
+import Showrecruteur from "./Pages/Showrecruteur.jsx";
+import Showcandidat from "./Pages/Showcandidat.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -64,6 +66,7 @@ const router = createBrowserRouter(
       <Route path="Dashbordrec" element={<Layoutrec />}>
         <Route index element={<Statistiquerec />} />
         <Route path="Profilerec" element={<Profilerec />} />
+        <Route path="Showcandidat" element={<Showcandidat />} />
       </Route>
       {/* DASHBOARD ADMIN */}
       <Route path="Dashbordadmin" element={<Layoutadmin />}>
@@ -74,6 +77,8 @@ const router = createBrowserRouter(
         <Route path="Showfaqcandidat" element={<Showfaqcandidat />} />
         <Route path="Showfaqrec" element={<Showfaqrec />} />
         <Route path="Showsubscribers" element={<Showsubscribers />} />
+        <Route path="Showrecruteur" element={<Showrecruteur />} />
+        <Route path="Showcandidat" element={<Showcandidat />} />
       </Route>
     </Route>
   )
