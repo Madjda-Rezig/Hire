@@ -1,3 +1,5 @@
+![Alt text](<Home (1).jpg>)
+
 # Recruitment Website WorkUp
 
 Welcome to my Recruitment Website repository! This website is designed to facilitate the recruitment process by providing a platform for job seekers and employers to connect and interact.
@@ -18,23 +20,20 @@ Welcome to my Recruitment Website repository! This website is designed to facili
 - Authentication: JSON Web Tokens (JWT)
 - Real-time updates: Socket.IO
 
-
 ## Setup
 
 To run this project locally, follow these steps:
 
 1. Clone the repository:
 2. Install the dependencies:
-    cd WorkUp
-    npm install
-   
-4. Set up the environment variables:
-    Create a .env file in the root directory.
-    Add the following variables:
-       PORT=3000
-       MONGODB_URI=<your-mongodb-uri>
-       JWT_SECRET=<your-jwt-secret>
+   cd WorkUp
+   npm install
+3. Set up the environment variables:
+   Create a .env file in the root directory.
+   Add the following variables:
+   PORT=3000
+   MONGODB_URI=<your-mongodb-uri>
+   JWT_SECRET=<your-jwt-secret>
 
-5. Start the development server:
-     npm start
-
+4. Start the development server:
+   npm start
