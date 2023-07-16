@@ -29,6 +29,7 @@ import Showfaqrec from "./Pages/Showfaqrec.jsx";
 import Showsubscribers from "./Pages/Showsubscribers.jsx";
 import Showrecruteur from "./Pages/Showrecruteur.jsx";
 import Showcandidat from "./Pages/Showcandidat.jsx";
+import Showcompanies from "./Pages/Showcompanies.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -79,6 +80,7 @@ const router = createBrowserRouter(
         <Route path="Showsubscribers" element={<Showsubscribers />} />
         <Route path="Showrecruteur" element={<Showrecruteur />} />
         <Route path="Showcandidat" element={<Showcandidat />} />
+        <Route path="Showcompanies" element={<Showcompanies />} />
       </Route>
     </Route>
   )
