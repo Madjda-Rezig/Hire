@@ -7,7 +7,9 @@ const {
     deleteQuestion,
     updateQuestion,
     deleteQuestionREC,
-    updateQuestionREC
+    updateQuestionREC,
+    getAllQuestions,
+    getAllQuestionsREC
 
 } = require("../controllers/faqController")
 
@@ -22,7 +24,8 @@ faqRouter
 .get("/REC",getRandomQuestionsREC)
 .put('/update/:questionId',updateQuestion)
 .delete('/delete/:questionId',deleteQuestion)
-
+.get('/faqsREC',getAllQuestions)
+.get('/faqs',getAllQuestionsREC)
 
 
 .patch('/:questionIdREC',updateQuestionREC)

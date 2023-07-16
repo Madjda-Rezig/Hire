@@ -13,6 +13,16 @@ exports.addQuestion = async (req, res) => {
   }
 };
 
+// Endpoint pour afficher toutes les FAQ pour Candidat
+exports.getAllQuestions = async (req, res) => {
+  try {
+    const faqs = await Faq.find();
+    res.status(200).json({ faqs });
+  } catch (error) {
+    res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des questions." });
+  }
+};
+
 // Endpoint pour afficher FAQ Aléatoire Candidat
 exports.getRandomQuestions = async (req, res) => {
   try {
@@ -75,6 +85,16 @@ exports.addQuestionREC = async (req, res) => {
 exports.getRandomQuestionsREC = async (req, res) => {
   try {
     const faqRecruteur = await FaqREC.aggregate([{ $sample: { size: 3 } }]);
+    res.status(200).json(faqRecruteur);
+  } catch (error) {
+    res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des questions." });
+  }
+};
+
+// Endpoint pour afficher toutes les questions de la FAQ Recruteur
+exports.getAllQuestionsREC = async (req, res) => {
+  try {
+    const faqRecruteur = await FaqREC.find();
     res.status(200).json(faqRecruteur);
   } catch (error) {
     res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des questions." });

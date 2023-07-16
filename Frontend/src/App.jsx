@@ -22,7 +22,10 @@ import Statistiquerec from "./Pages/Statistiquerec.jsx";
 import Stastiqueadmin from "./Pages/Statistiqueadmin.jsx";
 import Profilerec from "./Pages/Profilerec.jsx";
 import Profileadmin from "./Pages/Profileadmin.jsx";
-
+import Addfaqcandidat from "./Pages/Addfaqcandidat.jsx";
+import Addfaqrec from "./Pages/Addfaqrec.jsx";
+import Showfaqcandidat from "./Pages/Showfaqcandidat.jsx";
+import Showfaqrec from "./Pages/Showfaqrec.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
@@ -64,6 +67,10 @@ const router = createBrowserRouter(
       <Route path="Dashbordadmin" element={<Layoutadmin />}>
         <Route index element={<Stastiqueadmin />} />
         <Route path="Profileadmin" element={<Profileadmin />} />
+        <Route path="Addfaqrec" element={<Addfaqrec />} />
+        <Route path="Addfaqcandidat" element={<Addfaqcandidat />} />
+        <Route path="Showfaqcandidat" element={<Showfaqcandidat />} />
+        <Route path="Showfaqrec" element={<Showfaqrec />} />
       </Route>
     </Route>
   )
