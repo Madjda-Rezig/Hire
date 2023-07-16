@@ -51,9 +51,9 @@ export default function Dashbordadmin() {
     <div>
       <div className="flex h-screen flex-col justify-between border-e bg-white w-96">
         <div className="px-4 py-6 ">
-          <div className="text-center">
+          <div className="text-center mt-5 mb-10">
             <span className=" my-10 text-center sm:text-5xl text-4xl font-bold bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 bg-clip-text text-transparent ">
-              WorkUP
+              WorkUp
             </span>
           </div>
           <ul className="mt-6 space-y-1">
@@ -78,7 +78,7 @@ export default function Dashbordadmin() {
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                  <span className="text-sm font-medium"> Offres </span>
+                  <span className="text-sm font-medium"> Catégorie </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                     <svg
@@ -102,7 +102,7 @@ export default function Dashbordadmin() {
                       href=""
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
-                      Add an Offer
+                      Add an Category
                     </a>
                   </li>
 
@@ -111,7 +111,7 @@ export default function Dashbordadmin() {
                       href=""
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
-                      Show all Offers
+                      Show all Categories
                     </a>
                   </li>
                 </ul>
@@ -121,7 +121,7 @@ export default function Dashbordadmin() {
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                  <span className="text-sm font-medium"> Candidatures </span>
+                  <span className="text-sm font-medium"> Articles </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                     <svg
@@ -145,7 +145,7 @@ export default function Dashbordadmin() {
                       href=""
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
-                      Details
+                      Add an Article
                     </a>
                   </li>
 
@@ -154,22 +154,181 @@ export default function Dashbordadmin() {
                       href=""
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
-                      Security
+                      Show all Articles
                     </a>
-                  </li>
-
-                  <li>
-                    <form action="/logout">
-                      <button
-                        type="submit"
-                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
-                      >
-                        Logout
-                      </button>
-                    </form>
                   </li>
                 </ul>
               </details>
+              <li>
+                <details className="group [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                    <span className="text-sm font-medium"> Companies </span>
+
+                    <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <ul className="mt-2 space-y-1 px-4">
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add a Company
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all Companies
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details className="group [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                    <span className="text-sm font-medium"> Subscribe </span>
+
+                    <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <ul className="mt-2 space-y-1 px-4">
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add a news Letter
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all Subscribers
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details className="group [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                    <span className="text-sm font-medium"> FAQ Candidat </span>
+
+                    <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <ul className="mt-2 space-y-1 px-4">
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add an FAQ
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all FAQ'S
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+
+              <li>
+                <details className="group [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                    <span className="text-sm font-medium"> FAQ Recruteur </span>
+
+                    <span className="shrink-0 transition duration-300 group-open:-rotate-180">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <ul className="mt-2 space-y-1 px-4">
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add an FAQ
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href=""
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all FAQ's
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+
               <hr className="border-gray-200 my-4" />
               <li>
                 <a
