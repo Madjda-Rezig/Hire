@@ -3,7 +3,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 import Sidebar from "../../components/Sidebar/Sidebarrec";
 import Header from "../../components/Header/Header";
-
+import Footer from "../../components/Footer/Footer";
 const Layoutrec = () => {
   return (
     <div className="flex flex-col">
@@ -12,6 +12,7 @@ const Layoutrec = () => {
       </header>
       <main className="flex w-full">
         <Sidebar />
+
         <div className="w-full">
           <Outlet />
         </div>
