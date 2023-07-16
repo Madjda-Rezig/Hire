@@ -1,15 +1,11 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
-import Sidebar from "../../components/Sidebar/Sidebarrec";
-import Header from "../../components/Header/Header";
+import Sidebar from "../../components/Sidebar/Sidebaradmin";
 
-const Layoutrec = () => {
+const Layoutadmin = () => {
   return (
     <div className="flex flex-col">
-      <header>
-        <Header />
-      </header>
       <main className="flex w-full">
         <Sidebar />
         <div className="w-full">
@@ -20,4 +16,4 @@ const Layoutrec = () => {
   );
 };
 
-export default Layoutrec;
+export default Layoutadmin;

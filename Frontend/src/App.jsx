@@ -1,6 +1,7 @@
 // Pages //
 import Navbar from "./components/Layout/Layout.jsx";
 import Layoutrec from "./components/Layout/Layoutrec.jsx";
+import Layoutadmin from "./components/Layout/Layoutadmin.jsx";
 import Login from "./Pages/Login.jsx";
 import Loginrecruteur from "./Pages/Loginrecruteur.jsx";
 import Home from "./Pages/Home.jsx";
@@ -27,7 +28,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Layoutadmin from "./components/Layout/Layoutrec.jsx";
 
 // Routes //
 
@@ -50,10 +50,13 @@ const router = createBrowserRouter(
       <Route path="Profile" element={<Profile />} />
       <Route path="Myapplications" element={<Myapplications />} />
       <Route path="Loginrecruteur" element={<Loginrecruteur />} />
-      <Route path="Dashbordadmin" element={<Dashbordadmin />} />
       <Route path="Admin" element={<Admin />} />
-
+      ///////////// DASHBORD RECRUTEUR ////////////////////////////////////
       <Route path="Dashbordrec" element={<Layoutrec />}>
+        <Route index element={<Profile />} />
+      </Route>
+      ////////////// DASHBORD ADMIN ///////////////////////////////////////
+      <Route path="Dashbordadmin" element={<Layoutadmin />}>
         <Route index element={<Profile />} />
       </Route>
     </Route>
