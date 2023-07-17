@@ -58,14 +58,14 @@ export default function Profileadmin() {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      // Traitez la réponse de l'API en conséquence
       console.log(response.data);
-      // Affichez une notification de succès
+
       toast.success("Modifications enregistrées avec succès !");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
+    window.location.reload();
   };
 
   const handleDelete = async () => {
@@ -78,7 +78,7 @@ export default function Profileadmin() {
       );
       if (response.data) {
         localStorage.removeItem("User");
-        navigate("/Login");
+        navigate("/Admin");
       }
     } catch (error) {
       console.log(error);

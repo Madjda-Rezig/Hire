@@ -2,6 +2,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Showcompanies() {
+  const [entreprises, setEntreprises] = useState([]);
+
+  useEffect(() => {
+    const fetchEntreprises = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/entreprises/all"
+        );
+        setEntreprises(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchEntreprises();
+  }, []);
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -10,25 +27,32 @@ export default function Showcompanies() {
         </h2>
         <table className="table w-full">
           <tbody>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img alt="Avatar Tailwind CSS Component" />
+            {entreprises.map((entreprise) => (
+              <tr key={entreprise._id}>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img
+                          alt="Avatar Tailwind CSS Component"
+                          src={`http://localhost:5000/images/${entreprise.logo}`}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold">
+                        {entreprise.nomentreprise}
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold"></div>
-                  </div>
-                </div>
-              </td>
-              <td></td>
-              <td></td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>
+                </td>
+                <td>{entreprise.secteur}</td>
+                <td>{entreprise.adresse}</td>
+                <th>
+                  <button className="btn btn-ghost btn-xs">details</button>
+                </th>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

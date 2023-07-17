@@ -1,42 +1,30 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 export default function ShowSubscribers() {
   const [subscribers, setSubscribers] = useState([]);
+  const user = JSON.parse(localStorage.getItem("User"));
 
   useEffect(() => {
     const fetchSubscribers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/newsletter/all");
+        const response = await fetch("http://localhost:5000/newsletter/all", {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        });
         const data = await response.json();
         setSubscribers(data);
       } catch (error) {
         console.error(error);
+        toast.error(error.response.data.message);
       }
     };
 
     fetchSubscribers();
   }, []);
-
-  const deleteSubscriber = async (id) => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/newsletter/delete/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      if (response.ok) {
-        setSubscribers((prevSubscribers) =>
-          prevSubscribers.filter((subscriber) => subscriber._id !== id)
-        );
-      } else {
-        console.error("Failed to delete subscriber");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <div>
@@ -64,11 +52,8 @@ export default function ShowSubscribers() {
                   Candidat
                 </td>
                 <td>
-                  <button
-                    className="whitespace-nowrap px-4 py-2"
-                    onClick={() => deleteSubscriber(subscriber._id)}
-                  >
-                    <a className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white ">
+                  <button className="whitespace-nowrap px-4 py-2">
+                    <a className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white">
                       Delete
                     </a>
                   </button>
