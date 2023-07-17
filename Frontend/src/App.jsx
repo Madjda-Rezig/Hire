@@ -34,6 +34,7 @@ import Addrecruteur from "./Pages/Addrecruteur.jsx";
 import Addcategorie from "./Pages/Addcategorie.jsx";
 import Showcategorie from "./Pages/Showcategorie.jsx";
 import Addarticle from "./Pages/Addarticle.jsx";
+import Addcompany from "./Pages/Addcompany.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -89,6 +90,7 @@ const router = createBrowserRouter(
         <Route path="Addcategorie" element={<Addcategorie />} />
         <Route path="Showcategorie" element={<Showcategorie />} />
         <Route path="Addarticle" element={<Addarticle />} />
+        <Route path="Addcompany" element={<Addcompany />} />
       </Route>
     </Route>
   )

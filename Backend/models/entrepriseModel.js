@@ -5,7 +5,7 @@ const entrepriseModel = new mongoose.Schema({
   auteur: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Recruteur",
-    required: true,
+    required: false,
   },
   nomentreprise: {
     type: String,

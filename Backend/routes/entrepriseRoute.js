@@ -40,7 +40,7 @@ entrepriseRouter
   // Endpoint to get a specific entreprise by ID
   .get('/company/:id', companyDetiails)
     // Endpoint to add a new entreprise
-    .post("/add", upload.single("logo"), protectAdmin, ajouterEntreprise)
+    .post("/add", upload.single("logo"), ajouterEntreprise)
   //Fetch comany details by Name
   .get("/:id", afficherEntreprise)
  
