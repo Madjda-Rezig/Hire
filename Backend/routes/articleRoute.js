@@ -32,12 +32,13 @@ articleRouter
 
   // Endpoint for article pagination
   .get('/pagination', paginationArticle)
+  
+  // Endpoint to add a new article
+  .post('/', upload.single('photo'), ajouterArticle)
 
   // Endpoint to get a specific article by ID
   .get('/:id', lireArticle)
 
-  // Endpoint to add a new article
-  .post('/', upload.single('photo'), protectAdmin, ajouterArticle)
 
   // Endpoint to modify an article by ID 
   .put('/:id', protectAdmin, modifierArticle)
