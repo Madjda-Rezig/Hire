@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Showfaqcandidat() {
   const [faqs, setFaqs] = useState([]);
+  const user = JSON.parse(localStorage.getItem("User"));
 
   useEffect(() => {
     const fetchFaqs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/Faq/faqsREC");
+        const response = await axios.get("http://localhost:5000/Faq/faqsREC", {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        });
         setFaqs(response.data.faqs);
       } catch (error) {
         console.error(
           "Une erreur s'est produite lors de la récupération des questions.",
           error
         );
+        toast.error(error.response.data.message);
       }
     };
 

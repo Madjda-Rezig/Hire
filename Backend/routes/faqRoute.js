@@ -22,8 +22,11 @@ faqRouter
 .get("/",getRandomQuestions)
 .post("/addREC",protectAdmin, addQuestionREC )
 .get("/REC",getRandomQuestionsREC)
-.get('/faqsREC',getAllQuestions)
-.get('/faqs',getAllQuestionsREC)
+.get('/faqsREC',protectAdmin,getAllQuestions)
+.get('/faqs',protectAdmin,getAllQuestionsREC)
+
+
+
 .put('/update/:questionId',updateQuestion)
 .delete('/delete/:questionId',deleteQuestion)
 

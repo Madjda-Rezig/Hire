@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Showcategorie() {
   const [cats, setCats] = useState([]);
@@ -15,6 +16,7 @@ export default function Showcategorie() {
         }
       } catch (error) {
         console.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();
