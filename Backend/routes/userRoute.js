@@ -10,7 +10,7 @@ const {
 } = require("../controllers/userController");
 
 
-const { protectCandidat, protectAdmin ,protectRecruteur} = require("../middlewares/Protect");
+const { protectCandidat, protectAdmin ,protectRecruteur,protectUser} = require("../middlewares/Protect");
 const userRouter = require("express").Router();
 
 
@@ -24,7 +24,7 @@ userRouter
   .post("/add", ajouterUtilisateur)
   
   // Endpoint to modify a user
-  .put("/modifier", protectCandidat, modifierUtilisateur)
+  .put("/modifier", protectUser, modifierUtilisateur)
    
   // Endpoint to delete the authenticated user
   .delete("/delete", protectCandidat, autoDelete)
