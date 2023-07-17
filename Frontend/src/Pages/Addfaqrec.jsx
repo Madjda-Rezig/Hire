@@ -1,3 +1,7 @@
 export default function Addfaqrec() {
-  return <div></div>;
+  return (
+    <div>
+      <h1>hjhhhhhhhhhhhhh</h1>
+    </div>
+  );
 }

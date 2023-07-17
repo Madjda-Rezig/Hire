@@ -145,15 +145,13 @@ const Sidebaradmin = () => {
                 </summary>
 
                 <ul className="mt-2 space-y-1 px-4">
-                  <li>
-                    <a
-                      href=""
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Add an Category
-                    </a>
-                  </li>
-
+                  <Link to={"Addcategorie"}>
+                    <li>
+                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                        Add an Category
+                      </a>
+                    </li>
+                  </Link>
                   <li>
                     <a
                       href=""
@@ -309,14 +307,13 @@ const Sidebaradmin = () => {
                   </summary>
 
                   <ul className="mt-2 space-y-1 px-4">
-                    <li>
-                      <a
-                        href=""
-                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                      >
-                        Add an FAQ
-                      </a>
-                    </li>
+                    <Link to={"Addfaqcandidat"}>
+                      <li>
+                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                          Add an FAQ
+                        </a>
+                      </li>
+                    </Link>
                     <Link to={"Showfaqcandidat"}>
                       <li>
                         <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
@@ -350,12 +347,13 @@ const Sidebaradmin = () => {
                   </summary>
 
                   <ul className="mt-2 space-y-1 px-4">
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Add an FAQ
-                      </a>
-                    </li>
-
+                    <Link to={"Addfaqrec"}>
+                      <li>
+                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                          Add an FAQ
+                        </a>
+                      </li>
+                    </Link>
                     <Link to={"Showfaqrec"}>
                       <li>
                         <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">

@@ -16,7 +16,7 @@ exports.getAllCategories = expressAsyncHandler(async (req, res) => {
 
 //////////////////////////////////////////////
 
-//Show a category
+//Add a category
 exports.postCategorie = expressAsyncHandler(async (req, res) => {
   try {
     const { nom, defcat } = req.body;
