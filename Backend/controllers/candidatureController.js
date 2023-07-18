@@ -1,4 +1,5 @@
 const candidatureModel = require("../models/candidatureModel")
+const entrepriseModel = require('../models/entrepriseModel')
 const expressAsyncHandler = require("express-async-handler")
 
 
@@ -78,7 +79,16 @@ exports.modifierCandidature = expressAsyncHandler(async (req, res) => {
     console.log(error)
   }
 })
-
+//Afficher entreprise par candidature
+exports.afficherEntrepriseParCandidature = expressAsyncHandler(async (req,res) => {try {
+  const {id} = req.params
+  const candidature = await candidatureModel.findById(id).populate({path: "idOffre", select:"entreprise"})
+  const entreprise = await entrepriseModel.find({nomentreprise: candidature.idOffre.entreprise})
+  res.status(200).json(entreprise)
+} catch (error) {
+  res.status(400)
+  throw new Error(error)
+}})
 
 //Pagination for application
 exports.paginationCandidatures = expressAsyncHandler(async (req, res) => {

@@ -5,8 +5,30 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Bannerapply = () => {
+  const user = JSON.parse(localStorage.getItem("User"));
+  const [entreprise, setEntreprise] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  useEffect(() => {
+    const afficherEntreprise = async (id) => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/candidatures/entreprise/" + id,
+          { headers: { Authorization: `Bearer ${user.accessToken}` } }
+        );
+        setEntreprise(response.data);
+      } catch (error) {
+        toast.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    afficherEntreprise(id);
+  }, []);
+  console.log(entreprise);
   return (
     <div className="hero min-h-max bg-base-200 pt-10 pb-10">
       <div className="hero-content flex-col lg:flex-row">

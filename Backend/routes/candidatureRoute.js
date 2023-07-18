@@ -4,6 +4,7 @@ const {
     postCandidature, 
     modifierCandidature,
     paginationCandidatures,
+    afficherEntrepriseParCandidature,
 } = require("../controllers/candidatureController")
 
 
@@ -20,7 +21,7 @@ candidatureRoute
 .get('/pagination',protectCandidat, paginationCandidatures)
 // Endpoint to add a new candidature for a specific offre
 .post("/add/:idOffre",protectCandidat, postCandidature)
-
+.get('/entreprise/:id',protectCandidat,afficherEntrepriseParCandidature)
   // Endpoint to get a candidature by id 
   .get("/candidat/:id",afficherCandidature)
 
