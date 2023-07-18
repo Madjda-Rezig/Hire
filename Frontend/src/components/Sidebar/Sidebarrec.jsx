@@ -52,11 +52,13 @@ const Sidebarrec = () => {
     <div className="flex h-screen flex-col justify-between border-e bg-white w-96">
       <div className="px-4 py-6">
         <ul className="mt-6 space-y-1">
-          <li>
-            <a className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
-              Statistique
-            </a>
-          </li>
+          <Link to={"Statistiquerec"}>
+            <li>
+              <a className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+                Statistique
+              </a>
+            </li>
+          </Link>
           <Link to={"profilerec"}>
             <li>
               <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
@@ -120,23 +122,20 @@ const Sidebarrec = () => {
               </summary>
 
               <ul className="mt-2 space-y-1 px-4">
-                <li>
-                  <a
-                    href=""
-                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Add an Offer
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href=""
-                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Show all Offers
-                  </a>
-                </li>
+                <Link to={"Addoffer"}>
+                  <li>
+                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                      Add an Offer
+                    </a>
+                  </li>
+                </Link>
+                <Link to={"Showoffercompany"}>
+                  <li>
+                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                      Show all Offers
+                    </a>
+                  </li>
+                </Link>
               </ul>
             </details>
           </li>
@@ -163,34 +162,13 @@ const Sidebarrec = () => {
               </summary>
 
               <ul className="mt-2 space-y-1 px-4">
-                <li>
-                  <a
-                    href=""
-                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Details
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href=""
-                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Security
-                  </a>
-                </li>
-
-                <li>
-                  <form action="/logout">
-                    <button
-                      type="submit"
-                      className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Logout
-                    </button>
-                  </form>
-                </li>
+                <Link to={"Showcandidature"}>
+                  <li>
+                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                      Candidatures
+                    </a>
+                  </li>
+                </Link>
               </ul>
             </details>
             <hr className="border-gray-200 my-4" />

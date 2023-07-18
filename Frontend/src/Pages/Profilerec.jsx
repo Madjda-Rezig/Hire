@@ -66,6 +66,7 @@ export default function Profilerec() {
       console.log(error);
       toast.error(error.message);
     }
+    window.location.reload();
   };
 
   const handleDelete = async () => {

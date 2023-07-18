@@ -1,8 +1,7 @@
-import Card from "../components/Dashbordrec/Card";
-export default function Stastiquerec() {
-  return (
-    <div>
-      <Card />
-    </div>
-  );
+import React from "react";
+
+function Statistiquerec() {
+  return <div>Statistiquerec</div>;
 }
+
+export default Statistiquerec;

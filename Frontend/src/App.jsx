@@ -35,6 +35,10 @@ import Addcategorie from "./Pages/Addcategorie.jsx";
 import Showcategorie from "./Pages/Showcategorie.jsx";
 import Addarticle from "./Pages/Addarticle.jsx";
 import Addcompany from "./Pages/Addcompany.jsx";
+import Addoffer from "./Pages/Addoffer.jsx";
+import Showalloffers from "./Pages/Showalloffers.jsx";
+import Showoffercompany from "./Pages/Showoffercompany.jsx";
+import Showcandidature from "./Pages/Showcandidature.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -73,6 +77,9 @@ const router = createBrowserRouter(
         <Route index element={<Statistiquerec />} />
         <Route path="Profilerec" element={<Profilerec />} />
         <Route path="Showcandidat" element={<Showcandidat />} />
+        <Route path="Addoffer" element={<Addoffer />} />
+        <Route path="Showcandidature" element={<Showcandidature />} />
+        <Route path="Showoffercompany" element={<Showoffercompany />} />
       </Route>
       {/* DASHBOARD ADMIN */}
       <Route path="Dashbordadmin" element={<Layoutadmin />}>
@@ -91,6 +98,7 @@ const router = createBrowserRouter(
         <Route path="Showcategorie" element={<Showcategorie />} />
         <Route path="Addarticle" element={<Addarticle />} />
         <Route path="Addcompany" element={<Addcompany />} />
+        <Route path="Showalloffers" element={<Showalloffers />} />
       </Route>
     </Route>
   )
