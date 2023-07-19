@@ -10,11 +10,14 @@ export default function ShowSubscribers() {
   useEffect(() => {
     const fetchSubscribers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/newsletter/all", {
-          headers: {
-            Authorization: `Bearer ${user.accessToken}`,
-          },
-        });
+        const response = await fetch(
+          "http://localhost:5000/newsletter/Link>ll",
+          {
+            headers: {
+              Authorization: `Bearer ${user.accessToken}`,
+            },
+          }
+        );
         const data = await response.json();
         setSubscribers(data);
       } catch (error) {
@@ -53,9 +56,9 @@ export default function ShowSubscribers() {
                 </td>
                 <td>
                   <button className="whitespace-nowrap px-4 py-2">
-                    <a className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white">
+                    <Link className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white">
                       Delete
-                    </a>
+                    </Link>
                   </button>
                 </td>
               </tr>

@@ -42,26 +42,29 @@ function Navbar() {
             <nav aria-label="Site Nav">
               <ul className="flex items-center gap-20 text-lg">
                 <li>
-                  <Link to={"/Offresp"}>
-                    <a className="text-blue-600 font-semibold transition  hover:text-gray-500/75">
-                      Jobs
-                    </a>
+                  <Link
+                    to={"/Offresp"}
+                    className="text-blue-600 font-semibold transition  hover:text-gray-500/75"
+                  >
+                    Jobs
                   </Link>
                 </li>
 
                 <li>
-                  <Link to={"/Entreprisesp"}>
-                    <a className="text-blue-600 font-semibold transition hover:text-gray-500/75">
-                      Companies
-                    </a>
+                  <Link
+                    to={"/Entreprisesp"}
+                    className="text-blue-600 font-semibold transition hover:text-gray-500/75"
+                  >
+                    Companies
                   </Link>
                 </li>
 
                 <li>
-                  <Link to={"Blog"}>
-                    <a className="text-blue-600 font-semibold transition hover:text-gray-500/75">
-                      Blog
-                    </a>
+                  <Link
+                    to={"Blog"}
+                    className="text-blue-600 font-semibold transition hover:text-gray-500/75"
+                  >
+                    Blog
                   </Link>
                 </li>
               </ul>
@@ -71,10 +74,11 @@ function Navbar() {
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
               {!user && (
-                <Link to={"Login"}>
-                  <a className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow">
-                    Login
-                  </a>
+                <Link
+                  to={"Login"}
+                  className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow"
+                >
+                  Login
                 </Link>
               )}
 
@@ -94,26 +98,30 @@ function Navbar() {
                       className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
                     >
                       <li>
-                        <Link to={"/Profile"}>
-                          <a className="justify-between">My Profile</a>
+                        <Link to={"/Profile"} className="justify-between">
+                          My Profile
                         </Link>
                       </li>
                       <li>
-                        <Link to={"/Myapplications"}>
-                          <a className="justify-between">My Applications</a>
+                        <Link
+                          to={"/Myapplications"}
+                          className="justify-between"
+                        >
+                          My Applications
                         </Link>
                       </li>
 
                       <li>
-                        <a onClick={handleLogout}>Logout</a>
+                        <Link onClick={handleLogout}>Logout</Link>
                       </li>
                     </ul>
                   </div>
                 ) : (
-                  <Link to={"Register"}>
-                    <a className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-semibold text-blue-600">
-                      Register
-                    </a>
+                  <Link
+                    to={"Register"}
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-semibold text-blue-600"
+                  >
+                    Register
                   </Link>
                 )}
               </div>

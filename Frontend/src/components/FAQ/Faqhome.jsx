@@ -31,7 +31,7 @@ const Faqhome = () => {
           {questions.map((question) => (
             <details
               key={question._id}
-              className="w-full border-2 rounded-lg border-blue-600"
+              className="w-full border-2 rounded-lg border-blue-600 shadow-lg"
             >
               <summary className="px-4 py-6 focus:outline-none focus-visible:ri">
                 {question.question}

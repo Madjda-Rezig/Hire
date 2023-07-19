@@ -52,20 +52,23 @@ const Sidebarrec = () => {
     <div className="flex h-screen flex-col justify-between border-e bg-white w-96">
       <div className="px-4 py-6">
         <ul className="mt-6 space-y-1">
-          <Link to={"Statistiquerec"}>
-            <li>
-              <a className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
-                Statistique
-              </a>
-            </li>
-          </Link>
-          <Link to={"profilerec"}>
-            <li>
-              <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                Profil
-              </a>
-            </li>
-          </Link>
+          <li>
+            <Link
+              to={"Statistiquerec"}
+              className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+            >
+              Statistique
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to={"profilerec"}
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+            >
+              Profil
+            </Link>
+          </li>
 
           <li>
             <details className="group [&_summary::-webkit-details-marker]:hidden">
@@ -89,13 +92,14 @@ const Sidebarrec = () => {
               </summary>
 
               <ul className="mt-2 space-y-1 px-4">
-                <Link to={"Showcandidat"}>
-                  <li>
-                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                      Candidat
-                    </a>
-                  </li>
-                </Link>
+                <li>
+                  <Link
+                    to={"Showcandidat"}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  >
+                    Candidat
+                  </Link>
+                </li>
               </ul>
             </details>
           </li>
@@ -122,20 +126,23 @@ const Sidebarrec = () => {
               </summary>
 
               <ul className="mt-2 space-y-1 px-4">
-                <Link to={"Addoffer"}>
-                  <li>
-                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                      Add an Offer
-                    </a>
-                  </li>
-                </Link>
-                <Link to={"Showoffercompany"}>
-                  <li>
-                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                      Show all Offers
-                    </a>
-                  </li>
-                </Link>
+                <li>
+                  <Link
+                    to={"Addoffer"}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  >
+                    Add an Offer
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={"Showoffercompany"}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  >
+                    Show all Offers
+                  </Link>
+                </li>
               </ul>
             </details>
           </li>
@@ -162,34 +169,32 @@ const Sidebarrec = () => {
               </summary>
 
               <ul className="mt-2 space-y-1 px-4">
-                <Link to={"Showcandidature"}>
-                  <li>
-                    <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                      Candidatures
-                    </a>
-                  </li>
-                </Link>
+                <li>
+                  <Link
+                    to={"Showcandidature"}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  >
+                    Candidatures
+                  </Link>
+                </li>
               </ul>
             </details>
             <hr className="border-gray-200 my-4" />
             <li>
-              <a
+              <Link
                 onClick={handleLogout}
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
                 <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                 Logout
-              </a>
+              </Link>
             </li>
           </li>
         </ul>
       </div>
 
       <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
-        <a
-          href="#"
-          className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
-        >
+        <Link className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
           <img
             alt="Man"
             src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -205,7 +210,7 @@ const Sidebarrec = () => {
               <span> {mail} </span>
             </p>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

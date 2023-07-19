@@ -17,35 +17,50 @@ const Registerform = () => {
     date_de_naissance: "",
     sexe: "",
     mot_de_passe: "",
-    confirmer_mot_de_passe: "",
+
     num_tel: "",
+    cv: null,
   });
-  console.log(RegisterInput);
+
   const handleOnChange = (e) => {
-    setRegisterInput((previousState) => ({
-      ...previousState,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === "cv") {
+      setRegisterInput((previousState) => ({
+        ...previousState,
+        cv: e.target.files[0],
+      }));
+    } else {
+      setRegisterInput((previousState) => ({
+        ...previousState,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
+
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { confirmer_mot_de_passe, ...data } = RegisterInput;
+      const formData = new FormData();
+      formData.append("nom", RegisterInput.nom);
+      formData.append("prenom", RegisterInput.prenom);
+      formData.append("mail", RegisterInput.mail);
+      formData.append("date_de_naissance", RegisterInput.date_de_naissance);
+      formData.append("sexe", RegisterInput.sexe);
+      formData.append("mot_de_passe", RegisterInput.mot_de_passe);
+
+      formData.append("num_tel", RegisterInput.num_tel);
+      formData.append("cv", RegisterInput.cv);
+
       const response = await axios.post(
         "http://localhost:5000/users/add",
-        data
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
-      if (response.data) {
-        localStorage.setItem(
-          "User",
-          JSON.stringify({
-            _id: response.data._id,
-            token: response.data.token,
-            refreshToken: response.data.refreshToken,
-          })
-        );
-        navigate("/");
-      }
+
+      console.log(response.data);
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -166,8 +181,6 @@ const Registerform = () => {
                 placeholder="Confirmer  mot de passe"
                 className="input input-bordered w-full"
                 required
-                value={RegisterInput.confirmer_mot_de_passe}
-                onChange={handleOnChange}
               />
             </div>
           </div>
@@ -195,7 +208,13 @@ const Registerform = () => {
               <label className="label">
                 <span className="label-text">CV :</span>
               </label>
-              <input type="file" name="cv" />
+              <input
+                type="file"
+                name="cv"
+                onChange={handleOnChange}
+                accept=".pdf"
+                className="input input-bordered w-full"
+              />
             </div>
           </div>
           <button

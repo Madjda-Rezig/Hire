@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Pricing() {
   return (
@@ -152,13 +153,13 @@ function Pricing() {
                   <span>Priority customer support.</span>
                 </li>
               </ul>
-              <a
+              <Link
                 rel="noopener noreferrer"
                 href="#Contact"
                 className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded bg-white text-[#1CD2B1]"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
           <div className="w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
@@ -235,13 +236,13 @@ function Pricing() {
                   <span>Analytics and reporting features.</span>
                 </li>
               </ul>
-              <a
+              <Link
                 rel="noopener noreferrer"
                 href="#Contact"
                 className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded bg-[#1CD2B1] text-white"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

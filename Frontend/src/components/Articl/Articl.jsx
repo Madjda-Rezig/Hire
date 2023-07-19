@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "../../assets/HeroCompany.jpg";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Articl = () => {
   const { id } = useParams();
@@ -35,22 +36,22 @@ const Articl = () => {
           />
           <div className="p-6 pb-12 m-4 -mt-16 space-y-6 sm:px-10 sm:mx-12 lg:rounded-md bg-white border-2 border-blue-600 shadow-xl">
             <div className="space-y-2">
-              <a
+              <Link
                 rel="noopener noreferrer"
                 href="#"
                 className="inline-block text-2xl font-semibold sm:text-3xl text-blue-600"
               >
                 {article.titre}
-              </a>
+              </Link>
               <p className="text-xs text-gray-400">
                 By{" "}
-                <a
+                <Link
                   rel="noopener noreferrer"
                   href="#"
                   className="text-xs hover:underline"
                 >
                   REZIG MADJDA
-                </a>
+                </Link>
               </p>
             </div>
             <div className="text-gray-600 text-justify">
@@ -60,7 +61,7 @@ const Articl = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <a
+        <Link
           className="group flex items-center justify-between gap-4 rounded-lg border border-blue-600 bg-blue-600 px-16 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring"
           href="/Blog"
         >
@@ -83,7 +84,7 @@ const Articl = () => {
               />
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

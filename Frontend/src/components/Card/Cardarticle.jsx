@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Cardarticle = ({ articles }) => {
   return (
-    <section className="p-4 lg:p-8 bg-white text-black">
+    <section className="p-4 lg:p-8 bg-white text-black mt-10">
       <div className="container space-y-12 mx-auto">
         {articles.map((article) => (
           <div

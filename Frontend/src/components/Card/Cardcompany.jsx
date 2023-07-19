@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Cardcompany = ({ entreprises }) => {
   return (
@@ -47,11 +48,6 @@ const Cardcompany = ({ entreprises }) => {
                 />
                 {entreprise.secteur}
               </h3>
-              <div className="text-center mt-5">
-                <a className="link link-hover text-blue-600 text-center">
-                  - More Details -
-                </a>
-              </div>
             </div>
           ))}
         </div>

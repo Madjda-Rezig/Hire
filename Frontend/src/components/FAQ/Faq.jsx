@@ -23,10 +23,10 @@ const Faq = () => {
         <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl text-[#1CD2B1]">
           Frequently Asked Questions
         </h2>
-        <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-600">
+        <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-300">
           {faqData.map((faq, index) => (
             <details key={index}>
-              <summary className="py-2 outline-none cursor-pointer focus:underline">
+              <summary className="py-5 outline-none cursor-pointer focus:underline ">
                 {faq.question}
               </summary>
               <div className="px-4 pb-4">

@@ -3,54 +3,64 @@ const bcrypt = require("bcrypt");
 const expressAsyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
 const userModel = require("../models/userModel");
+const jwt = require('jsonwebtoken')
+
+//Gen refresh token
+const generateToken = (data) => {
+  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "500000000000000000000000m" });
+  return token;
+};
 
 
-//Create a user
 exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
   try {
     const user = await UserModel.create({
       ...req.body,
+      cv: req.myFileName, // Save the generated filename in the cv field
       mot_de_passe: await bcrypt.hash(req.body.mot_de_passe, 10),
-    })
+    });
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+        user: 'jesse.lebsack6@ethereal.email',
+        pass: 'YBRHsz1yScAn5PYJas'
+    }
+    });
 
-  // create reusable transporter object using the default SMTP transport
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-      user: 'giovanny.veum@ethereal.email',
-      pass: '2J3Rene9SC7A4wzq9F'
+    const mailOptions = {
+      from: 'Workupcontact@gmail.com',
+      to: user.mail,
+      subject: 'Welcome to WorkUp',
+      text: `Hello ${user.nom},
+
+Thank you for joining WorkUp. We are excited to have you on board.
+
+Please feel free to reach out if you have any questions or need assistance.
+
+Best regards,
+
+Your WorkUp Team`
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    res.status(201).json({
+      _id: user._id,
+      accessToken: generateToken(user._id),
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
   }
 });
 
-  // send mail with defined transport object
-  let info =  transporter.sendMail({
-    from: 'rezigmadjda@gmail.com', // sender address
-    to: user.mail, // list of receivers
-    subject: "Welcome to WorkUp ", // Subject line
-    text: `Hello  ${user.nom}
-    
-  Thank you for joining WorkUp. We are excited to have you on board.
-
-  Please feel free to reach out if you have any questions or need assistance.
-
-  Best regards,
-
-  Your WorkUp Team`, // plain text body
-  },
-  function (error, info) {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log("Email sent: " + info.response)
-    }
-  })
-    res.status(201).json("l'utilisateur a été crée !")
-  } catch (error) {
-    res.status(400)
-    throw new Error(error)
-  }
-})
 
 
 //////////////////////////////////////////////

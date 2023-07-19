@@ -1,5 +1,6 @@
 import React from "react";
 import home from "../../assets/Home.jpg";
+import { Link } from "react-router-dom";
 
 const Herohome = () => {
   return (
@@ -22,13 +23,13 @@ const Herohome = () => {
             privileged access to exceptional professional opportunities
           </p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-center">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="Offres"
+              to={"/Offresp"}
               className="px-8 py-3 text-lg font-semibold rounded bg-blue-600 text-white"
             >
               Our Jobs
-            </a>
+            </Link>
           </div>
         </div>
       </div>

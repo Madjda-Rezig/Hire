@@ -42,7 +42,7 @@ const Popular = () => {
               key={article.id}
               className="flex flex-col bg-gray-100 shadow-xl border-gray-200 border-2"
             >
-              <a
+              <Link
                 rel="noopener noreferrer"
                 href="#"
                 aria-label="Te nulla oportere reprimique his dolorum"
@@ -52,18 +52,18 @@ const Popular = () => {
                   className="object-cover w-full h-52 bg-gray-500"
                   src={`http://localhost:5000/images/${article.photo}`}
                 />
-              </a>
+              </Link>
               <div className="flex flex-col flex-1 p-6">
-                <a
+                <Link
                   rel="noopener noreferrer"
                   aria-label="Te nulla oportere reprimique his dolorum"
-                ></a>
-                <a
+                ></Link>
+                <Link
                   rel="noopener noreferrer"
                   className="text-xs tracking-wider uppercase hover:underline text-blue-600"
                 >
                   {article.categorie}
-                </a>
+                </Link>
 
                 <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
                   {article.titre}

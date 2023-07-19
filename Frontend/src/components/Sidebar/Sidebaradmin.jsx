@@ -57,23 +57,23 @@ const Sidebaradmin = () => {
             </span>
           </div>
           <ul className="mt-6 space-y-1">
-            <Link to={"Statistiqueadmin"}>
-              <li>
-                <a
-                  href=""
-                  className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-                >
-                  Statistique
-                </a>
-              </li>
-            </Link>
-            <Link to={"profileadmin"}>
-              <li>
-                <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                  Profil
-                </a>
-              </li>
-            </Link>
+            <li>
+              <Link
+                to={"Statistiqueadmin"}
+                className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+              >
+                Statistique
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to={"profileadmin"}
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              >
+                Profil
+              </Link>
+            </li>
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
@@ -97,28 +97,32 @@ const Sidebaradmin = () => {
                 </summary>
 
                 <ul className="mt-2 space-y-1 px-4">
-                  <Link to={"Showcandidat"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Show Candidats
-                      </a>
-                    </li>
-                  </Link>
-                  <Link to={"Showrecruteur"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Show Recruteur
-                      </a>
-                    </li>
-                  </Link>
+                  <li>
+                    <Link
+                      to={"Showcandidat"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Show Candidats
+                    </Link>
+                  </li>
 
-                  <Link to={"Addrecruteur"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Add Recruteur
-                      </a>
-                    </li>
-                  </Link>
+                  <li>
+                    <Link
+                      to={"Showrecruteur"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Show Recruteur
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to={"Addrecruteur"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Add Recruteur
+                    </Link>
+                  </li>
                 </ul>
               </details>
             </li>
@@ -145,13 +149,14 @@ const Sidebaradmin = () => {
                 </summary>
 
                 <ul className="mt-2 space-y-1 px-4">
-                  <Link to={"Showalloffers"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Show All Offers
-                      </a>
-                    </li>
-                  </Link>
+                  <li>
+                    <Link
+                      to={"Showalloffers"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Show All Offers
+                    </Link>
+                  </li>
                 </ul>
               </details>
             </li>
@@ -178,20 +183,23 @@ const Sidebaradmin = () => {
                 </summary>
 
                 <ul className="mt-2 space-y-1 px-4">
-                  <Link to={"Addcategorie"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Add an Category
-                      </a>
-                    </li>
-                  </Link>
-                  <Link to={"Showcategorie"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Show all Categories
-                      </a>
-                    </li>
-                  </Link>
+                  <li>
+                    <Link
+                      to={"Addcategorie"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Add an Category
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to={"Showcategorie"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Show all Categories
+                    </Link>
+                  </li>
                 </ul>
               </details>
             </li>
@@ -218,21 +226,22 @@ const Sidebaradmin = () => {
                 </summary>
 
                 <ul className="mt-2 space-y-1 px-4">
-                  <Link to={"Addarticle"}>
-                    <li>
-                      <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                        Add an Article
-                      </a>
-                    </li>
-                  </Link>
+                  <li>
+                    <Link
+                      to={"Addarticle"}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      Add an Article
+                    </Link>
+                  </li>
 
                   <li>
-                    <a
+                    <Link
                       href=""
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
                       Show all Articles
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </details>
@@ -258,23 +267,23 @@ const Sidebaradmin = () => {
                   </summary>
 
                   <ul className="mt-2 space-y-1 px-4">
-                    <Link to={"Addcompany"}>
-                      <li>
-                        <a
-                          href=""
-                          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                        >
-                          Add a Company
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to={"Showcompanies"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Show all Companies
-                        </a>
-                      </li>
-                    </Link>
+                    <li>
+                      <Link
+                        to={"Addcompany"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add a Company
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to={"Showcompanies"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all Companies
+                      </Link>
+                    </li>
                   </ul>
                 </details>
               </li>
@@ -301,20 +310,19 @@ const Sidebaradmin = () => {
 
                   <ul className="mt-2 space-y-1 px-4">
                     <li>
-                      <a
-                        href=""
+                      <Link className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                        Add a news Letter
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to={"Showsubscribers"}
                         className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                       >
-                        Add a news Letter
-                      </a>
+                        Show all Subscribers
+                      </Link>
                     </li>
-                    <Link to={"Showsubscribers"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Show all Subscribers
-                        </a>
-                      </li>
-                    </Link>
                   </ul>
                 </details>
               </li>
@@ -340,20 +348,23 @@ const Sidebaradmin = () => {
                   </summary>
 
                   <ul className="mt-2 space-y-1 px-4">
-                    <Link to={"Addfaqcandidat"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Add an FAQ
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to={"Showfaqcandidat"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Show all FAQ'S
-                        </a>
-                      </li>
-                    </Link>
+                    <li>
+                      <Link
+                        to={"Addfaqcandidat"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add an FAQ
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to={"Showfaqcandidat"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all FAQ'S
+                      </Link>
+                    </li>
                   </ul>
                 </details>
               </li>
@@ -380,40 +391,43 @@ const Sidebaradmin = () => {
                   </summary>
 
                   <ul className="mt-2 space-y-1 px-4">
-                    <Link to={"Addfaqrec"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Add an FAQ
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to={"Showfaqrec"}>
-                      <li>
-                        <a className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                          Show all FAQ's
-                        </a>
-                      </li>
-                    </Link>
+                    <li>
+                      <Link
+                        to={"Addfaqrec"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Add an FAQ
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to={"Showfaqrec"}
+                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        Show all FAQ's
+                      </Link>
+                    </li>
                   </ul>
                 </details>
               </li>
 
               <hr className="border-gray-200 my-4" />
               <li>
-                <a
+                <Link
                   onClick={handleLogout}
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                   Logout
-                </a>
+                </Link>
               </li>
             </li>
           </ul>
         </div>
 
         <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
-          <a
+          <Link
             href="#"
             className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
           >
@@ -432,7 +446,7 @@ const Sidebaradmin = () => {
                 <span> {mail} </span>
               </p>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ const Header = () => {
           </div>
 
           <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-            <a
+            <Link
               className="inline-block rounded bg-gradient-to-r from-blue-600 via-[#1CD2B1] to-green-300 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
               href="/"
             >
@@ -55,7 +55,7 @@ const Header = () => {
                   WorkUp
                 </span>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

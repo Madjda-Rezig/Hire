@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Categorie = () => {
   const [cats, setCats] = useState([]);
@@ -28,23 +29,23 @@ const Categorie = () => {
             <h2 className="text-3xl font-bold sm:text-4xl text-blue-600 pb-10">
               Find your career path
             </h2>
-            <p className="mt-4 text-gray-600 pb-10">
+            <p className="mt-4 text-gray-600 pb-4 text-justify">
               Whether you're looking for an exciting career in technology,
               administration, marketing, or other exciting fields, our platform
               is filled with opportunities for you. Explore our categories to
               discover various positions, and open the door to a promising
               professional future!
             </p>
-            <a
+            <Link
               href="Offres"
               className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-lg font-semibold text-white transition hover:bg-gray-600 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               See More
-            </a>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {cats.map((cat) => (
-              <a
+              <Link
                 key={cat.id}
                 className="block rounded-xl border border-blue-600 p-4 shadow-sm hover:border-gray-600 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
               >
@@ -72,7 +73,7 @@ const Categorie = () => {
                 <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   {cat.defcat}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

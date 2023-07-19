@@ -55,7 +55,7 @@ export default function Entreprisesp() {
         }}
       >
         <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
-          <h1 className="text-4xl font-bold leadi sm:text-5xl text-white mb-40">
+          <h1 className="text-4xl font-bold leadi sm:text-5xl text-blue-600 mb-40">
             Our Job is to Help to Find a Job
           </h1>
         </div>

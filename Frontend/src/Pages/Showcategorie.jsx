@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function Showcategorie() {
   const [cats, setCats] = useState([]);
@@ -33,7 +34,7 @@ export default function Showcategorie() {
           </div>
           <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {cats.map((cat) => (
-              <a
+              <Link
                 key={cat.id}
                 className="block rounded-xl border border-blue-600 p-4 shadow-sm hover:border-gray-600 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
               >
@@ -61,7 +62,7 @@ export default function Showcategorie() {
                 <p className="hidden mt-1 text-sm text-gray-600 md:block">
                   {cat.defcat}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
