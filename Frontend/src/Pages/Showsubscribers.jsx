@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ShowSubscribers() {
   const [subscribers, setSubscribers] = useState([]);
@@ -10,14 +11,11 @@ export default function ShowSubscribers() {
   useEffect(() => {
     const fetchSubscribers = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:5000/newsletter/Link>ll",
-          {
-            headers: {
-              Authorization: `Bearer ${user.accessToken}`,
-            },
-          }
-        );
+        const response = await fetch("http://localhost:5000/newsletter/all", {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        });
         const data = await response.json();
         setSubscribers(data);
       } catch (error) {

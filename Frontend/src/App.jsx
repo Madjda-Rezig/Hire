@@ -75,6 +75,10 @@ const router = createBrowserRouter(
       {/* DASHBOARD RECRUTEUR */}
       <Route path="Dashbordrec" element={<Layoutrec />}>
         <Route index element={<Statistiquerec />} />
+        <Route
+          path="/Dashbordrec/Statistiquerec"
+          element={<Stastiqueadmin />}
+        />
         <Route path="Profilerec" element={<Profilerec />} />
         <Route path="Showcandidat" element={<Showcandidat />} />
         <Route path="Addoffer" element={<Addoffer />} />
@@ -84,6 +88,10 @@ const router = createBrowserRouter(
       {/* DASHBOARD ADMIN */}
       <Route path="Dashbordadmin" element={<Layoutadmin />}>
         <Route index element={<Stastiqueadmin />} />
+        <Route
+          path="/Dashbordadmin/Statistiqueadmin"
+          element={<Stastiqueadmin />}
+        />
         <Route path="Profileadmin" element={<Profileadmin />} />
         <Route path="Addfaqrec" element={<Addfaqrec />} />
         <Route path="Addfaqcandidat" element={<Addfaqcandidat />} />
