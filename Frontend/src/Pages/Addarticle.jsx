@@ -7,46 +7,45 @@ const AddArticle = () => {
   const navigate = useNavigate();
   const [articleData, setArticleData] = useState({
     titre: "",
-    auteur: "",
+    autheur: "",
     resume: "",
     contenu: "",
     categorie: "",
     photo: null,
   });
 
-  const handleInputChange = (event) => {
-    if (event.target.name === "photo") {
-      setArticleData({
-        ...articleData,
-        [event.target.name]: event.target.files[0],
-      });
-    } else {
-      setArticleData({
-        ...articleData,
-        [event.target.name]: event.target.value,
-      });
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEntrepriseData({ ...articleData, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setArticleData({ ...articleData, photo: file });
+  };
 
-    try {
-      const formData = new FormData();
-      formData.append("titre", articleData.titre);
-      formData.append("auteur", articleData.auteur);
-      formData.append("resume", articleData.resume);
-      formData.append("contenu", articleData.contenu);
-      formData.append("categorie", articleData.categorie);
-      formData.append("photo", articleData.photo);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
 
-      await axios.post("http://localhost:5000/articles/", formData);
+    formData.append("titre", articleData.titre);
+    formData.append("contenu", articleData.contenu);
+    formData.append("categorie", articleData.categorie);
+    formData.append("resume", articleData.resume);
+    formData.append("autheur", articleData.autheur);
+    formData.append("photo", articleData.photo);
 
-      toast.success("Article added successfully");
-    } catch (error) {
-      toast.error("Failed to add article");
-      console.error(error);
-    }
+    fetch("http://localhost:5000/articles/", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -76,7 +75,7 @@ const AddArticle = () => {
               <input
                 type="text"
                 name="auteur"
-                value={articleData.auteur}
+                value={articleData.autheur}
                 onChange={handleInputChange}
                 required
                 placeholder="Article Author"
@@ -136,7 +135,7 @@ const AddArticle = () => {
             <input
               type="file"
               name="photo"
-              onChange={handleInputChange}
+              onChange={handleFileChange}
               className="input input-bordered w-full"
               required
             />

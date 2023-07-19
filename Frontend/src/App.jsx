@@ -34,6 +34,7 @@ import Addrecruteur from "./Pages/Addrecruteur.jsx";
 import Addcategorie from "./Pages/Addcategorie.jsx";
 import Showcategorie from "./Pages/Showcategorie.jsx";
 import Addarticle from "./Pages/Addarticle.jsx";
+import Showarticle from "./Pages/Showarticle.jsx";
 import Addcompany from "./Pages/Addcompany.jsx";
 import Addoffer from "./Pages/Addoffer.jsx";
 import Showalloffers from "./Pages/Showalloffers.jsx";
@@ -105,6 +106,7 @@ const router = createBrowserRouter(
         <Route path="Addcategorie" element={<Addcategorie />} />
         <Route path="Showcategorie" element={<Showcategorie />} />
         <Route path="Addarticle" element={<Addarticle />} />
+        <Route path="Showarticle" element={<Showarticle />} />
         <Route path="Addcompany" element={<Addcompany />} />
         <Route path="Showalloffers" element={<Showalloffers />} />
       </Route>
