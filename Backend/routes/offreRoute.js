@@ -18,7 +18,7 @@ offreRouter
 //Endpoint for offer pagination
 .get('/pagination', paginationOffres)
 // Endpoint to add a new offer
-.post("/add",protectRecruteur, postOffer)
+.post("/add", postOffer)
 // Endpoint to get a specific offer by ID
 .get("/:id",afficherOffre)
 // Endpoint to delete an offer by ID

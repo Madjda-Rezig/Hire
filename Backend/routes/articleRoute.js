@@ -44,6 +44,6 @@ articleRouter
   .put('/:id', protectAdmin, modifierArticle)
 
   // Endpoint to delete an article by ID
-  .delete('/:id', protectAdmin, supprimerArticle);
+  .delete('/delete/:id', supprimerArticle);
 
 module.exports = articleRouter;

@@ -99,7 +99,7 @@ exports.supprimerArticle = expressAsyncHandler(async (req, res) => {
       res.status(404);
       throw new Error("Article non trouvé");
     }
-    if (article.auteur.toString() !== req.user._id.toString()) {
+    if (article.autheur.toString() !== req.user._id.toString()) {
       res.status(401);
       throw new Error("Non autorisé à supprimer cet article");
     }

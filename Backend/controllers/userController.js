@@ -7,13 +7,16 @@ const jwt = require('jsonwebtoken')
 
 //Gen refresh token
 const generateToken = (data) => {
-  const token = jwt.sign(data, process.env.ACCESS_TOKEN, { expiresIn: "500000000000000000000000m" });
+  const token = jwt.sign({_id:data._id,role:data.role,mail:data.mail}, process.env.ACCESS_TOKEN, { expiresIn: "500000000000000000000000m" });
   return token;
 };
 
 
 exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
   try {
+    const userExist = await userModel.find({mail:req.body.mail})
+    if (userExist.length) throw new Error("Utilisatuer Exist")
+
     const user = await UserModel.create({
       ...req.body,
       cv: req.myFileName, // Save the generated filename in the cv field
@@ -53,7 +56,7 @@ Your WorkUp Team`
 
     res.status(201).json({
       _id: user._id,
-      accessToken: generateToken(user._id),
+      accessToken: generateToken(user),
     });
   } catch (error) {
     res.status(400);

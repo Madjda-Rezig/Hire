@@ -27,6 +27,22 @@ export default function ShowSubscribers() {
     fetchSubscribers();
   }, []);
 
+  const handleDeleteSubscriber = async (subscriberId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:5000/newsletter/delete/${subscriberId}`
+      );
+
+      if (response.status === 200) {
+        alert("Subscriber deleted successfully");
+      } else {
+        alert("Subscriber not found");
+      }
+    } catch (error) {
+      console.error("Error deleting subscriber:", error.message);
+    }
+  };
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -54,7 +70,10 @@ export default function ShowSubscribers() {
                 </td>
                 <td>
                   <button className="whitespace-nowrap px-4 py-2">
-                    <Link className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white">
+                    <Link
+                      onClick={() => handleDeleteSubscriber(subscriberId)}
+                      className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white"
+                    >
                       Delete
                     </Link>
                   </button>

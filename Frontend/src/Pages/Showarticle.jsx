@@ -5,10 +5,8 @@ function Showarticle() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Define the backend endpoint URL
-    const backendEndpoint = "http://localhost:5000/articles/"; // Replace this with your actual backend endpoint URL
+    const backendEndpoint = "http://localhost:5000/articles/";
 
-    // Make the HTTP request to fetch the articles
     axios
       .get(backendEndpoint)
       .then((response) => {
@@ -18,6 +16,21 @@ function Showarticle() {
         console.error("Error fetching articles:", error);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    const backendDeleteEndpoint = `/api/articles/${id}`;
+
+    axios
+      .delete(backendDeleteEndpoint)
+      .then((response) => {
+        setArticles((prevArticles) =>
+          prevArticles.filter((article) => article._id !== id)
+        );
+      })
+      .catch((error) => {
+        console.error("Error deleting article:", error);
+      });
+  };
 
   return (
     <div>
@@ -38,7 +51,10 @@ function Showarticle() {
                 <td>{article.categorie}</td>
                 <td>{article.autheur}</td>
                 <td>
-                  <button className="btn btn-ghost btn-sm bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white">
+                  <button
+                    onClick={() => handleDelete(article._id)}
+                    className="btn btn-ghost btn-sm bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white"
+                  >
                     Delete
                   </button>
                 </td>

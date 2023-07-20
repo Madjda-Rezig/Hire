@@ -17,7 +17,6 @@ const Registerform = () => {
     date_de_naissance: "",
     sexe: "",
     mot_de_passe: "",
-
     num_tel: "",
     cv: null,
   });
@@ -46,18 +45,13 @@ const Registerform = () => {
       formData.append("date_de_naissance", RegisterInput.date_de_naissance);
       formData.append("sexe", RegisterInput.sexe);
       formData.append("mot_de_passe", RegisterInput.mot_de_passe);
-
       formData.append("num_tel", RegisterInput.num_tel);
       formData.append("cv", RegisterInput.cv);
 
       const response = await axios.post(
         "http://localhost:5000/users/add",
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        {}
       );
 
       console.log(response.data);

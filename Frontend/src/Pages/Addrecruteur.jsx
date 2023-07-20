@@ -38,14 +38,6 @@ export default function Addrecruteur() {
         data
       );
       if (response.data) {
-        localStorage.setItem(
-          "User",
-          JSON.stringify({
-            _id: response.data._id,
-            token: response.data.token,
-            refreshToken: response.data.refreshToken,
-          })
-        );
         toast.success("Création du compte recruteur réussie !");
         window.location.reload(); // Actualiser la page
       }

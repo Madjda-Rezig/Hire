@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddArticle = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [articleData, setArticleData] = useState({
     titre: "",
     autheur: "",
@@ -16,7 +17,7 @@ const AddArticle = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEntrepriseData({ ...articleData, [name]: value });
+    setArticleData({ ...articleData, [name]: value });
   };
 
   const handleFileChange = (e) => {
@@ -26,6 +27,7 @@ const AddArticle = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
 
     formData.append("titre", articleData.titre);
@@ -35,17 +37,23 @@ const AddArticle = () => {
     formData.append("autheur", articleData.autheur);
     formData.append("photo", articleData.photo);
 
-    fetch("http://localhost:5000/articles/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
+    axios
+      .post("http://localhost:5000/articles/", formData)
+
       .then((data) => {
-        console.log(data);
+        setArticleData({
+          titre: "",
+          autheur: "",
+          resume: "",
+          contenu: "",
+          categorie: "",
+          photo: null,
+        });
       })
       .catch((error) => {
         console.error(error);
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -74,7 +82,7 @@ const AddArticle = () => {
               </label>
               <input
                 type="text"
-                name="auteur"
+                name="autheur"
                 value={articleData.autheur}
                 onChange={handleInputChange}
                 required
@@ -144,6 +152,7 @@ const AddArticle = () => {
           <button
             type="submit"
             className="btn w-full mt-14 border-none bg-blue-600"
+            disabled={loading}
           >
             Add Article
           </button>
