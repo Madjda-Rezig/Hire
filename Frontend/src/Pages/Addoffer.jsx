@@ -54,6 +54,11 @@ function Addoffer() {
       <div className="hero min-h-screen bg-base-200">
         <div className="bg-white border-2 border-gray-200 shadow-xl pt-10 pb-14 sm:w-4/5 md:w-3/5 lg:w-3/5 rounded-lg mt-4 mb-10 grid place-items-center">
           <form className="w-4/5" onSubmit={handleSubmit}>
+            <div className="text-center">
+              <span className="text-4xl py-5 font-semibold sm:text-4xl bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 bg-clip-text text-transparent">
+                Add an Offer
+              </span>
+            </div>
             <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text">Poste:</span>
@@ -181,7 +186,7 @@ function Addoffer() {
 
             <button
               type="submit"
-              className="btn w-full mt-14 border-none bg-blue-600"
+              className="btn w-full mt-14 border-none bg-gradient-to-r from-blue-600 via-[#1CD2B1] to-green-300"
             >
               Add Offer
             </button>
