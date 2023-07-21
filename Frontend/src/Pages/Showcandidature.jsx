@@ -12,28 +12,37 @@ function Showcandidature() {
           <tbody className="divide-y divide-gray-200">
             <tr>
               <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Nom
+                Poste
               </td>
+
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">Nom</td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                 Mail
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Date de naissance
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Numero
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Genre
+                Numéro
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900"></td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
+              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Junior FrontEnd Developper
+              </td>
 
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                Rezig Madjda
+              </td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                rezigmadjda@gmail.fr
+              </td>
+
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                0551862635
+              </td>
+              <th>
+                <button className="btn btn-ghost btn-sm bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 text-white">
+                  Resume
+                </button>
+              </th>
             </tr>
           </tbody>
         </table>

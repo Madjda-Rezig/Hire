@@ -12,19 +12,16 @@ function Showoffercompany() {
           <tbody className="divide-y divide-gray-200">
             <tr>
               <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Nom
+                Poste
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Mail
+                Contract
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Date de naissance
+                Location
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Numero
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Genre
+                Experience
               </td>
             </tr>
 
@@ -33,7 +30,6 @@ function Showoffercompany() {
               <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
 
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700"></td>
             </tr>
           </tbody>
