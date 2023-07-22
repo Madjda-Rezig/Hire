@@ -7,6 +7,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+const handleDropdownToggle = () => {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  dropdownMenu.classList.toggle("hidden");
+};
+
 function Navbarrecruteur() {
   return (
     <header aria-label="Site Header" className="bg-white" id="Nav">
@@ -74,8 +79,12 @@ function Navbarrecruteur() {
               </div>
             </div>
 
-            <div className="block md:hidden">
-              <button className="rounded bg-gray-100 p-2 text-[#1CD2B1] transition hover:text-gray-600/75">
+            <div className="block md:hidden relative">
+              <button
+                id="dropdownButton"
+                className="rounded bg-gray-100 p-2 text-blue-600 transition hover:text-gray-600/75 py-2 px-2"
+                onClick={handleDropdownToggle}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -91,6 +100,21 @@ function Navbarrecruteur() {
                   />
                 </svg>
               </button>
+              <div
+                id="dropdownMenu"
+                className="hidden absolute right-0 mt-2 py-2 w-24 bg-white border rounded shadow-lg z-10"
+              >
+                <ul>
+                  <li>
+                    <Link
+                      to={"Loginrecruteur"}
+                      className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

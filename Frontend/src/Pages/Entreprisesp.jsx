@@ -59,11 +59,11 @@ export default function Entreprisesp() {
             Our Job is to Help to Find a Job
           </h1>
         </div>
-        <div className="flex flex-row justify-center items-center w-1/3 mx-auto pb-20">
+        <div className="flex flex-row justify-center items-center w-1/2 mx-auto pb-20 ">
           <input
             type="text"
             placeholder="Search a Job"
-            className="w-3/5 p-3 rounded-lg sm:w-2/3 shadow-2xl"
+            className="w-3/5 p-3 rounded-lg sm:w-1/2   shadow-2xl "
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

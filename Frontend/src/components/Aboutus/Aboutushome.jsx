@@ -1,5 +1,5 @@
 import React from "react";
-import Image4 from "../../assets/Image4.jpeg";
+import Image4 from "../../assets/Group 38.png";
 import img from "../../assets/Login.jpg";
 
 const Aboutushome = () => {
@@ -116,7 +116,7 @@ const Aboutushome = () => {
             <img
               src={Image4}
               alt="image"
-              className="mx-auto rounded-lg shadow-lg bg-gray-600"
+              className="mx-auto rounded-lg shadow-lg bg-white border-2 border-blue-600 "
             />
           </div>
         </div>

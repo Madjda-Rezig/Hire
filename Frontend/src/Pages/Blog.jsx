@@ -56,15 +56,16 @@ export default function Blog() {
             career path
           </p>
         </div>
-        <div className="flex flex-row justify-center  items-center w-1/3 relative mx-auto mt-6">
+
+        <div className="flex flex-row justify-center items-center w-1/2 mx-auto pb-10  mt-8">
           <input
             type="text"
-            placeholder="Search a Job"
-            className="w-3/5 p-3 rounded-lg sm:w-full h-full shadow-2xl pr-16"
+            placeholder="Search"
+            className="w-3/5 p-3 rounded-lg sm:w-1/2   shadow-2xl "
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <div className="border-2 px-4 py-2.5 rounded-lg flex justify-center items-center bg-blue-600 absolute right-1 top-1 bottom-1">
+          <div className="border-2 px-4 py-2.5 rounded-lg bg-blue-600 -translate-x-12">
             <FontAwesomeIcon icon={faSearch} className="text-white " />
           </div>
         </div>

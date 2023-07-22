@@ -12,7 +12,6 @@ const articleRoute = require("./routes/articleRoute")
 const newsletterRoute = require("./routes/newsletterRoute")
 const contactRoute = require("./routes/contactRoute")
 const faqRoute = require("./routes/faqRoute")
-const path = require('path')
 
 require("dotenv").config()
 mongoose.set('strictQuery', false);

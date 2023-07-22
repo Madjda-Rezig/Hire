@@ -16,7 +16,7 @@ const Stat = () => {
 
         <div className="mt-8 sm:mt-12">
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:divide-x sm:divide-gray-100">
-            <div className="flex flex-col px-4 py-8 text-center">
+            <div className="inline-block text-center">
               <FontAwesomeIcon
                 icon={faBuilding}
                 size="3x"
@@ -24,7 +24,7 @@ const Stat = () => {
                 className="pb-4"
               />
 
-              <dt className="order-last text-lg font-medium text-white pt-5 text-center">
+              <dt className="text-lg font-medium text-white pt-5 text-center">
                 Companies
               </dt>
 
@@ -33,14 +33,14 @@ const Stat = () => {
               </dd>
             </div>
 
-            <div className="flex flex-col px-4 py-8 text-center">
+            <div className="inline-block text-center">
               <FontAwesomeIcon
                 icon={faHandshake}
                 size="3x"
                 color="white"
                 className="pb-4"
               />
-              <dt className="order-last text-lg font-medium text-white pt-5 text-center">
+              <dt className="text-lg font-medium text-white pt-5 text-center">
                 Hiring/years
               </dt>
 
@@ -49,14 +49,14 @@ const Stat = () => {
               </dd>
             </div>
 
-            <div className="flex flex-col px-4 py-8 text-center">
+            <div className="inline-block text-center">
               <FontAwesomeIcon
                 icon={faUser}
                 size="3x"
                 color="white"
                 className="pb-4"
               />
-              <dt className="order-last text-lg font-medium text-white pt-5 text-center">
+              <dt className="text-lg font-medium text-white pt-5 text-center">
                 Candidates
               </dt>
 

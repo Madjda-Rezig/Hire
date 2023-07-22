@@ -46,7 +46,7 @@ function Footer() {
               </Link>
             </div>
 
-            <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+            <p class="text-center sm:text-left mt-6 max-w-md leading-relaxed text-gray-500 sm:max-w-xs">
               Find the Job of your Dream with the Best Recrutement Web Site in
               Algéria
             </p>

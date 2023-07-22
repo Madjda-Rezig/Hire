@@ -57,8 +57,8 @@ exports.getAppliedOffres = expressAsyncHandler(async (req, res) => {
 
 exports.getEntrepriseOffres = expressAsyncHandler(async (req, res) => {
   try {
-    const entreprise = req.params.entreprise.toString().toLowerCase();
-    const users = await userModel.find({ entreprise });
+    const {id} = req.query;
+    const users = await userModel.find({_id: id})
     const offres = await offreModel.find({ autheur: { $in: users.map((user) => user._id) } });
     res.status(200).json(offres);
   } catch (error) {

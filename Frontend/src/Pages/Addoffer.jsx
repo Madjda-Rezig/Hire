@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 function Addoffer() {
+  const accessToken = JSON.parse(localStorage.getItem("User")).accessToken;
   const [formData, setFormData] = useState({
     poste: "",
     entreprise: "",
@@ -18,10 +19,10 @@ function Addoffer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send a POST request to your server-side endpoint
-      await axios.post("http://localhost:5000/offres/add", formData);
+      await axios.post("http://localhost:5000/offres/add", formData, {
+        headers: { Authorization: "Bearer " + accessToken },
+      });
 
-      // Clear the form fields after successful submission
       setFormData({
         poste: "",
         entreprise: "",
@@ -33,12 +34,10 @@ function Addoffer() {
         description: "",
       });
 
-      // Show a success message (you can add a state variable for this)
-      alert("Offer added successfully!");
+      toast.success("Offer Added successfully");
     } catch (error) {
-      // Handle errors here (you can also add a state variable for error handling)
-      console.log("Error:", error);
-      alert("Error occurred while adding the offer. Please try again.");
+      console.error(error);
+      toast.error(error.response.data.message);
     }
   };
 
