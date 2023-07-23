@@ -78,7 +78,7 @@ const router = createBrowserRouter(
         <Route index element={<Statistiquerec />} />
         <Route
           path="/Dashbordrec/Statistiquerec"
-          element={<Stastiqueadmin />}
+          element={<Statistiquerec />}
         />
         <Route path="Profilerec" element={<Profilerec />} />
         <Route path="Showcandidat" element={<Showcandidat />} />
