@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Showcandidature() {
+  const [candidatures, setCandidatures] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/candidatures/detailcandidature")
+      .then((response) => {
+        setCandidatures(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching candidatures:", error);
+      });
+  }, []);
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -14,7 +28,6 @@ function Showcandidature() {
               <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Poste
               </td>
-
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">Nom</td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                 Mail
@@ -23,31 +36,32 @@ function Showcandidature() {
                 Numéro
               </td>
             </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Junior FrontEnd Developper
-              </td>
-
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Rezig Madjda
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                rezigmadjda@gmail.fr
-              </td>
-
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                0551862635
-              </td>
-              <th>
-                {/* <a
-                  href={"http://localhost:5000/fichiercv/" + user.cv}
+            {candidatures.map((candidature) => (
+              <tr key={candidature._id}>
+                <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  {candidature.idOffre?.poste}{" "}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {candidature.idCandidat?.nom} {candidature.idCandidat?.prenom}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {candidature.idCandidat?.mail}{" "}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {candidature.idCandidat?.num_tel}{" "}
+                </td>
+                <a
+                  href={
+                    "http://localhost:5000/fichiercv/" +
+                    candidature.idCandidat?.cv
+                  }
                   target="_blank"
-                  className="btn btn-ghost btn-sm bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 text-white"
+                  className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white"
                 >
                   Resume
-                </a> */}
-              </th>
-            </tr>
+                </a>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

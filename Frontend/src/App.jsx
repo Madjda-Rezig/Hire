@@ -19,7 +19,7 @@ import Candidaturedescription from "./Pages/Candidaturedescription.jsx";
 import Admin from "./Pages/Admin.jsx";
 import Dashbordadmin from "./Pages/Dashbordadmin.jsx";
 import Statistiquerec from "./Pages/Statistiquerec.jsx";
-import Stastiqueadmin from "./Pages/Statistiqueadmin.jsx";
+
 import Profilerec from "./Pages/Profilerec.jsx";
 import Profileadmin from "./Pages/Profileadmin.jsx";
 import Addfaqcandidat from "./Pages/Addfaqcandidat.jsx";
@@ -88,12 +88,9 @@ const router = createBrowserRouter(
       </Route>
       {/* DASHBOARD ADMIN */}
       <Route path="Dashbordadmin" element={<Layoutadmin />}>
-        <Route index element={<Stastiqueadmin />} />
-        <Route
-          path="/Dashbordadmin/Statistiqueadmin"
-          element={<Stastiqueadmin />}
-        />
-        <Route path="Profileadmin" element={<Profileadmin />} />
+        <Route index element={<Profileadmin />} />
+        <Route path="/Dashbordadmin/Profileadmin" element={<Profileadmin />} />
+
         <Route path="Addfaqrec" element={<Addfaqrec />} />
         <Route path="Addfaqcandidat" element={<Addfaqcandidat />} />
         <Route path="Showfaqcandidat" element={<Showfaqcandidat />} />

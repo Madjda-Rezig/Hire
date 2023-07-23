@@ -59,17 +59,8 @@ const Sidebaradmin = () => {
           <ul className="mt-6 space-y-1">
             <li>
               <Link
-                to={"/Dashbordadmin/Statistiqueadmin"}
+                to={"/Dashbordadmin/profileadmin"}
                 className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-              >
-                Statistique
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to={"profileadmin"}
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
                 Profil
               </Link>

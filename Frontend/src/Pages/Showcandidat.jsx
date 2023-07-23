@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Showcandidat() {
   const [candidats, setCandidats] = useState([]);
@@ -68,6 +69,14 @@ export default function Showcandidat() {
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                   {candidat.sexe}
                 </td>
+
+                <a
+                  href={"http://localhost:5000/fichiercv/" + candidat.cv}
+                  target="_blank"
+                  className="inline-block rounded bg-gradient-to-r from-[#1CD2B1] to-blue-600 px-4 py-2 text-xs font-semibold text-white"
+                >
+                  Resume
+                </a>
               </tr>
             ))}
           </tbody>
