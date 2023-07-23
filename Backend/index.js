@@ -23,6 +23,7 @@ index.use(cors({
 index.use(express.json())
 index.use(express.urlencoded({ extended: true }))
 index.use("/images",express.static('images'))
+index.use("/fichiercv",express.static('fichiercv'))
 
 
 index.use("/users", userRouter)

@@ -39,9 +39,13 @@ function Showcandidature() {
                 0551862635
               </td>
               <th>
-                <button className="btn btn-ghost btn-sm bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 text-white">
+                {/* <a
+                  href={"http://localhost:5000/fichiercv/" + user.cv}
+                  target="_blank"
+                  className="btn btn-ghost btn-sm bg-gradient-to-r from-blue-300 via-[#1CD2B1] to-blue-600 text-white"
+                >
                   Resume
-                </button>
+                </a> */}
               </th>
             </tr>
           </tbody>

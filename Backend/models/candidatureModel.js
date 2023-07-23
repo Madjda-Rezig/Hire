@@ -9,7 +9,7 @@ const candidatureModel = new mongoose.Schema(
     },
     idCandidat: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: "User",
+      ref: "Utilisateur",
       required: true,
     },
     Etat: {

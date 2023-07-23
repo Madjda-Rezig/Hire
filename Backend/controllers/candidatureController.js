@@ -106,3 +106,13 @@ exports.paginationCandidatures = expressAsyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+//Detail candidature
+exports.detailsCandidature = expressAsyncHandler(async (req,res) => {
+  try {
+    const candidatures = await candidatureModel.find().populate('idOffre idCandidat')
+    res.status(200).json(candidatures)
+  }catch(err) {
+    res.status(400)
+    throw new Error(err)
+  }
+})
