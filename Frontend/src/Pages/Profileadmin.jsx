@@ -40,7 +40,7 @@ export default function Profileadmin() {
   }, []);
 
   const user = localStorage.getItem("User");
-  const { accessToken } = JSON.parse(user);
+  const accessToken = JSON.parse(user).accessToken;
 
   const handleModify = async (event) => {
     event.preventDefault();

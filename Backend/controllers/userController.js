@@ -26,8 +26,8 @@ exports.ajouterUtilisateur = expressAsyncHandler(async (req, res) => {
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
-        user: 'jesse.lebsack6@ethereal.email',
-        pass: 'YBRHsz1yScAn5PYJas'
+        user: 'georgette.johnston@ethereal.email',
+        pass: 'JtnhEq7Pw1Pn2Xpa34'
     }
     });
 

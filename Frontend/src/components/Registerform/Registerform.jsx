@@ -55,6 +55,8 @@ const Registerform = () => {
       );
 
       console.log(response.data);
+      toast.success("Your accout was created you can login now");
+      navigate("/Login");
     } catch (error) {
       console.log(error);
       toast.error(error.message);

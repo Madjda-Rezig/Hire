@@ -60,22 +60,10 @@ const Carddescriptionjob = () => {
       <div className="flex justify-center p-1">
         <div className="card w-3/4 bg-base-100 shadow-xl border-2 border-gray-100">
           <div className="flex w-full">
-            <div className="grid h-auto flex-grow card bg-white rounded-lg place-items-start pt-5 pb-5 ">
+            <div className="grid h-auto flex-grow card bg-white rounded-lg place-items-start pt-5 pb-5 px-8 ">
               <p className="pb-1">
                 <b> Lieu de travail :</b>
                 {offre.localisation}
-              </p>
-              <p className="pb-1">
-                <b>Date d'expiration :</b>
-              </p>
-              <p className="pb-1">
-                <b>Niveau du poste :</b>
-              </p>
-            </div>
-            <div className="divider divider-horizontal"></div>
-            <div className="grid h-auto flex-grow card bg-white rounded-lg place-items-start pt-5 pb-5 ">
-              <p className="pb-1">
-                <b>Secteur d'activité : </b>
               </p>
               <p className="pb-1">
                 <b>Niveau d'étude :</b>
@@ -86,6 +74,7 @@ const Carddescriptionjob = () => {
                 {offre.contrat}
               </p>
             </div>
+            <div className="divider divider-horizontal"></div>
           </div>
         </div>
       </div>
@@ -98,6 +87,30 @@ const Carddescriptionjob = () => {
             </h2>
             <p>{offre.description}</p>
             <h2 className=" font-bold text-xl mt-4">Taches Principales :</h2>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
+            <p>
+              Assure l’étude de faisabilité et étable les plans d’action de leur
+              implémentation
+            </p>
             <p>
               Assure l’étude de faisabilité et étable les plans d’action de leur
               implémentation

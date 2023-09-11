@@ -69,6 +69,7 @@ exports.companyDetiails = expressAsyncHandler(async (req, res) => {
       res.status(404);
       throw new Error("entreprise non trouvé");
     }
+    console.log(offre)
     res.status(200).json(entreprise);
   } catch (error) {
     res.status(400);

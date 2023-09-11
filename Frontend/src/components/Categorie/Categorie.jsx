@@ -37,7 +37,7 @@ const Categorie = () => {
               professional future!
             </p>
             <Link
-              href="Offres"
+              to={"Offresp"}
               className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-lg font-semibold text-white transition hover:bg-gray-600 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               See More

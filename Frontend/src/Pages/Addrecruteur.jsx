@@ -39,7 +39,6 @@ export default function Addrecruteur() {
       );
       if (response.data) {
         toast.success("Création du compte recruteur réussie !");
-        window.location.reload(); // Actualiser la page
       }
     } catch (error) {
       console.log(error);

@@ -86,20 +86,24 @@ const Cardapplydescription = () => {
             </p>
             <h2 className=" font-bold text-xl mt-4">Taches Principales :</h2>
             <p>
-              Assure l’étude de faisabilité et étable les plans d’action de leur
-              implémentation
+              Front-End Development: Design and implement highly interactive and
+              user-friendly UIs using Front-End languages and technologies such
+              as HTML, CSS, JavaScript (and frameworks like React, Angular,
+              Vue.js, etc.).
             </p>
             <p>
               Assure l’étude de faisabilité et étable les plans d’action de leur
               implémentation
             </p>
             <p>
-              Assure l’étude de faisabilité et étable les plans d’action de leur
-              implémentation
+              Collaboration: Work closely with UX/UI design and Back-End
+              development teams to translate mockups and functional
+              specifications into well-integrated Front-End features.
             </p>
             <p>
-              Assure l’étude de faisabilité et étable les plans d’action de leur
-              implémentation
+              Performance Optimization: Ensure high performance and a smooth
+              user experience by optimizing page rendering, cache management,
+              responsiveness, and cross-browser compatibility.
             </p>
             <p>
               Assure l’étude de faisabilité et étable les plans d’action de leur

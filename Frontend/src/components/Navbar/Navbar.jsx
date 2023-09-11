@@ -76,6 +76,12 @@ function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
+            <Link
+              to={"Recruteur"}
+              className="rounded-md bg-transparent shadow-none hover:bg-blue-600 px-5 transition-all duration-300  py-2.5 text-sm font-semibold text-white hover:shadow"
+            >
+              Recruteur
+            </Link>
             <div className="sm:flex sm:gap-4">
               {!user && (
                 <Link

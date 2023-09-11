@@ -27,7 +27,7 @@ const Cardcompany = ({ entreprises }) => {
               <img
                 src={`http://localhost:5000/images/${entreprise.logo}`}
                 alt="logo"
-                className="object-cover object-center w-full rounded-md h-36 border-2 border-gray-200 "
+                className="object-cover object-center w-64 rounded-md h-36 border-2 border-gray-200 "
               />
               <div className="mt-4 mb-2 text-center">
                 <h2 className="text-2xl font-semibold tracki">

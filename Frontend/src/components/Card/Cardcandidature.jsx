@@ -47,9 +47,7 @@ const Cardcandidature = ({ candidatures }) => {
                 to={`/Candidaturedescription/${candidature._id}`}
                 type="button"
                 className="link link-hover text-blue-600 text-center mb-4"
-              >
-                - More Details -
-              </Link>
+              ></Link>
             </div>
           ))}
         </div>

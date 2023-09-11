@@ -107,7 +107,7 @@ export default function Offresp() {
           >
             <div className="flex flex-col flex-1 gap-2">
               <label className="text-white font-semibold tracking-wider">
-                Contrat
+                Contract
               </label>
               <select
                 name="contrat"
@@ -115,7 +115,7 @@ export default function Offresp() {
                 value={filterData.contrat}
                 className="rounded-xl border border-blue-600  hover:border-gray-600"
               >
-                <option value="">Tous</option>
+                <option value="">All</option>
                 <option value="CDI">CDI</option>
                 <option value="CDD">CDD</option>
                 <option value="Stage">Stage</option>
@@ -123,7 +123,7 @@ export default function Offresp() {
             </div>
             <div className="flex flex-col flex-1 gap-2">
               <label className="text-white font-semibold tracking-wider">
-                Entreprise
+                Company
               </label>
               <select
                 name="entreprise"
@@ -131,15 +131,15 @@ export default function Offresp() {
                 value={filterData.entreprise}
                 className="rounded-xl border border-blue-600  hover:border-gray-600"
               >
-                <option value="">Tous</option>
+                <option value="">All</option>
                 <option value="Djezzy">Djezzy</option>
-                <option value="BNP">BNP</option>
-                <option value="Kpmg">KPMG</option>
+                <option value="BNP">Bnp Paribas</option>
+                <option value="Kpmg">Kpmg</option>
               </select>
             </div>
             <div className="flex flex-col flex-1 gap-2">
               <label className="text-white font-semibold tracking-wider">
-                Expérience
+                Experience
               </label>
               <select
                 name="experience"
@@ -147,7 +147,7 @@ export default function Offresp() {
                 value={filterData.experience}
                 className="rounded-xl border border-blue-600 hover:border-gray-600"
               >
-                <option value="">Tous</option>
+                <option value="">All</option>
                 <option value="0-2">0-2 ans</option>
                 <option value="2-5">2-5 ans</option>
                 <option value="5+">5 ans et plus</option>

@@ -15,9 +15,9 @@ exports.subscribeToNewsletter = expressAsyncHandler(async (req, res) => {
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-            user: 'abigail.hartmann96@ethereal.email',
-        pass: 'hmnTKyeZpsHXySZB2z'
-        },
+          user: 'georgette.johnston@ethereal.email',
+          pass: 'JtnhEq7Pw1Pn2Xpa34'
+      }
       });
   
       
@@ -100,9 +100,9 @@ exports.sendGroupEmail = expressAsyncHandler(async (req, res) => {
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-            user: 'abigail.hartmann96@ethereal.email',
-            pass: 'hmnTKyeZpsHXySZB2z'
-        },
+          user: 'georgette.johnston@ethereal.email',
+          pass: 'JtnhEq7Pw1Pn2Xpa34'
+      }
       });
   
       const mailOptions = {

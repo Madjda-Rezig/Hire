@@ -16,6 +16,7 @@ const Bannerjob = () => {
         const response = await axios.get(
           `http://localhost:5000/entreprises/company/${id}`
         );
+        console.log(response.data);
         setCompany(response.data);
       } catch (error) {
         console.log(error);
@@ -29,6 +30,7 @@ const Bannerjob = () => {
       <div className="text-center my-16 font-bold text-xl">Loading...</div>
     );
   }
+  console.log(company);
   return (
     <div className="hero min-h-max bg-base-200 pt-10 pb-10">
       <div className="hero-content flex-col lg:flex-row">

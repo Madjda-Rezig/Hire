@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function AddCompany() {
   const [entrepriseData, setEntrepriseData] = useState({
@@ -31,15 +32,13 @@ export default function AddCompany() {
     formData.append("creation", entrepriseData.creation);
     formData.append("logo", entrepriseData.logo);
 
-    // Effectuer une requête POST vers l'endpoint "ajouterEntreprise" avec les données du formulaire
     fetch("http://localhost:5000/entreprises/add", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        // Gérer la réponse de la requête
-        console.log(data); // Vous pouvez afficher la réponse ou effectuer d'autres actions
+        console.log(data);
       })
       .catch((error) => {
         console.error(error);
